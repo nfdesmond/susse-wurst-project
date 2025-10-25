@@ -36,10 +36,16 @@ BEGIN
  FROM employee
  WHERE emp_state = state_param;
 
- SELECT CONCAT(
+ IF state_param = 'AZ'
+ THEN SELECT CONCAT(
        'You have ',
        func_count_emp_by_state(state_param),
-       ' employees in ',state_param,'.'
+       ' employees in Arizona.'
+       ) AS "Employee Summary";
+ ELSE SELECT CONCAT(
+       'You have ',
+       func_count_emp_by_state(state_param),
+       ' employees in Nevada.'
        ) AS "Employee Summary";
 END//
 
