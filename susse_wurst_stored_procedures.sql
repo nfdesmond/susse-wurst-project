@@ -1,3 +1,5 @@
+#### Stored Routines for Susse Wurst database ###
+
 DROP FUNCTION IF EXISTS func_count_emp_by_state;
 
 DELIMITER //
