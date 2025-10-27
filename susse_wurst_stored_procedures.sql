@@ -31,8 +31,7 @@ BEGIN
  DECLARE total_emp_var INT;
 
  SELECT CONCAT(emp_fname,' ',emp_lname) AS "Employee",
-        emp_city,
-        emp_state
+        emp_city
  FROM employee
  WHERE emp_state = state_param;
 
@@ -47,6 +46,7 @@ BEGIN
        func_count_emp_by_state(state_param),
        ' employees in Nevada.'
        ) AS "Employee Summary";
+ END IF;
 END//
 
 DELIMITER ;
