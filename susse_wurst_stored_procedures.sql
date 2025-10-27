@@ -95,3 +95,24 @@ BEGIN
 END//
 
 DELIMITER ;
+
+-- get today's birthdays
+DROP PROCEDURE IF EXISTS sp_daily_birthdays;
+
+DELIMITER //
+
+CREATE PROCEDURE IF NOT EXISTS sp_daily_birthdays()
+BEGIN
+      SELECT CONCAT(e.emp_fname,' ',e.emp_lname) AS "EMPLOYEE",
+             p.position_title AS "JOB TITLE",
+             d.dept_name AS "DEPARTMENT",
+             CONCAT(MONTH(e.emp_dob),'/',DAY(e.emp_dob)) AS "BIRTHDAY"
+      FROM employee e
+      JOIN active_employee a ON a.emp_id = e.emp_id 
+      JOIN job_position p ON p.position_id = a.position_id
+      JOIN department d ON d.dept_id = a.dept_id 
+      WHERE MONTH(e.emp_dob) = func_current_month() AND DAY(e.emp_dob) = DAY(CURRENT_DATE())
+      ORDER BY DAY(e.emp_dob), e.emp_lname, e.emp_fname;
+END//
+
+DELIMITER ;
