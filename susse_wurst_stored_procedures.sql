@@ -5,7 +5,7 @@ DROP FUNCTION IF EXISTS func_count_emp_by_state;
 
 DELIMITER //
 
-CREATE FUNCTION func_count_emp_by_state(state_param CHAR(2))
+CREATE FUNCTION IF NOT EXISTS func_count_emp_by_state(state_param CHAR(2))
 RETURNS INT
 DETERMINISTIC
 READS SQL DATA 
@@ -29,7 +29,7 @@ DROP FUNCTION IF EXISTS func_current_month;
 
 DELIMITER //
 
-CREATE FUNCTION func_current_month()
+CREATE FUNCTION IF NOT EXISTS func_current_month()
 RETURNS TINYINT
 DETERMINISTIC
 READS SQL DATA
@@ -37,10 +37,32 @@ COMMENT 'Returns the current month numeral.'
 BEGIN
 	DECLARE month_var TINYINT;
     
-    SELECT MONTH(CURRENT_DATE)
+    SELECT MONTH(CURRENT_DATE())
     INTO month_var;
     
     RETURN month_var;
+END//
+
+DELIMITER ;
+
+
+-- simple function: get current day
+DROP FUNCTION IF EXISTS func_current_day;
+
+DELIMITER //
+
+CREATE FUNCTION IF NOT EXISTS func_current_day()
+RETURNS TINYINT
+DETERMINISTIC
+READS SQL DATA
+COMMENT 'Returns the current day.'
+BEGIN
+	DECLARE day_var TINYINT;
+    
+    SELECT DAY(CURRENT_DATE())
+    INTO day_var;
+    
+    RETURN day_var;
 END//
 
 DELIMITER ;
@@ -50,7 +72,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS sp_emp_by_state;
 DELIMITER //
 
-CREATE PROCEDURE sp_emp_by_state(IN state_param CHAR(2))
+CREATE PROCEDURE IF NOT EXISTS sp_emp_by_state(IN state_param CHAR(2))
 BEGIN
  DECLARE total_emp_var INT;
 
@@ -111,7 +133,7 @@ BEGIN
       JOIN active_employee a ON a.emp_id = e.emp_id 
       JOIN job_position p ON p.position_id = a.position_id
       JOIN department d ON d.dept_id = a.dept_id 
-      WHERE MONTH(e.emp_dob) = func_current_month() AND DAY(e.emp_dob) = DAY(CURRENT_DATE())
+      WHERE MONTH(e.emp_dob) = func_current_month() AND DAY(e.emp_dob) = func_current_day()
       ORDER BY DAY(e.emp_dob), e.emp_lname, e.emp_fname;
 END//
 
