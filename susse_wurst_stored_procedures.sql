@@ -248,16 +248,149 @@ BEGIN
         id_var, fname_var, lname_var, hiredate_var, dob_var, ssn_var,
         address_var, city_var, state_var, zip_var, phone_var, @emp_insert_msg
     );
-
-    CALL sp_active_emp_insert(
-        id_var, jobid_var, deptid_var, empcomp_var, email_var, @active_emp_insert_msg
-    );
-
-    IF @emp_insert_msg = TRUE AND @active_emp_insert_msg THEN
-        SELECT 'New employee onboarded successfully.' AS "MESSAGE";
-    ELSE
-        SELECT 'An error occurred. The transaction was not completed.' AS "UPDATE";
+    
+    IF @emp_insert_msg THEN
+		CALL sp_active_emp_insert(id_var, jobid_var, deptid_var, empcomp_var, email_var, @active_emp_insert_msg);
+        IF @active_emp_insert_msg THEN
+			SELECT 'New employee onboarded successfully.' AS "MESSAGE";
+		ELSE
+			SELECT 'An error occurred. Active employees has not been updated.' AS "UPDATE";
+		END IF;
+	ELSE
+		SELECT 'An error occurred. The transaction was not completed.' AS "UPDATE";
 	END IF;
 END//
 
 DELIMITER ;
+
+
+DELIMITER //
+-- CREATE TRIGGER trig_insert_past_emp()
+-- COMMENT 'This trigger updates the PAST_EMPLOYEE table when an employee is removed from the system.'
+
+CREATE PROCEDURE IF NOT EXISTS sp_employee_delete
+(
+    IN id_var INT,
+    OUT emp_delete_msg BOOL
+)
+COMMENT 'This procedure removes an employee from the ACTIVE_EMPLOYEE table.'
+
+BEGIN
+    DECLARE delete_error BOOL DEFAULT FALSE;
+
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+        SET delete_error = TRUE;
+    
+    START TRANSACTION;
+        DELETE FROM active_employee 
+        WHERE emp_id = id_var;
+
+        IF delete_error = FALSE THEN
+            COMMIT;
+            SET emp_delete_msg = TRUE;
+        ELSE
+            ROLLBACK;
+            SET emp_delete_msg = FALSE;
+        END IF;  
+END//
+
+CREATE PROCEDURE IF NOT EXISTS sp_past_employee_insert
+(
+    IN id_var INT,
+    IN jobid_var TINYINT,
+    IN deptid_var TINYINT,
+    IN term_date_var DATE,
+    IN termid_var TINYINT,
+    OUT past_insert_msg BOOL 
+)
+COMMENT 'This procedure adds recently removed employees to the PAST_EMPLOYEE table.'
+BEGIN
+    DECLARE insert_error BOOL DEFAULT FALSE;
+
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+        SET past_insert_msg = TRUE;
+    
+    START TRANSACTION;
+        INSERT INTO past_employee
+        (
+            emp_id,
+            position_id,
+            dept_id,
+            emp_term_date,
+            term_type_code
+        )
+        VALUES 
+        (
+            id_var,
+            jobid_var,
+            deptid_var,
+            term_date_var,
+            termid_var
+        );
+
+        IF insert_error = FALSE THEN
+            COMMIT;
+            SET past_insert_msg = TRUE;
+        ELSE
+            ROLLBACK;
+            SET past_insert_msg = FALSE;
+        END IF;
+END//
+
+CREATE PROCEDURE IF NOT EXISTS sp_offboard_employee
+(
+    IN id_var INT,
+    IN jobid_var TINYINT,
+    IN deptid_var TINYINT,
+    IN term_date_var DATE,
+    IN termid_var TINYINT
+)
+COMMENT 'This procedure is used to offboard terminated employees.'
+BEGIN
+    DECLARE fname VARCHAR(75);
+    DECLARE lname VARCHAR(75);
+    DECLARE emp_full_name VARCHAR(200);
+
+
+    -- get name of employee being offboarded
+    SELECT emp_fname,
+           emp_lname
+    INTO fname,
+         lname 
+    FROM employee 
+    WHERE emp_id = id_var;
+
+    SET emp_full_name = CONCAT(lname,', ',fname);
+
+    CALL sp_past_employee_insert
+    (
+        id_var,
+        jobid_var,
+        deptid_var,
+        term_date_var,
+        termid_var,
+        @past_insert_msg
+    )
+
+    IF @past_insert_msg THEN
+        CALL sp_employee_delete
+        (
+            id_var,
+            @emp_delete_msg
+        );
+
+        IF @emp_delete_msg THEN
+            SELECT CONCAT('Employee ', emp_full_name, ' has been offboarded.') AS "OFFBOARDING STATUS";
+        ELSE
+            SELECT 'There was an error. Deletion was not complete.' AS "OFFBOARDING STATUS";
+        END IF;
+    ELSE
+        SELECT 'There was an error. Offboarding was not complete.' AS "OFFBOARDING STATUS";
+
+END//
+
+
+
+DELIMITER ;
+
+CREATE PROCEDURE sp_update_employee()
