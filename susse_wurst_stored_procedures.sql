@@ -389,8 +389,54 @@ BEGIN
 
 END//
 
-
-
 DELIMITER ;
 
-CREATE PROCEDURE sp_update_employee()
+
+-- UPDATE EMPLOYEE PROCEDURE
+DROP PROCEDURE IF EXISTS sp_update_employee;
+
+DELIMITER //
+
+CREATE PROCEDURE IF NOT EXISTS sp_update_employee
+(
+    IN empid_var INT,
+    IN column_name_var VARCHAR(25),
+    IN update_string_var VARCHAR(75)
+)
+COMMENT 'Use this procedure to update employee data.'
+BEGIN
+	DECLARE update_error BOOL DEFAULT FALSE;
+    
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+		SET update_error = TRUE;
+    
+	SET @update_column = column_name_var;
+    
+    IF @update_column = 'emp_hire_date' OR @update_column = 'emp_dob' THEN
+		SET update_string_var = CAST(update_string_var AS DATE);
+	END IF;
+    
+    SET @update_query = CONCAT('UPDATE employee SET ', @update_column, ' = ? WHERE emp_id = ?');
+	
+    PREPARE update_stmt 
+    FROM @update_query;
+	
+    SET @empid = empid_var;
+	SET @update_value = update_string_var;
+	
+    START TRANSACTION;
+		EXECUTE update_stmt 
+		USING @update_value, @empid;
+        
+        IF update_error = FALSE THEN
+			COMMIT;
+			SELECT 'The employee data was updated successfully' AS "UPDATE STATUS";
+            DEALLOCATE PREPARE update_stmt;     
+		ELSE
+			ROLLBACK;
+            SELECT 'An error occurred, the update was not completed.' AS "UPDATE STATUS";
+            DEALLOCATE PREPARE update_stmt;
+		END IF;
+END//
+
+DELIMITER ;
