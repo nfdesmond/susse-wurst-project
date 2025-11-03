@@ -1,4 +1,4 @@
-#### Stored Routines for Susse Wurst database ###
+--- ### Stored Procedures for Süsse Wurst database ###
 
 -- functions
 DROP FUNCTION IF EXISTS func_count_emp_by_state;
