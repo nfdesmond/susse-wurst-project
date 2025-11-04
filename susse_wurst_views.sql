@@ -105,11 +105,7 @@ SELECT l.loc_name AS "STORE NAME",
              l.loc_phone AS "STORE PHONE",
              CONCAT(e.emp_fname,', ', e.emp_lname) AS "STORE MANAGER",
              CONCAT(ee.emp_fname,', ', ee.emp_lname) AS "ASST MANAGER",
-             CONCAT(TIMESTAMPDIFF(YEAR, loc_start_date, CURRENT_DATE()),' years ',
-							(TIMESTAMPDIFF(MONTH, loc_start_date, CURRENT_DATE()) - (TIMESTAMPDIFF(YEAR, loc_start_date, CURRENT_DATE()) * 12)), ' months ',
-							(TIMESTAMPDIFF(DAY, loc_start_date, CURRENT_DATE()) - (TIMESTAMPDIFF(YEAR, loc_start_date, CURRENT_DATE()) * 365) -
-							(TIMESTAMPDIFF(MONTH, loc_start_date, CURRENT_DATE()) - (TIMESTAMPDIFF(YEAR, loc_start_date, CURRENT_DATE()) * 12)) * 31), ' days'
-) AS "STORE AGE"
+             func_get_age(l.loc_start_date) AS "STORE AGE"
 FROM location l
 JOIN department d ON d.loc_id = l.loc_id
 JOIN active_employee a ON a.dept_id = d.dept_id
@@ -121,3 +117,5 @@ ORDER BY l.loc_id;
 
 SELECT *
 FROM view_stores;
+
+

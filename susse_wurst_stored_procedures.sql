@@ -68,6 +68,42 @@ END//
 DELIMITER ;
 
 
+
+-- I'll use this function in my stores view
+DROP FUNCTION IF EXISTS func_get_age;
+
+DELIMITER //
+
+CREATE FUNCTION IF NOT EXISTS func_get_age
+(
+	orig_date_param DATE
+)
+RETURNS VARCHAR(100)
+NOT DETERMINISTIC 
+READS SQL DATA
+COMMENT 'This function subtracts a given date from the current date and returns the age in years, months, and days.'
+BEGIN
+	DECLARE years_var INT;
+    DECLARE months_var TINYINT;
+    DECLARE days_var TINYINT;
+    
+    SELECT FLOOR(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))/12),
+			     MOD(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m')), 12),
+                  DATEDIFF(DATE_ADD(orig_date_param, INTERVAL (PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))) MONTH),
+									CURRENT_DATE())
+	INTO years_var, months_var, days_var;
+    
+    RETURN CONCAT(years_var,' years ', months_var,' months ', days_var, ' days');
+END//
+
+DELIMITER ;
+
+
+
+
+
+
+
 -- procedures
 DROP PROCEDURE IF EXISTS sp_emp_by_state;
 DELIMITER //
