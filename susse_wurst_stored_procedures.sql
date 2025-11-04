@@ -1,34 +1,28 @@
---- ### Stored Procedures for Süsse Wurst database ###
+--- ### Stored Routines for Süsse Wurst Database ###
 
--- functions
-DROP FUNCTION IF EXISTS func_count_emp_by_state;
+-- # FUNCTIONS #
+-- get current month
+-- get current day
+-- get current year
+-- age display
 
-DELIMITER //
 
-CREATE FUNCTION IF NOT EXISTS func_count_emp_by_state(state_param CHAR(2))
-RETURNS INT
-DETERMINISTIC
-READS SQL DATA 
-COMMENT 'This function counts all employees per state.'
 
-BEGIN
- DECLARE total_emp_var INT;
+-- # STORED PROCEDURES #
+-- insert new employee
+-- insert active employee
+-- bundled onboarding procedure
+-- delete employee
+-- past employee insert
+-- bundled offboarding procedure
+-- update employee procedure
 
- SELECT COUNT(*)
- INTO total_emp_var
- FROM employee
- WHERE emp_state = state_param;
 
- RETURN total_emp_var;
-END//
-
-DELIMITER ;
-
--- simple function: get current month
+-- # FUNCTIONS #
+-- get current month -----------------------------------------
 DROP FUNCTION IF EXISTS func_current_month;
 
 DELIMITER //
-
 CREATE FUNCTION IF NOT EXISTS func_current_month()
 RETURNS TINYINT
 DETERMINISTIC
@@ -42,15 +36,13 @@ BEGIN
     
     RETURN month_var;
 END//
-
 DELIMITER ;
 
 
--- simple function: get current day
+-- get current day --------------------------------------------
 DROP FUNCTION IF EXISTS func_current_day;
 
 DELIMITER //
-
 CREATE FUNCTION IF NOT EXISTS func_current_day()
 RETURNS TINYINT
 DETERMINISTIC
@@ -64,16 +56,30 @@ BEGIN
     
     RETURN day_var;
 END//
-
 DELIMITER ;
 
 
+-- get current year --------------------------------------------
+DELIMITER //
+CREATE FUNCTION IF NOT EXISTS func_current_year()
+RETURNS INT
+DETERMINISTIC
+READS SQL DATA
+COMMENT 'Returns the current year.'
+BEGIN
+	DECLARE current_year_var INT;
+    SELECT YEAR(CURRENT_DATE())
+    INTO current_year_var;
+    
+    RETURN current_year_var;
+END//
+DELIMITER ;
 
--- I'll use this function in my stores view
+
+-- age display ----------------------------------------------
 DROP FUNCTION IF EXISTS func_get_age;
 
 DELIMITER //
-
 CREATE FUNCTION IF NOT EXISTS func_get_age
 (
 	orig_date_param DATE
@@ -81,7 +87,7 @@ CREATE FUNCTION IF NOT EXISTS func_get_age
 RETURNS VARCHAR(100)
 NOT DETERMINISTIC 
 READS SQL DATA
-COMMENT 'This function subtracts a given date from the current date and returns the age in years, months, and days.'
+COMMENT 'Subtracts a given date from the current date and returns the age in years, months, and days.'
 BEGIN
 	DECLARE years_var INT;
     DECLARE months_var TINYINT;
@@ -95,96 +101,15 @@ BEGIN
     
     RETURN CONCAT(years_var,' years ', months_var,' months ', days_var, ' days');
 END//
-
 DELIMITER ;
 
 
 
-
-
-
-
--- procedures
-DROP PROCEDURE IF EXISTS sp_emp_by_state;
-DELIMITER //
-
-CREATE PROCEDURE IF NOT EXISTS sp_emp_by_state(IN state_param CHAR(2))
-BEGIN
- DECLARE total_emp_var INT;
-
- SELECT CONCAT(emp_fname,' ',emp_lname) AS "Employee",
-        emp_city
- FROM employee
- WHERE emp_state = state_param;
-
- IF state_param = 'AZ'
- THEN SELECT CONCAT(
-       'You have ',
-       func_count_emp_by_state(state_param),
-       ' employees in Arizona.'
-       ) AS "Employee Summary";
- ELSE SELECT CONCAT(
-       'You have ',
-       func_count_emp_by_state(state_param),
-       ' employees in Nevada.'
-       ) AS "Employee Summary";
- END IF;
-END//
-
-DELIMITER ;
-
--- get birthdays
-DROP PROCEDURE IF EXISTS sp_get_monthly_birthdays;
-
-DELIMITER //
-
-CREATE PROCEDURE IF NOT EXISTS sp_get_monthly_birthdays()
-BEGIN
-      SELECT CONCAT(e.emp_fname,' ',e.emp_lname) AS "EMPLOYEE",
-             p.position_title AS "JOB TITLE",
-             d.dept_name AS "DEPARTMENT",
-             CONCAT(MONTH(e.emp_dob),'/',DAY(e.emp_dob)) AS "BIRTHDAY"
-      FROM employee e
-      JOIN active_employee a ON a.emp_id = e.emp_id 
-      JOIN job_position p ON p.position_id = a.position_id
-      JOIN department d ON d.dept_id = a.dept_id 
-      WHERE MONTH(e.emp_dob) = func_current_month()
-      ORDER BY DAY(e.emp_dob), e.emp_lname, e.emp_fname;
-END//
-
-DELIMITER ;
-
--- get today's birthdays
-DROP PROCEDURE IF EXISTS sp_daily_birthdays;
-
-DELIMITER //
-
-CREATE PROCEDURE IF NOT EXISTS sp_daily_birthdays()
-BEGIN
-      SELECT CONCAT(e.emp_fname,' ',e.emp_lname) AS "EMPLOYEE",
-             p.position_title AS "JOB TITLE",
-             d.dept_name AS "DEPARTMENT",
-             CONCAT(MONTH(e.emp_dob),'/',DAY(e.emp_dob)) AS "BIRTHDAY"
-      FROM employee e
-      JOIN active_employee a ON a.emp_id = e.emp_id 
-      JOIN job_position p ON p.position_id = a.position_id
-      JOIN department d ON d.dept_id = a.dept_id 
-      WHERE MONTH(e.emp_dob) = func_current_month() AND DAY(e.emp_dob) = func_current_day()
-      ORDER BY DAY(e.emp_dob), e.emp_lname, e.emp_fname;
-END//
-
-DELIMITER ;
-
-
-
--- HR CRUD procedures
-
+-- # STORED PROCEDURES #
+-- insert into employee table --------------------------------------
 DROP PROCEDURE IF EXISTS sp_employee_insert;
-DROP PROCEDURE IF EXISTS sp_emp_onboard;
 
 DELIMITER //
-
--- INSERT INTO EMPLOYEE
 CREATE PROCEDURE sp_employee_insert
 (
 	IN id_var INT,
@@ -200,7 +125,7 @@ CREATE PROCEDURE sp_employee_insert
     IN phone_var CHAR(12),
     OUT emp_insert_msg BOOL
 )
-COMMENT 'This procedure inserts a new employee into the EMPLOYEE table.'
+COMMENT 'Inserts a new employee into the EMPLOYEE table.'
 
 BEGIN
 	DECLARE insert_error BOOL DEFAULT FALSE;
@@ -224,8 +149,14 @@ BEGIN
             SET emp_insert_msg = FALSE;
 		END IF;
 END//
+DELIMITER ;
 
--- INSERT INTO ACTIVE EMPLOYEE
+
+
+-- insert into active employee --------------------------------------
+DROP PROCEDURE IF EXISTS sp_active_emp_insert;
+
+DELIMITER //
 CREATE PROCEDURE IF NOT EXISTS sp_active_emp_insert
 (
     IN empid_var INT, 
@@ -235,7 +166,7 @@ CREATE PROCEDURE IF NOT EXISTS sp_active_emp_insert
     IN email_var VARCHAR(100),
     OUT active_emp_insert_msg BOOL 
 )
-COMMENT 'This procedure inserts a new employee into the ACTIVE_EMPLOYEE table.'
+COMMENT 'Inserts a new employee into the ACTIVE_EMPLOYEE table.'
 
 BEGIN
     DECLARE insert_error BOOL DEFAULT FALSE;
@@ -256,9 +187,14 @@ BEGIN
             SET active_emp_insert_msg = FALSE;
 		END IF;
 END//
+DELIMITER;
 
 
--- BUNDLED ONBOARDING PROCEDURE
+
+-- bundled onboarding procedure -----------------------------
+DROP PROCEDURE IF EXISTS sp_emp_onboard;
+
+DELIMITER //
 CREATE PROCEDURE sp_emp_onboard
 (
 	IN id_var INT,
@@ -277,7 +213,7 @@ CREATE PROCEDURE sp_emp_onboard
     IN empcomp_var DECIMAL(8,2),
     IN email_var VARCHAR(100)
 )
-COMMENT 'This procedure inserts a new employee into the EMPLOYEE and ACTIVE_EMPLOYEE tables.'
+COMMENT 'Inserts a new employee into the EMPLOYEE and ACTIVE_EMPLOYEE tables.'
 
 BEGIN
     CALL sp_employee_insert(
@@ -296,20 +232,20 @@ BEGIN
 		SELECT 'An error occurred. The transaction was not completed.' AS "UPDATE";
 	END IF;
 END//
-
 DELIMITER ;
 
 
-DELIMITER //
--- CREATE TRIGGER trig_insert_past_emp()
--- COMMENT 'This trigger updates the PAST_EMPLOYEE table when an employee is removed from the system.'
 
+-- delete active employee -----------------------------------------
+DROP PROCEDURE IF EXISTS sp_employee_delete;
+
+DELIMITER //
 CREATE PROCEDURE IF NOT EXISTS sp_employee_delete
 (
     IN id_var INT,
     OUT emp_delete_msg BOOL
 )
-COMMENT 'This procedure removes an employee from the ACTIVE_EMPLOYEE table.'
+COMMENT 'Removes an employee from the ACTIVE_EMPLOYEE table.'
 
 BEGIN
     DECLARE delete_error BOOL DEFAULT FALSE;
@@ -329,7 +265,14 @@ BEGIN
             SET emp_delete_msg = FALSE;
         END IF;  
 END//
+DELIMITER ;
 
+
+
+-- past employee insert -----------------------------------------------
+DROP PROCEDURE IF EXISTS sp_employee_delete;
+
+DELIMITER //
 CREATE PROCEDURE IF NOT EXISTS sp_past_employee_insert
 (
     IN id_var INT,
@@ -339,7 +282,7 @@ CREATE PROCEDURE IF NOT EXISTS sp_past_employee_insert
     IN termid_var TINYINT,
     OUT past_insert_msg BOOL 
 )
-COMMENT 'This procedure adds recently removed employees to the PAST_EMPLOYEE table.'
+COMMENT 'Adds recently removed employee to the PAST_EMPLOYEE table.'
 BEGIN
     DECLARE insert_error BOOL DEFAULT FALSE;
 
@@ -372,7 +315,13 @@ BEGIN
             SET past_insert_msg = FALSE;
         END IF;
 END//
+DELIMITER ;
 
+
+-- bundled offboarding procedure ---------------------------------------------
+DROP PROCEDURE IF EXISTS sp_offboard_employee;
+
+DELIMITER //
 CREATE PROCEDURE IF NOT EXISTS sp_offboard_employee
 (
     IN id_var INT,
@@ -381,7 +330,7 @@ CREATE PROCEDURE IF NOT EXISTS sp_offboard_employee
     IN term_date_var DATE,
     IN termid_var TINYINT
 )
-COMMENT 'This procedure is used to offboard terminated employees.'
+COMMENT 'Used to offboard terminated employees.'
 BEGIN
     DECLARE fname VARCHAR(75);
     DECLARE lname VARCHAR(75);
@@ -424,22 +373,21 @@ BEGIN
         SELECT 'There was an error. Offboarding was not complete.' AS "OFFBOARDING STATUS";
 
 END//
-
 DELIMITER ;
 
 
--- UPDATE EMPLOYEE PROCEDURE
+
+-- update employee procedure --------------------------------------
 DROP PROCEDURE IF EXISTS sp_update_employee;
 
 DELIMITER //
-
 CREATE PROCEDURE IF NOT EXISTS sp_update_employee
 (
     IN empid_var INT,
     IN column_name_var VARCHAR(25),
     IN update_string_var VARCHAR(75)
 )
-COMMENT 'Use this procedure to update employee data.'
+COMMENT 'Used to update employee data.'
 BEGIN
 	DECLARE update_error BOOL DEFAULT FALSE;
     
@@ -474,5 +422,6 @@ BEGIN
             DEALLOCATE PREPARE update_stmt;
 		END IF;
 END//
-
 DELIMITER ;
+
+
