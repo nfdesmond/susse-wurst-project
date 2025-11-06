@@ -11,13 +11,15 @@ class MySQLDatabaseConnect:
                       user, 
                       user_pswrd,
                       server_address=mysqlconfig.SERVER,
-                      port_num=mysqlconfig.PORT):
+                      port_num=mysqlconfig.PORT,
+                      use_pure_flag=False):
     
         cxn_config = {'user': user,
                       'password': user_pswrd,
                       'host': server_address,
                       'database': self.__db_name,
-                      'port': port_num}
+                      'port': port_num,
+                      'use_pure': use_pure_flag}
         try:
             self.__cxn = mysqlconn.connect(**cxn_config)
         
