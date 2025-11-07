@@ -6,7 +6,7 @@
 -- view current management
 -- view stores
 -- view employee count by state
-
+-- view employee info
 
 
 -- monthly birthday view
