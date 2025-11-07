@@ -5,7 +5,9 @@
 -- get current day
 -- get current year
 -- age display
-
+-- get employee department
+-- get department head 
+-- get employee manager
 
 
 -- # STORED PROCEDURES #
