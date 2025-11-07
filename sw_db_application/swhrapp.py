@@ -3,32 +3,28 @@ import sussewurstconnect.swconfig as swconfig
 
 hr_app = swconnect.SusseWurstConnect('susse_wurst_hr')
 
-hr_cxn = hr_app.mysql_connect(swconfig.USER, swconfig.PSWD)
+hr_cxn = hr_app.mysql_connect(swconfig.USER, swconfig.PSWD, use_pure_flag=True)
 
 if hr_app.cxn_test(hr_cxn):
     hr_cursor = hr_cxn.cursor()
     
-    emp_query = (
-        """
-        SELECT CONCAT(emp_fname,' ', emp_lname) AS "EMPLOYEE_NAME",
-               DATE_FORMAT(emp_hire_date, '%b %e, %Y') AS "HIRE_DATE"
-        FROM employee
-        WHERE YEAR(emp_hire_date) = 2019
-        ORDER BY emp_hire_date, emp_lname; 
-        """
-    )
+    sql = """
+          SELECT e.emp_fname,
+                 e.emp_lname,
+                 CONCAT(e.emp_city,', ', e.emp_state,' ', e.emp_zip) AS "emp_address"
+          FROM employee e
+          WHERE e.emp_id = 999666;
+          """
+          
+    hr_cursor.execute(sql)
+    result_set = hr_cursor.fetchall()
+    print(hr_cursor.column_names[0],' ', hr_cursor.column_names[1],' ', hr_cursor.column_names[2])
+    for item in result_set:
+        print(item[0],' ', item[1],' ', item[2])
     
-    result = hr_cxn.cmd_query(emp_query)
-    employees, eof = hr_cxn.get_rows()
+    hr_cursor.close()
     
-    for employee in employees:
-        print(employee[0], employee[1])
 
-    # emp_2019_roster = hr_app.execute_query(hr_cursor, emp_query)
-    
-    # for name, hire_date in emp_2019_roster:
-    #     print(name, hire_date)
-    
 hr_cxn.close()
 
 if hr_app.cxn_test(hr_cxn):
