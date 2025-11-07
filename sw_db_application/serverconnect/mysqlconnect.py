@@ -69,28 +69,6 @@ class MySQLDatabaseConnect:
         return self.__cxn_test
     
     
-        
-    def create_mysql_cursor(self,
-                            cxn,
-                            use_buffered=True,
-                            use_raw=False,
-                            used_prepared=False):
-        
-        self.__cursor = cxn.cursor(buffered=use_buffered, raw=use_raw, prepared=used_prepared)
-        
-        return self.__cursor
-    
-    
-    
-    def execute_query(self,
-                      cursor,
-                      sql_query):
-        
-        cursor.execute(sql_query)
-        
-        self.__result = cursor.fetchall()
-        
-        return self.__result 
 
 
 
