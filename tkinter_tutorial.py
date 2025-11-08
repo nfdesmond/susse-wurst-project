@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 import sw_db_application.sussewurstconnect.swconnect as swconnect
 import sw_db_application.sussewurstconnect.swconfig as swconfig
 from employeelookupgui import EmployeeLookupGUI
