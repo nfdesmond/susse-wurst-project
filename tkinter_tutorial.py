@@ -13,12 +13,11 @@ if hr_app.cxn_test(hr_cxn):
     EmployeeLookupGUI(root, hr_cxn)
     
     root.mainloop()
+    
+if not root.mainloop():
+    hr_cxn.close()
 
-
-
-# hr_cxn.close()
-
-# if hr_app.cxn_test(hr_cxn):
-#     print('Still alive!')
-# else:
-#     print('The connection has been closed.')
+if hr_app.cxn_test(hr_cxn):
+    print('Still alive!')
+else:
+    print('The connection has been closed.')
