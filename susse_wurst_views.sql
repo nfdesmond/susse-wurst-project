@@ -113,3 +113,17 @@ ORDER BY e.emp_state;
 SELECT *
 FROM view_state_emp_count;
 
+
+-- view employee info
+CREATE OR REPLACE VIEW view_emp_info AS
+	SELECT e.emp_id,
+		   CONCAT(e.emp_fname,' ', e.emp_lname) AS "emp_name",
+		   d.dept_name,
+		   j.position_title,
+		   func_emp_mgr(e.emp_id) AS "mgr_name",
+		   func_get_age(e.emp_hire_date) AS "length_of_hire"		
+	FROM employee e
+	JOIN active_employee a ON e.emp_id = a.emp_id
+	JOIN department d ON d.dept_id = a.dept_id
+	JOIN job_position j ON j.position_id = a.position_id
+    ORDER BY e.emp_hire_date;
