@@ -79,13 +79,16 @@ FROM view_sw_mgmt;
 
 -- store view
 CREATE OR REPLACE VIEW view_stores AS
-SELECT l.loc_name AS "STORE_NAME",
-			 l.loc_id AS "STORE_NUM",
-             CONCAT(l.loc_address, ', ', l.loc_city,', ', l.loc_state,', ', l.loc_zip) AS "STORE_ADDRESS",
-             l.loc_phone AS "STORE_PHONE",
-             CONCAT(e.emp_fname,', ', e.emp_lname) AS "STORE_MANAGER",
-             CONCAT(ee.emp_fname,', ', ee.emp_lname) AS "ASST_MANAGER",
-             func_get_age(l.loc_start_date) AS "STORE_AGE"
+SELECT l.loc_name AS "store_name",
+			 l.loc_id AS "store_num",
+             CONCAT(l.loc_address, ', ', l.loc_city,', ', l.loc_state,', ', l.loc_zip) AS "store_address",
+             l.loc_phone AS "store_phone",
+             CONCAT(e.emp_fname,' ', e.emp_lname) AS "store_manager",
+             a.active_emp_email AS "mgr_email",
+             CONCAT(ee.emp_fname,' ', ee.emp_lname) AS "asst_manager",
+             aa.active_emp_email AS "asst_mgr_email",
+             DATE_FORMAT(l.loc_start_date,'%m/%d/%Y') AS "store_start_date",
+             func_get_age(l.loc_start_date) AS "store_age"
 FROM location l
 JOIN department d ON d.loc_id = l.loc_id
 JOIN active_employee a ON a.dept_id = d.dept_id
