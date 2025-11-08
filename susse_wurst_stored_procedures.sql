@@ -107,6 +107,74 @@ DELIMITER ;
 
 
 
+-- get employee department -------------------------------
+DROP FUNCTION IF EXISTS func_get_emp_dept;
+
+DELIMITER //
+CREATE FUNCTION IF NOT EXISTS func_get_emp_dept(emp_num INT)
+RETURNS TINYINT
+DETERMINISTIC
+READS SQL DATA
+COMMENT 'Gets the department ID of the employee with the given employee ID.'
+BEGIN
+	DECLARE dept_num TINYINT;
+    
+	SELECT dept_id
+    INTO dept_num
+    FROM active_employee
+    WHERE emp_id = emp_num;
+    
+    RETURN dept_num;
+END//
+DELIMITER ;
+
+
+-- get department head ---------------------------------
+DROP FUNCTION IF EXISTS func_get_dept_head;
+
+DELIMITER //
+CREATE FUNCTION IF NOT EXISTS func_get_dept_head(dept_num TINYINT)
+RETURNS TINYINT
+DETERMINISTIC
+READS SQL DATA
+COMMENT 'Returns the job ID assigned to manage a given department.'
+BEGIN
+	DECLARE mgr_id TINYINT;
+    
+    SELECT head_id
+    INTO mgr_id
+    FROM department
+    WHERE dept_id = dept_num;
+    
+    RETURN mgr_id;
+END//
+DELIMITER ;
+
+-- get employee manager -------------------------------
+DROP FUNCTION IF EXISTS func_emp_mgr;
+
+DELIMITER //
+CREATE FUNCTION IF NOT EXISTS func_emp_mgr(emp_num INT)
+RETURNS VARCHAR(100)
+DETERMINISTIC
+READS SQL DATA
+COMMENT 'Returns name of manager for a given employee.'
+BEGIN
+	DECLARE mgr_name VARCHAR(100);
+    
+    SELECT CONCAT(e.emp_fname,' ', e.emp_lname)
+    INTO mgr_name
+    FROM employee e
+    JOIN active_employee a ON a.emp_id = e.emp_id
+    WHERE a.dept_id = func_get_emp_dept(emp_num)
+    AND a.position_id = func_get_dept_head(func_get_emp_dept(emp_num));
+    
+    RETURN mgr_name;
+END//
+DELIMITER ;
+
+
+
 -- # STORED PROCEDURES #
 -- insert into employee table --------------------------------------
 DROP PROCEDURE IF EXISTS sp_employee_insert;

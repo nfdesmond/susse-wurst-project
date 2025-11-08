@@ -1,6 +1,6 @@
 import mysql.connector as mysqlconn
 from mysql.connector import errorcode
-import serverconnect.mysqlconfig as mysqlconfig
+import sw_db_application.serverconnect.mysqlconfig as mysqlconfig
 
 
 class MySQLDatabaseConnect:
