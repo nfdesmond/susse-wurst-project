@@ -262,10 +262,10 @@ DELIMITER;
 
 
 -- bundled onboarding procedure -----------------------------
-DROP PROCEDURE IF EXISTS sp_emp_onboard;
+DROP PROCEDURE IF EXISTS sp_employee_onboard;
 
 DELIMITER //
-CREATE PROCEDURE sp_emp_onboard
+CREATE PROCEDURE sp_employee_onboard
 (
 	IN id_var INT,
     IN fname_var VARCHAR(75),
