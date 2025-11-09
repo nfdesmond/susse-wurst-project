@@ -1,5 +1,5 @@
-import sussewurstconnect.swconnect as swconnect
-import sussewurstconnect.swconfig as swconfig
+import sw_db_application.sussewurstconnect.swconnect as swconnect
+import sw_db_application.sussewurstconnect.swconfig as swconfig
 
 hr_app = swconnect.SusseWurstConnect('susse_wurst_hr')
 

@@ -6,7 +6,7 @@ class SusseWurstConnect(mysqlconnect.MySQLDatabaseConnect):
         super().__init__(db_name)
         
     def get_employee_info(employee_id, cxn):
-        cursor = cxn.cursor()
+        cursor = cxn.cursor(prepared=True)
         
         query_params = (employee_id,)
         
@@ -52,7 +52,7 @@ class SusseWurstConnect(mysqlconnect.MySQLDatabaseConnect):
     
     
     def get_store_info(store_num, cxn):
-        cursor = cxn.cursor()
+        cursor = cxn.cursor(prepared=True)
         
         query_params = (store_num,)
         
