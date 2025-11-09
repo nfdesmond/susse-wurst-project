@@ -18,22 +18,72 @@ class StoreLookupGUI:
         
         store_nums = SusseWurstConnect.get_store_number(cxn)
         
-        store_num_var = tk.StringVar()
-        store_list = ttk.Combobox(mainframe, textvariable=store_num_var, values=store_nums)
+        self.store_num_var = tk.StringVar()
+        store_list = ttk.Combobox(mainframe, textvariable=self.store_num_var, values=store_nums)
         store_list.grid(column=1, row=2, sticky=tk.W)
         
         
-        store_name_var = tk.StringVar()
-        store_name_label = ttk.Label(mainframe, textvariable=store_name_var)
+        self.store_name_var = tk.StringVar()
+        store_name_label = ttk.Label(mainframe, textvariable=self.store_name_var)
         store_name_label.grid(column=2, row=1, sticky=tk.EW)
         
-        store_mgr_var = tk.StringVar()
+        self.store_mgr_var = tk.StringVar()
         store_mgr_label = ttk.Label(mainframe, text='Store Manager:')
-        store_mgr_label.grid(column=2, row=2, sticky=tk.W)
+        store_mgr_label.grid(column=2, row=2, sticky=tk.E)
         
-        store_mgr_display = ttk.Label(mainframe, textvariable=store_mgr_var)
+        store_mgr_display = ttk.Label(mainframe, textvariable=self.store_mgr_var)
         store_mgr_display.grid(column=3, row=2, sticky=tk.W)
         
-        mgr_contact_var = tk.StringVar()
-        store_mgr_contact = ttk.Label(mainframe, textvariable=mgr_contact_var)
+        self.mgr_contact_var = tk.StringVar()
+        store_mgr_contact = ttk.Label(mainframe, textvariable=self.mgr_contact_var)
         store_mgr_contact.grid(column=4, row=2,sticky=tk.W)
+        
+        self.asst_mgr_var = tk.StringVar()
+        asst_mgr_label = ttk.Label(mainframe, text='Assistant Manager:')
+        asst_mgr_label.grid(column=2, row=3, sticky=tk.E)
+        
+        asst_mgr_display = ttk.Label(mainframe, textvariable=self.asst_mgr_var)
+        asst_mgr_display.grid(column=3, row=3, sticky=tk.W)
+        
+        self.asst_contact_var = tk.StringVar()
+        asst_mgr_contact = ttk.Label(mainframe, textvariable=self.asst_contact_var)
+        asst_mgr_contact.grid(column=4, row=3, sticky=tk.W)
+        
+        self.start_date_var = tk.StringVar()
+        start_date_label = ttk.Label(mainframe, text='Opening Date:')
+        start_date_label.grid(column=2, row=4, sticky=tk.E)
+        
+        start_date_display = ttk.Label(mainframe, textvariable=self.start_date_var)
+        start_date_display.grid(column=3, row=4, sticky=tk.W)
+        
+        self.store_phone_var = tk.StringVar()
+        store_phone_display = ttk.Label(mainframe, textvariable=self.store_phone_var)
+        store_phone_display.grid(column=3, row=1, sticky=tk.W)
+        
+        self.store_address_var = tk.StringVar()
+        store_address_display = ttk.Label(mainframe, textvariable=self.store_address_var)
+        store_address_display.grid(column=4, row=1, sticky=tk.W)
+        
+        get_store_button = ttk.Button(mainframe, text='Search', command=self.set_store_info)
+        get_store_button.grid(column=1, row=7, sticky=tk.W)
+        
+        for child in mainframe.winfo_children():
+            child.grid_configure(padx=5, pady=5)
+    
+    def set_store_info(self):
+        store_num = int(self.store_num_var.get())
+        result_set = SusseWurstConnect.get_store_info(store_num, self.cxn)
+        
+        (store_name, store_address, store_phone, store_mgr, 
+         mgr_contact, asst_mgr, asst_contact, start_date) = result_set[0]
+        
+        self.store_name_var.set(store_name)
+        self.store_mgr_var.set(store_mgr)
+        self.asst_mgr_var.set(asst_mgr)
+        self.mgr_contact_var.set(mgr_contact)
+        self.asst_contact_var.set(asst_contact)
+        self.start_date_var.set(start_date)
+        self.store_address_var.set(store_address)
+        self.store_phone_var.set(store_phone)
+        
+        return None 

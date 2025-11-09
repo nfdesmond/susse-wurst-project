@@ -48,6 +48,35 @@ class SusseWurstConnect(mysqlconnect.MySQLDatabaseConnect):
             store_num_list.append(item[0])
         
         return store_num_list
-
+    
+    
+    
+    def get_store_info(store_num, cxn):
+        cursor = cxn.cursor()
+        
+        query_params = (store_num,)
+        
+        query = (
+            """
+            SELECT store_name,
+                   store_address,
+                   store_phone,
+                   store_manager,
+                   mgr_email,
+                   asst_manager,
+                   asst_mgr_email,
+                   store_start_date
+            FROM view_stores
+            WHERE store_num = %s;
+            """
+        )
+        
+        cursor.execute(query, params=query_params)
+        
+        result = cursor.fetchall()
+        
+        cursor.close()
+        
+        return result
 
 
