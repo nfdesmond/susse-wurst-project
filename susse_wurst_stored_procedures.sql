@@ -281,7 +281,8 @@ CREATE PROCEDURE sp_emp_onboard
     IN jobid_var TINYINT,
     IN deptid_var TINYINT,
     IN empcomp_var DECIMAL(8,2),
-    IN email_var VARCHAR(100)
+    IN email_var VARCHAR(100),
+    OUT sp_status VARCHAR(100)
 )
 COMMENT 'Inserts a new employee into the EMPLOYEE and ACTIVE_EMPLOYEE tables.'
 
@@ -294,12 +295,12 @@ BEGIN
     IF @emp_insert_msg THEN
 		CALL sp_active_emp_insert(id_var, jobid_var, deptid_var, empcomp_var, email_var, @active_emp_insert_msg);
         IF @active_emp_insert_msg THEN
-			SELECT 'New employee onboarded successfully.' AS "MESSAGE";
+			SET sp_status = 'New employee onboarded successfully.';
 		ELSE
-			SELECT 'An error occurred. Active employees has not been updated.' AS "UPDATE";
+			SET sp_status = 'An error occurred. Active employees has not been updated.';
 		END IF;
 	ELSE
-		SELECT 'An error occurred. The transaction was not completed.' AS "UPDATE";
+		SET sp_status = 'An error occurred. The transaction was not completed.';
 	END IF;
 END//
 DELIMITER ;
