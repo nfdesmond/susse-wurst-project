@@ -66,6 +66,9 @@ class EmployeeLookupGUI:
         get_emp_bttn = ttk.Button(mainframe, text="Find Employee", command=self.set_employee_info)
         get_emp_bttn.grid(column=1, row=3, sticky=tk.W)
         
+        close_button = ttk.Button(mainframe, text="Close", command=root.destroy)
+        close_button.grid(column=1, row=5, sticky=tk.W)
+        
         for child in mainframe.winfo_children():
             child.grid_configure(padx=5, pady=5)
             
@@ -89,4 +92,5 @@ class EmployeeLookupGUI:
             self.mgr_name_var.set(mgr_name)
             self.tenure_var.set(tenure)
             self.not_found_var.set('')
-    
+        
+        return None
