@@ -16,7 +16,7 @@ class StoreLookupGUI:
         store_list_label = ttk.Label(mainframe, text='Select a store number')
         store_list_label.grid(column=1, row=1, sticky=tk.W)
         
-        store_nums = SusseWurstConnect.get_store_number(cxn)
+        store_nums = SusseWurstConnect.get_store_number(self.cxn)
         
         self.store_num_var = tk.StringVar()
         store_list = ttk.Combobox(mainframe, textvariable=self.store_num_var, values=store_nums)

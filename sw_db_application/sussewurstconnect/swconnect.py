@@ -78,5 +78,29 @@ class SusseWurstConnect(mysqlconnect.MySQLDatabaseConnect):
         cursor.close()
         
         return result
-
+    
+    def get_employee_nums(cxn):
+        # we will convert this list to a tuple
+        employee_id_tuple = []
+        
+        cursor = cxn.cursor()
+        
+        query = (
+            """
+            SELECT emp_id
+            FROM employee
+            ORDER BY emp_id;
+            """
+        )
+        
+        cursor.execute(query)
+        
+        result = cursor.fetchall()
+        
+        for num in result:
+            employee_id_tuple.append(num[0])
+        
+        employee_id_tuple = tuple(employee_id_tuple)
+        
+        return employee_id_tuple
 
