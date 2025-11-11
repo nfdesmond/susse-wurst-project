@@ -11,9 +11,9 @@ hr_cxn = hr_app.mysql_connect(swconfig.USER, swconfig.PSWD, use_pure_flag=True)
 if hr_app.cxn_test(hr_cxn):
 
     root = tk.Tk()
-    EmployeeLookupGUI(root, hr_cxn)
+    # EmployeeLookupGUI(root, hr_cxn)
     # StoreLookupGUI(root, hr_cxn)
-    # EmployeeOnboardGUI(root, hr_cxn)
+    EmployeeOnboardGUI(root, hr_cxn)
     
     root.mainloop()
     

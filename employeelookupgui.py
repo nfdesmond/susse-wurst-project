@@ -56,7 +56,7 @@ class EmployeeLookupGUI:
                                 )
         
         mainframe = ttk.Frame(root, padding="3 3 12 12")
-        mainframe.grid(column=0, row=1, sticky=(tk.N, tk.W, tk.E, tk.S))
+        mainframe.grid(column=0, row=1, sticky=(tk.NSEW))
         
         
         self.emp_id_var = tk.StringVar()
@@ -70,7 +70,7 @@ class EmployeeLookupGUI:
         emp_id_entry.grid(column=1, row=2, sticky=(tk.W))
         
         emp_id_label = ttk.Label(mainframe, width=20, text="Enter the employee ID", font=('TkDefaultFont', 15, 'bold'))
-        emp_id_label.grid(column=1, row=1, sticky=(tk.W, tk.E))
+        emp_id_label.grid(column=1, row=1, sticky=(tk.EW))
         
         
         name_label = ttk.Label(mainframe, text="NAME:", font=('TkDefaultFont', 12, 'bold'))
