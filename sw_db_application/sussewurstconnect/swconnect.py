@@ -103,4 +103,96 @@ class SusseWurstConnect(mysqlconnect.MySQLDatabaseConnect):
         employee_id_tuple = tuple(employee_id_tuple)
         
         return employee_id_tuple
+    
+    
+    def get_state_list(cxn):
+        state_list = []
 
+        cursor = cxn.cursor()
+        query = (
+            """
+            SELECT DISTINCT loc_state
+            FROM location;
+            """
+        )
+        
+        cursor.execute(query)
+        result = cursor.fetchall()
+        
+        for item in result:
+            state_list.append(item[0])
+
+        return state_list
+
+    def get_position_id_list(cxn):
+        position_id_list = []
+
+        cursor = cxn.cursor()
+        query = (
+            """
+            SELECT DISTINCT position_id
+            FROM view_jobs_and_depts;
+            """
+        )
+
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        for item in result:
+            position_id_list.append(item[0])
+
+        return position_id_list
+
+    def get_position_info(position_id, loc_id, cxn):
+        cursor = cxn.cursor(prepared=True)
+
+        query_params = (position_id, loc_id)
+
+        query = (
+            """
+            SELECT position_title,
+                   dept_id,
+                   dept_name
+            FROM view_pos_dept_loc
+            WHERE position_id = %s
+            AND loc_id = %s;
+            """
+        )
+
+        cursor.execute(query, params=query_params)
+
+        result = cursor.fetchall()
+
+        cursor.close()
+
+        return result
+    
+    def get_location_numbers(cxn):
+        location_num_list = []
+        
+        cursor = cxn.cursor()
+        query = (
+            """
+            SELECT DISTINCT loc_id
+            FROM view_pos_dept_loc
+            ORDER BY loc_id;
+            """
+        )
+        
+        cursor.execute(query)
+        result = cursor.fetchall()
+        
+        for item in result:
+            location_num_list.append(item[0])
+            
+        cursor.close()
+
+        return location_num_list
+
+
+    def onboard_employee(cxn, sp_name, args):
+        cursor = cxn.cursor()
+        result_arg = cursor.callproc(sp_name, args)
+        cursor.close()
+        
+        return result_arg[-1]
