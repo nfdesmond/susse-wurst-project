@@ -1,0 +1,26 @@
+import tkinter as tk
+import sw_db_application.sussewurstconnect.swconnect as swconnect
+import sw_db_application.sussewurstconnect.swconfig as swconfig
+import sw_db_application.hr_guis.hrgogui as hrgui
+
+def main():
+    hr_app = swconnect.SusseWurstConnect('susse_wurst_hr')
+    
+    hr_cxn = hr_app.mysql_connect(swconfig.USER, swconfig.PSWD, use_pure_flag=True)
+
+    if hr_app.cxn_test(hr_cxn):
+        root = tk.Tk()
+        hr_gui = hrgui.HRGui(root, hr_cxn)
+        root.mainloop()
+    
+    if not root.mainloop():
+        hr_cxn.close()
+
+    if hr_app.cxn_test(hr_cxn):
+        print('You are online with the Süsse Wurst HR database.')
+    else:
+        print('Database connection has been closed.')
+        
+    
+if __name__ == '__main__':
+    main()
