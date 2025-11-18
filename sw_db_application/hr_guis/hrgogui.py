@@ -1,3 +1,11 @@
+"""
+TITLE: Süsse Wurst HR GUI
+AUTHOR: N.F. Desmond
+DATE: November 2025
+DESCRIPTION: This module creates the GUI for the Süsse Wurst HR application. 
+The GUI is a jumpad for accessing the employee portal, store lookup, and onboarding
+GUIs.
+"""
 import tkinter as tk
 from tkinter import ttk
 from datetime import datetime as dt
@@ -9,6 +17,7 @@ from sw_db_application.hr_guis.onboardinggui import OnboardingGui
 
 
 class HRGui:
+    """Instantiate the Süsse Wurst HR GUI."""
     def __init__(self, root, cxn):
         self.root = root
         root.title('Süsse Wurst Human Resources')
@@ -192,18 +201,21 @@ class HRGui:
         
         
     def open_storelookup_gui(self):
+        """Instantiate the Store Lookup GUI."""
         parent = tk.Toplevel(self.mainframe)
         store_gui = StoreLookupGUI(parent, self.cxn)
         parent.mainloop()
         
         
     def open_emplookup_gui(self):
+        """Instantiate the Employee Lookup GUI."""
         parent = tk.Toplevel(self.mainframe)
         emp_gui = EmployeeLookupGUI(parent, self.cxn)
         parent.mainloop()
     
 
     def open_onboarding_gui(self):
+        """Instantiate the Onboarding GUI."""
         parent = tk.Toplevel(self.mainframe)
         board_gui = OnboardingGui(parent, self.cxn)
         parent.mainloop()

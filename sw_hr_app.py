@@ -1,9 +1,19 @@
+"""
+TITLE: Süsse Wurst HR Application
+AUTHOR: N.F. Desmond
+DATE: November 2025
+DESCRIPTION: This is the main module for running the Süsse Wurst HR application. 
+It establishes a connection to the HR database and launches a GUI. From there, 
+an HR associate can view employee and store information and onboard new hires into 
+the system.
+"""
 import tkinter as tk
 import sw_db_application.sussewurstconnect.swconnect as swconnect
 import sw_db_application.sussewurstconnect.swconfig as swconfig
 import sw_db_application.hr_guis.hrgogui as hrgui
 
 def main():
+    """Establishes a connection to the Süsse Wurst HR database and launches the HR GUI application."""
     hr_app = swconnect.SusseWurstConnect('susse_wurst_hr')
     
     hr_cxn = hr_app.mysql_connect(swconfig.USER, swconfig.PSWD, use_pure_flag=True)
