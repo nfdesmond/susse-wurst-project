@@ -96,12 +96,11 @@ BEGIN
     DECLARE days_var TINYINT;
     
     SELECT FLOOR(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))/12),
-			     MOD(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m')), 12),
-                  DATEDIFF(DATE_ADD(orig_date_param, INTERVAL (PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))) MONTH),
-									CURRENT_DATE())
+		   MOD(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m')), 12),
+            DATEDIFF(CURRENT_DATE(), DATE_ADD(orig_date_param, INTERVAL (PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))) MONTH))
 	INTO years_var, months_var, days_var;
     
-    RETURN CONCAT(years_var,' years ', months_var,' months ', days_var, ' days');
+    RETURN CONCAT(years_var,' years ', months_var,' months ', ABS(days_var), ' days');
 END//
 DELIMITER ;
 
