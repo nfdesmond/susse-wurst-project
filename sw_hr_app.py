@@ -14,7 +14,7 @@ import sw_db_application.hr_guis.hrgogui as hrgui
 
 def main():
     """Establishes a connection to the Süsse Wurst HR database and launches the HR GUI application."""
-    hr_app = swconnect.SusseWurstConnect('susse_wurst_hr')
+    hr_app = swconnect.SusseWurstConnect('sw_hr')
     
     hr_cxn = hr_app.mysql_connect(swconfig.USER, swconfig.PSWD, use_pure_flag=True)
 
