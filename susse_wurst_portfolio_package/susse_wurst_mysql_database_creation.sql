@@ -2566,7 +2566,7 @@ CREATE TABLE inventory_location(
   cubby_num   VARCHAR(2)         NOT NULL,
   row_num     CHAR(1)            NOT NULL,
  PRIMARY KEY (loc_id, active_id),
- CONSTRAINT invenloc_locid_fk    FOREIGN KEY (loc_id)      REFERENCES susse_wurst_hr.location (loc_id) ON DELETE CASCADE,
+ CONSTRAINT invenloc_locid_fk    FOREIGN KEY (loc_id)      REFERENCES sw_hr.location (loc_id) ON DELETE CASCADE,
  CONSTRAINT invenloc_activeid_fk FOREIGN KEY (active_id)   REFERENCES active_inventory (active_id)
 )
 ENGINE=InnoDB
@@ -2578,8 +2578,8 @@ CREATE TABLE inventory_order(
   dept_id       SMALLINT  UNSIGNED NOT NULL,
   emp_id        MEDIUMINT UNSIGNED NOT NULL,
   order_date    DATETIME           NOT NULL,
- CONSTRAINT order_deptid_fk FOREIGN KEY (dept_id)       REFERENCES susse_wurst_hr.department (dept_id)     ON DELETE CASCADE,
- CONSTRAINT order_empid_fk  FOREIGN KEY (emp_id)        REFERENCES susse_wurst_hr.active_employee (emp_id) ON DELETE CASCADE
+ CONSTRAINT order_deptid_fk FOREIGN KEY (dept_id)       REFERENCES sw_hr.department (dept_id)     ON DELETE CASCADE,
+ CONSTRAINT order_empid_fk  FOREIGN KEY (emp_id)        REFERENCES sw_hr.active_employee (emp_id) ON DELETE CASCADE
 )
 ENGINE=InnoDB
 COMMENT 'Tracks all orders placed in-store for ingredient supplies.';
@@ -11606,11 +11606,11 @@ BEGIN
     
     SELECT FLOOR(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))/12),
 			     MOD(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m')), 12),
-                  DATEDIFF(DATE_ADD(orig_date_param, INTERVAL (PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))) MONTH),
-									CURRENT_DATE())
-	INTO years_var, months_var, days_var;
+           DATEDIFF(CURRENT_DATE(), DATE_ADD(orig_date_param, INTERVAL (PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))) MONTH))
+
+	  INTO years_var, months_var, days_var;
     
-    RETURN CONCAT(years_var,' years ', months_var,' months ', days_var, ' days');
+    RETURN CONCAT(years_var,' years ', months_var,' months ', ABS(days_var), ' days');
 END//
 DELIMITER ;
 
