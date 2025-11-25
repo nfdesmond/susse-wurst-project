@@ -1,0 +1,1134 @@
+1,Zervelatwurst Whole,3,340,12,13,4,1,880747863693
+2,Zervelatwurst 5 Count,3,750,26,14,4,1,880747320793
+3,Tiroler Kabanossi 5 Count,3,300,10,14,4,1,880747973164
+4,Blutwurst Whole,2,454,16,13,4,1,880747838362
+5,Blutwurst Whole,2,227,8,13,4,1,880747304129
+6,Jagdwurst Whole,1,454,16,14,4,1,880747400073
+7,Jagdwurst Whole,1,227,8,14,4,1,880747974313
+8,Biała Kiełbasa 5 Count,1,454,16,14,4,3,811741196532
+9,Krakowska Whole,1,375,13,14,4,3,811741174164
+10,Krakowska 3 Count,1,454,16,14,4,3,811741786674
+11,Kiełbasa z Indyka 3 Count,1,385,13.6,14,4,3,811741893865
+12,Kabanos Kiełbasa 6 Count,3,200,7,5,4,3,811741313505
+13,Wiejska Kiełbasa 2 Count,3,510,18,14,4,3,811741111195
+14,Käsekrainer 8 Count,1,453,16,14,4,4,892658394704
+15,Wildwurst Whole,3,600,21,13,4,4,892658591429
+16,Thüringer Rotwurst Whole,2,283,10,13,4,6,896339466254
+17,Thüringer Rostbratwurst 4 Count,2,400,14,14,4,6,896339108461
+18,Thüringer Mettwurst Whole,3,454,16,13,4,6,896339216336
+19,Thüringer Bauernknackwurst Whole,2,454,16,15,4,6,896339293328
+20,Thüringer Leberwurst Whole,2,250,8.8,13,4,6,896339696293
+21,Knacker 5 Count,1,454,16,14,4,2,839705813908
+22,Käsewurst Gebraten Whole,1,454,16,13,4,2,839705285896
+23,Wiener Gebraten Whole,2,454,16,13,4,2,839705644067
+24,Bayerische Bierwurst Whole,1,454,16,13,4,5,895257622289
+25,Bayerische Weisswurst 5 Count,1,454,16,15,4,5,895257136524
+26,Bayerische Wollwurst 5 Count,1,454,16,15,4,5,895257937726
+27,Bayerischer Leberkäse Whole,1,454,16,14,4,5,895257863675
+28,Weisser Leberkäse Whole,1,227,8,15,4,5,895257288645
+29,Weisswurst 6 Count,1,510,18,14,4,9,900214104592
+30,Frankfurter Würstchen 6 Count,1,400,14,16,4,9,900214713833
+31,Wiener Würstchen 8 Count,1,454,16,16,4,9,900214307327
+32,Frankfurter Mettwurst 2 Count,3,454,16,14,4,9,900214240127
+33,Frankfurter Rindswurst 4 Count,1,400,14,16,4,9,900214787844
+34,Hausmacher Mettwurst Whole,3,500,17.6,13,4,10,983271976196
+35,Landjägerwurst 4 Count,3,200,7,6,4,10,983271542888
+36,Norddeutsche Kohlwurst 5 Count,3,400,14,14,4,10,983271162195
+37,Pinkelwurst Nordwestdeutsche Spezialität 4 Count,2,360,12.7,14,4,10,983271372281
+38,Pinkelwurst Nordwestdeutsche Spezialität Whole,2,397,14,13,4,10,983271623347
+39,Westfälische Beutelwurst Whole,2,453,16,13,4,10,983271297636
+40,Landjägerwurst 4 Count,3,160,5.6,14,4,11,814848888442
+41,Frankfurter Würstchen 6 Count,1,400,14,16,4,11,814848807376
+42,Luftgetrocknete Mettwurst Whole,3,250,8.8,14,4,11,814848153969
+43,Käse-Leberkäse Whole,1,400,14,14,4,11,814848533921
+44,Pizza-Leberkäse Whole,1,400,14,14,4,11,814848888782
+45,Kabanos 20 Count,3,250,8.8,16,4,12,808227364432
+46,Biała kiełbasa Whole,1,453,16,14,4,12,808227929099
+47,Parówka 10 Count,1,500,17.6,14,4,12,808227515061
+48,Krakauer Kielbasa 4 Count,1,400,14,14,4,12,808227880796
+49,Metka Tatarska Kielbasa Surowa Whole,6,200,7,13,4,12,808227882109
+50,Metka Cebulowa Kielbasa Surowa Whole,6,200,7,13,4,12,808227763157
+51,Kiełbasa Polska Surowa 6 Count,3,600,21,14,4,12,808227103866
+52,Krakowska Sucha Kiełbasa Whole,1,320,11,13,4,12,808227913755
+53,Berliner Knackwurst 4 Count,1,453,16,14,4,13,850750374648
+54,Berliner Currywurst 4 Count,1,453,16,14,4,13,850750758904
+55,Hamburger Knackwurst 4 Count,1,453,16,14,4,13,850750340917
+56,Sächsische Knackwurst 4 Count,3,453,16,14,4,13,850750685748
+57,Zwiebelmettwurst Whole,2,200,7,13,4,13,850750906261
+58,Braunschweiger Knackwurst Whole,2,454,16,13,4,13,850750157541
+59,Lyoner Fleischwurst Whole,1,250,8.8,13,4,14,880353716076
+60,Delikatess Leberwurst Whole,2,250,8.8,13,4,14,880353892462
+61,Tiegelwurst Whole,2,400,14,13,4,16,841134818189
+62,Westfälische Rinderwurst 3 Count,2,270,9.5,14,4,16,841134993196
+63,Pfälzer Leberwurst Whole,2,200,7,13,4,16,841134298604
+64,Steinbuscher Käse Block,6,200,7,17,2,18,939249328474
+65,Nordseekäse Round,4,250,8.8,13,4,18,939249419008
+66,Wilstermarschkäse Wholesale Unit,6,3000,105.8,13,4,18,939249445149
+67,Limburger Block,6,200,7,13,4,20,865665870119
+68,Rauchkäse Wholesale Unit,6,1600,56.4,13,4,20,865665444989
+69,Romadur Block,5,100,3.5,14,4,20,865665395279
+70,Münsterkäse Round,5,200,7,13,4,20,865665886161
+71,Weißlacker Block ,5,200,7,17,2,20,865665683543
+72,Bayerische Weinkäse 2 Count,5,125,4.4,14,4,20,865665895672
+73,Hirtenkäse (45% Fett i. Tr.) Block,7,250,8.7,16,4,23,997610799491
+74,Hirtenkäse (22% Fett i. Tr.) Block,7,250,8.7,16,4,23,997610981152
+75,Allgäuer Bergkäse Round,4,900,31.7,13,4,17,780595280337
+76,Allgäuer Emmentaler Round,4,900,31.7,13,4,17,780595610542
+77,Allgäuer Bierkäse Round,6,900,31.7,13,4,17,780595211576
+78,Bayerischer Blauschimmelkäse Block,5,150,5.3,13,5,17,780595193181
+79,Allgäuer Weißlacker Block,6,300,10.6,13,5,17,780595118384
+80,Handkäse Block,8,200,7,13,4,19,935406451528
+81,Harzer Käse Block,8,200,7,13,4,19,935406134489
+82,Korbkäse Block,8,200,7,13,4,19,935406554779
+83,Butterkäse Wholesale Unit,6,2500,88.1,13,4,22,840521685167
+84,Bergkäse Round,4,453,16,13,4,22,840521167914
+85,Schweizer Käse Wholesale Unit,4,2500,88.1,13,4,22,840521408395
+86,Tilsiter Wholesale Unit,4,2500,88.1,13,4,22,840521643875
+87,Maasdamer Wholesale Unit,4,2500,88.1,13,4,22,840521517491
+88,Tiroler Graukäse Block,8,230,8.1,13,4,21,860217784619
+89,Steirerkas ,8,125,4.4,3,4,21,860217301757
+90,Montafoner Sauerkäse Block,8,230,8.1,13,4,21,860217291104
+91,Schinkenspeck Aufschnitt Presliced,10,340,12,16,4,1,880747726758
+92,Schinkenspeck Aufschnitt Wholesale Unit,10,907,32,14,4,1,880747918368
+93,Geräucherter Speck Dick Geschnittener,10,340,12,16,4,1,880747575938
+94,Geräucherter Speck Wholesale Unit,10,907,32,14,4,1,880747157388
+95,Kasslerbraten Aufschnitt Wholesale Unit,9,907,32,14,4,1,880747981276
+96,Blutwurst Aufstrich,11,140,5,3,1,1,880747931761
+97,Apfelgriebenschmalz,11,140,5,3,1,1,880747326032
+98,Boczek Carski Presliced,10,227,8,16,4,3,811741456441
+99,Boczek Carski Wholesale Unit,10,2000,70.5,14,4,3,811741217959
+100,Tiroler Speck Presliced,10,227,8,14,4,4,892658419217
+101,Österreichische Wildwurst-Knödel 8 Count,15,1040,36.7,15,4,4,892658654244
+102,Thüringer Rotwurst Aufstrich,11,300,10,3,1,6,896339859779
+103,Thüringer Mettwurst Aufstrich,11,170,6,3,1,6,896339681394
+104,Thüringer Vespermett Wholesale Unit,9,2000,70.5,13,4,6,896339989868
+105,Thüringer Leberwurst Aufstrich,11,300,10.5,3,1,6,896339970178
+106,Bayerisch Griebenschmalz,11,170,6,3,1,7,889257186407
+107,Apfel Griebenschmalz,11,170,6,3,1,7,889257479293
+108,Kräuter Griebenschmalz,11,170,6,3,1,7,889257947564
+109,Zwiebel Griebenschmalztopf ,11,170,6,3,1,7,889257409685
+110,Curry Griebenschmalz,11,170,6,3,1,7,889257539908
+111,Knacker Geschnitten Presliced,9,114,4,16,4,2,839705964955
+112,Käsewurst Gebraten Geschnitten Presliced,9,170,6,16,4,2,839705716302
+113,Wiener Gebraten Geschnitten Presliced,9,200,7,16,4,2,839705196884
+114,Extrawurst Geschnitten Presliced,9,200,7,16,4,8,820839694738
+115,Extrawurst Wholesale Unit,9,2000,70.5,13,4,8,820839792491
+116,Pikantwurst Geschnitten Presliced,9,200,7,16,4,8,820839698542
+117,Pikantwurst Wholesale Unit,9,2000,70.5,13,4,8,820839764568
+118,Kärntner Sasaka,11,150,5.3,11,4,8,820839203427
+119,Weißer Leberkäse im Glas,11,170,6,3,1,5,895257281707
+120,Schwarzwälder Speck Presliced,10,340,12,14,4,5,895257240005
+121,Schwarzwälder Speck Wholesale Unit,10,5000,176,14,4,5,895257534381
+122,Cranberry-Leberwurst im Glas,11,250,8.8,3,1,11,814848386086
+123,Apfel-Leberwurst im Glas,11,250,8.8,3,1,11,814848542813
+124,Szynka z Warzywami Galaretka Wholesale Unit,9,2200,77.6,13,4,12,808227872198
+125,Hamburger Gekochte im Glas,11,200,7,3,1,13,850750629174
+126,Bayerischer Bierschinken Wholesale Unit,9,907,32,13,4,14,880353302962
+127,Bayerischer Bierschinken Presliced Pack,9,160,5.6,16,4,14,880353752818
+128,Lyoner Fleischwurst Wholesale Unit,9,907,32,13,4,14,880353350369
+129,Paprika-Fleischwurst Wholesale Unit,9,907,32,13,4,14,880353993256
+130,Kochschinken Wholesale Unit,9,907,32,13,4,14,880353571148
+131,Cervelatwurst Wholesale Unit,9,907,32,13,4,14,880353481232
+132,Schinkenwurst Süddeutsche Art Wholesale Unit,9,907,32,13,4,14,880353604015
+133,Delikatess Leberwurst im Glas,11,250,8.8,3,1,14,880353818432
+134,Feine Leberwurst im Glas,11,250,8.8,3,1,14,880353978556
+135,Roter Schwartenmagen Wholesale Unit,9,2500,88.1,13,4,15,760194758876
+136,Roter Schwartenmagen im Glas,11,180,6.3,3,1,15,760194212769
+137,Weißer Schwartenmagen Wholesale Unit,9,2500,88.1,13,4,15,760194610631
+138,Weißer Schwartenmagen im Glas,11,180,6.3,3,1,15,760194146674
+139,Zungenwurst Wholesale Unit,9,2500,88.1,13,4,15,760194260986
+140,Zungenwurst im Glas,11,180,6.3,3,1,15,760194101965
+141,Kaisersülze,9,200,7,14,4,15,760194714121
+142,Kaisersülze im glas,11,180,6.3,3,1,15,760194438162
+143,Schweinskopfsülze,9,200,7,14,4,15,760194600854
+144,Schweinskopfsülze im glas,11,180,6.3,3,1,15,760194274348
+145,Tiegelwurst im Glas,11,300,10.6,3,1,16,841134762812
+146,Pfälzer Leberwurst im Glas,11,160,5.6,3,1,16,841134434905
+147,Gänseschmalz mit Schweineschmalz,11,160,5.6,3,1,29,898342953366
+148,Obatzter,14,227,8,11,4,17,780595411053
+149,Haus-Kartoffelwurst 5 Count,2,454,16,22,10,83,466674921563
+150,Hausbrat 5 Count,3,454,16,22,10,83,466674668854
+151,Frühstückswurst Whole,3,227,8,13,4,83,466674503235
+152,Frisch Zwiebelmettwurst Whole,2,227,8,13,4,83,466674232483
+153,Hühnerbratwurst 5 Count,3,454,16,22,10,83,466674249456
+154,Frühstücksspeck Presliced,10,454,16,14,4,83,466674663022
+155,Geräucherter Pfefferspeck Presliced,10,454,16,14,4,83,466674895082
+156,Suppenfleisch vom Rind ohne Knochen,15,454,16,22,10,83,466674996696
+157,Suppenfleisch vom Kalb ohne Knochen,15,454,16,22,10,83,466674600945
+158,Schweinekamm ohne Knochen für Gulasch,15,454,16,22,10,83,466674100277
+159,Rinderchuck ohne Knochen für Gulasch,15,454,16,22,10,83,466674728888
+160,Hackfleischmischung für Hackbraten,15,454,16,22,10,83,466674996802
+161,Sauerbraten,15,0,0,22,10,83,466674462308
+162,Mięso Różne do Bigosu (Fleischsortiment für Bigos),15,454,16,22,10,83,466674259733
+163,Pierogi z Wieprzowiną i Kapustą (Pierogi mit Schweinefleisch und Kohl),12,907,32,22,10,83,466674199112
+164,Kartoffelsalat mit Essig und Öl,16,454,16,11,4,83,466674357213
+165,Kartoffelsalat mit Essig und Öl,16,907,32,11,4,83,466674544975
+166,Mayonnaise und Kräuter Kartoffelsalat,16,454,16,11,4,83,466674739565
+167,Mayonnaise und Kräuter Kartoffelsalat,16,907,32,11,4,83,466674545421
+168,Kartoffelsalat Mit Senf und Essig,16,454,16,11,4,83,466674700755
+169,Kartoffelsalat Mit Senf und Essig,16,907,32,11,4,83,466674502857
+170,Schwäbischer Kartoffelsalat,16,454,16,11,4,83,466674826579
+171,Schwäbischer Kartoffelsalat,16,907,32,11,4,83,466674578776
+172,Nudelsalat mit Lyoner und Gurken,17,454,16,11,4,83,466674683408
+173,Knockwurst und Eier Nudelsalat,17,454,16,11,4,83,466674730472
+174,"Eiertomaten, Ei, Speck und Gherkin Salat mit Haus Vinaigrette",17,454,16,11,4,83,466674468393
+175,Grüner Bohnensalat mit Speck und Haus Vinaigrette,17,454,16,11,4,83,466674194943
+176,Krautsalat,17,454,16,11,4,83,466674182122
+177,Fleischsalat,17,454,16,11,4,83,466674534854
+178,Melonensalat,18,227,8,11,4,83,466674390534
+179,Melonensalat,18,454,16,11,4,83,466674481336
+180,"Obstsalat mit Bananen, Blaubeeren und Gartenerdbeere",18,227,8,11,4,83,466674404828
+181,"Obstsalat mit Bananen, Blaubeeren und Gartenerdbeere",18,454,16,11,4,83,466674552775
+182,Schwäbischer Kartoffelkäse,19,170,6,22,4,83,466674571668
+183,Apfelschmalz,19,170,6,22,4,83,466674380449
+184,Tomaten-Zwiebel-Speck-Aufstrich,19,170,6,22,4,83,466674438474
+185,Speck-Zwiebel-Marmelade,19,170,6,22,4,83,466674841063
+186,Apfel-Zwiebel-Marmelade,19,170,6,22,4,83,466674712824
+187,Schinkencreme,19,227,8,11,4,83,466674840299
+188,Gemüsepudding,20,227,8,7,4,83,466674777269
+189,Bayerisch Obatzda,14,227,8,11,4,83,466674387247
+190,Rauchkäsewürfeln,21,227,8,22,10,83,466674791884
+191,Butterkäsewürfeln,21,227,8,22,10,83,466674144232
+192,Kräuterbutter,22,227,8,22,4,83,466674342043
+193,Geräucherte Butter,22,227,8,22,4,83,466674200642
+194,Butter mit Zimt und Honig,22,227,8,22,4,83,466674891913
+195,Duckefett,19,227,8,11,4,83,466674647622
+196,Deutsches Weissbrot Ovaler,23,454,16,1,11,83,466674278289
+197,Bayerisches Hausbrot Ovaler,25,454,16,1,11,83,466674834887
+198,Deutsches Pumpernickel Runder,24,624,22,1,11,83,466674941211
+199,Kasseler Brot Ovaler,25,454,16,1,11,83,466674302738
+200,Schwarzwälder Landbrot Runder,25,624,22,1,11,83,466674697633
+201,Dinkelbrot Ovaler,23,454,16,1,11,83,466674536797
+202,Dinkelvollkornbrot Ovaler,24,454,16,1,11,83,466674971434
+203,Kartoffelbrot Ovaler,23,454,16,1,11,83,466674243608
+204,Sesambrötchen Runde 8 Count,23,454,16,1,11,83,466674536619
+205,Mehrkornbrötchen Runde 8 Count,25,454,16,1,11,83,466674308071
+206,Roggenbrötchen Runde 8 Count,24,454,16,1,11,83,466674395193
+207,Röggelchen Ovaler 8 Count,25,454,16,1,11,83,466674170138
+208,Laugenbrötchen Runde 8 Count,23,454,16,1,11,83,466674368493
+209,Kaisersemmel Buffalo Art Runde 8 Count,23,454,16,1,11,83,466674103254
+210,Kürbiskernbrot Laib,25,454,16,1,11,83,466674564376
+211,Sonnenblumenbrot Laib,25,454,16,1,11,83,466674672103
+212,Müslibrot Laib,25,454,16,1,11,83,466674509864
+213,Frühlingsbrot Laib,25,454,16,1,11,83,466674457622
+214,Bierbrot Runde,23,624,22,1,11,83,466674151977
+215,Spritzkuchen 6 Count,27,170,6,4,12,83,466674445473
+216,Franzbrötchen 6 Count,27,340,12,4,12,83,466674398823
+217,Apfel-Franzbrötchen 6 Count,27,340,12,4,12,83,466674497548
+218,Nussschnecken 6 Count,27,340,12,4,12,83,466674383454
+219,Mohnschnecken 6 Count,27,340,12,4,12,83,466674446496
+220,Zimtschnecken 6 Count,27,340,12,4,12,83,466674197376
+221,Quarktasche 6 Count,27,340,12,4,12,83,466674590602
+222,Buchteln mit Erdbeergelee 6 Count,27,425,15,4,12,83,466674469884
+223,Berliner Pfannkuchen mit Himbeergelee 6 Count,27,454,16,4,12,83,466674571969
+224,Schwarzwälder Kirschtorte Whole,27,1134,40,18,4,83,466674151267
+225,Schwarzwälder Kirschtorte 1 Slice,27,170,6,22,4,83,466674247716
+226,Käsekuchen Whole,27,1134,40,18,4,83,466674935753
+227,Käsekuchen 1 Slice,27,170,6,22,4,83,466674424011
+228,Bayerisch Prinzregententorte Whole,27,1134,40,18,4,83,466674708941
+229,Bayerisch Prinzregententorte 1 Slice,27,170,6,22,4,83,466674134571
+230,Streuselkuchen Whole,27,397,14,18,4,83,466674734909
+231,Streuselkuchen 2 Slice,27,170,6,22,4,83,466674173385
+232,Butterkuchen Whole,27,397,14,18,4,83,466674857429
+233,Butterkuchen 1 Slice,27,170,6,22,4,83,466674814315
+234,Bauernkrapfen mit Aprikosenmarmelade 6 Count,27,454,16,4,12,83,466674208771
+235,Topfenstrudel 6 Count,27,425,15,4,12,83,466674943012
+236,Apfelkuchen Whole,27,1134,40,18,4,83,466674130061
+237,Apfelkuchen 1 Slice,27,170,6,22,4,83,466674574149
+238,Zwiebelkuchen Whole,28,1134,40,18,4,83,466674332207
+239,Bayerische Brezn 1 Unit,28,85,3,1,11,83,466674265186
+240,Bayerische Brezn 6 Count,28,510,18,1,4,83,466674173257
+241,Flammkuchen Whole,28,567,20,4,12,83,466674654124
+242,Kartoffelkuchen Whole,28,1134,40,18,4,83,466674583583
+243,Linzer Torte Whole,29,454,16,18,4,83,466674583584
+244,Linzer Torte 1 Slice,29,170,6,22,4,83,466674565048
+245,Lebkuchen 12 Count,29,340,12,4,12,83,466674856189
+246,Lebkuchen-Dackel 12 Count,29,340,12,4,12,83,466674855991
+247,Stollen Whole,29,510,18,4,12,83,466674175277
+248,Stollen 2 Slice,29,113,4,22,4,83,466674962953
+249,Pfeffernüsse 12 Count,29,340,12,4,12,83,466674165536
+250,Spekulatius 25 Count,29,397,14,4,12,83,466674206715
+251,Strucla Makowa Whole,29,450,15.9,4,12,83,466674315007
+252,Strucla Makowa 2 Slice,29,115,4.1,22,4,83,466674987209
+253,Apfel-Gitterkuchen Whole,29,637,22.5,4,12,83,466674936014
+254,Apfel-Gitterkuchen 1 Slice,29,85,3,22,4,83,466674520212
+255,Mini-ApfelKuchen Whole,29,170,6,4,12,83,466674330791
+256,Weihnachtsgebäck 25 Count,29,482,17,4,12,83,466674523262
+257,Vanillekipferl 12 Count,29,340,12,4,12,83,466674600973
+258,Schwaben Zimtsterne 12 Count,29,340,12,4,12,83,466674913182
+259,Kräuter Sahne Quark 40%,79,250,8.8,11,4,23,997610233757
+260,Speisequark 40% Fett i. Tr.,79,250,8.8,11,4,23,997610570293
+261,Speisequark 20% Fett i. Tr.,79,250,8.8,11,4,23,997610592199
+262,Hüttenkäse,79,250,8.8,11,4,23,997610921146
+263,Naturjoghurt,80,113,4,19,4,24,913206863687
+264,Naturjoghurt,80,250,8.8,19,4,24,913206430554
+265,Naturjoghurt mit Honig,80,113,4,19,4,24,913206755127
+266,Erdbeere Fruchtjoghurt,80,113,4,19,4,24,913206649198
+267,Himbeer Fruchtjoghurt,80,113,4,19,4,24,913206633836
+268,Blaubeer Fruchtjoghurt,80,113,4,19,4,24,913206488612
+269,Kirsche Fruchtjoghurt,80,113,4,19,4,24,913206764408
+270,Vanillejoghurt,80,113,4,19,4,24,913206434137
+271,Erdbeere-Vanille Fruchtjoghurt,80,113,4,19,4,24,913206630809
+272,Himbeere-Vanille Fruchtjoghurt,80,113,4,19,4,24,913206802803
+273,Blaubeere-Vanille Fruchtjoghurt,80,113,4,19,4,24,913206346418
+274,Kirsche-Vanille Fruchtjoghurt,80,113,4,19,4,24,913206327905
+275,Doppelrahmkäse,79,250,8.8,16,4,24,913206996269
+276,Doppelrahmkäse mit schnittlauch,79,250,8.8,16,4,24,913206715198
+277,Doppelrahmkäse mit krauter,79,250,8.8,16,4,24,913206455276
+278,Doppelrahmkäse mit honig,79,250,8.8,16,4,24,913206952047
+279,Whole milk,77,1890,64,10,4,25,816539990235
+280,Whole milk,77,3628,128,10,4,25,816539305911
+281,Low-Fat Milk,77,1890,64,10,4,25,816539256292
+282,Low-Fat Milk,77,3628,128,10,4,25,816539184955
+283,Buttermilk,77,907,32,9,4,25,816539656792
+284,Buttermilk,77,1890,64,10,4,25,816539491501
+285,Sour Cream,78,227,8,11,4,25,816539937152
+286,Sour Cream,78,454,16,11,4,25,816539554296
+287,Whipping Cream,78,227,8,5,5,25,816539701681
+288,Whipping Cream,78,454,16,5,5,25,816539325897
+289,Salted Butter,78,454,16,4,5,25,816539783313
+290,Unsalted Butter,78,454,16,4,5,25,816539166131
+291,Farmer's Cheese,79,227,8,11,4,25,816539136533
+292,Farmer's Cheese,79,454,16,11,4,25,816539972466
+293,Large Eggs (6-count),81,340,12,5,5,79,857274949311
+294,Large Eggs (12-count),81,681,24,5,5,79,857274529449
+295,Large Eggs (18-count),81,1030,36,5,5,79,857274654867
+296,Topfen,79,250,8.8,11,4,21,860217394608
+297,Elstar,58,0,0,0,0,NULL,PLU1038
+298,Jonagold,58,0,0,0,0,NULL,PLU7440
+299,Braeburn,58,0,0,0,0,NULL,PLU2181
+300,Gala,58,0,0,0,0,NULL,PLU5724
+301,Gala,58,907,32,1,4,NULL,PLU5377
+302,Glockenapfel,58,0,0,0,0,NULL,PLU3055
+303,Granny Smith,58,0,0,0,0,NULL,PLU1262
+304,Granny Smith,58,907,32,1,4,NULL,PLU2091
+305,Golden Delicious,58,0,0,0,0,NULL,PLU2794
+306,Golden Delicious,58,907,32,1,4,NULL,PLU5991
+307,Boskop,59,0,0,0,0,NULL,PLU5674
+308,Boskop,59,907,32,1,4,NULL,PLU1155
+309,Boscs Flaschenbirne,59,0,0,0,0,NULL,PLU9683
+310,Alexander Lucas,59,0,0,0,0,NULL,PLU7629
+311,Churchland,59,0,0,0,0,NULL,PLU2621
+312,Conference,59,0,0,0,0,NULL,PLU1148
+313,Williams Christ,59,0,0,0,0,NULL,PLU1964
+314,Williams Christ,59,907,32,1,4,NULL,PLU3091
+315,Forelle,59,0,0,0,0,NULL,PLU8934
+316,Pfirsich,60,0,0,0,0,NULL,PLU3378
+317,Nektarine,60,0,0,0,0,NULL,PLU4993
+318,Pflaume,60,0,0,0,0,NULL,PLU1009
+319,Aprikose,60,0,0,0,0,NULL,PLU4668
+320,Kirsche,60,454,16,1,4,NULL,PLU2119
+321,Sauerkirsche,60,454,16,1,4,NULL,PLU4199
+322,Süsskirsche,60,454,16,1,4,NULL,PLU7665
+323,Cara Cara Navelorangen,61,0,0,0,0,NULL,PLU8618
+324,Cara Cara Navelorangen,61,907,32,1,4,NULL,PLU2607
+325,Valencia Blutorangen,61,907,32,1,4,NULL,PLU6652
+326,Mandarine,61,907,32,1,4,NULL,PLU9784
+327,Klementine,61,907,32,1,4,NULL,PLU9853
+328,Tangerine,61,0,0,0,0,NULL,PLU3502
+329,Zitrone,61,0,0,0,0,NULL,PLU9520
+330,Zitrone,61,907,32,1,4,NULL,PLU6816
+331,Meyers Zitrone,61,0,0,0,0,NULL,PLU1501
+332,Meyers Zitrone,61,907,32,1,4,NULL,PLU1855
+333,Banane/Dessertbanane,62,0,0,0,0,NULL,PLU4061
+334,Rote Banane,62,0,0,0,0,NULL,PLU1493
+335,Erdbeeren,62,454,16,22,4,NULL,PLU9938
+336,Erdbeeren,62,907,32,22,4,NULL,PLU9207
+337,Himbeeren,62,170,6,22,4,NULL,PLU1772
+338,Himbeeren,62,340,12,22,4,NULL,PLU8679
+339,Brombeeren,62,170,6,22,4,NULL,PLU6655
+340,Brombeeren,62,340,12,22,4,NULL,PLU7810
+341,Heidelbeeren,62,454,16,22,4,NULL,PLU2897
+342,Heidelbeeren,62,907,32,22,4,NULL,PLU9972
+343,Roten Johannisbeere,62,170,6,22,4,NULL,PLU7012
+344,Schwarze Johannisbeere,62,170,6,22,4,NULL,PLU5978
+345,Stachelbeere,62,170,6,22,4,NULL,PLU4574
+346,Wacholderbeeren,62,170,6,22,4,NULL,PLU2906
+347,Gelbe Zwiebel,63,0,0,0,0,NULL,PLU2234
+348,Gelbe Zwiebel,63,1360,48,8,4,NULL,PLU1649
+349,Weisse Zwiebel,63,0,0,0,0,NULL,PLU4021
+350,Weisse Zwiebel,63,907,32,22,4,NULL,PLU6129
+351,Rote Zwiebel,63,0,0,0,0,NULL,PLU2835
+352,Rote Zwiebel,63,1360,48,8,4,NULL,PLU7548
+353,Perlzwiebel,63,170,6,8,4,NULL,PLU8011
+354,Schalotte,63,170,6,8,4,NULL,PLU3050
+355,Schalotte,63,340,12,8,4,NULL,PLU9328
+356,Lauch,63,0,0,0,0,NULL,PLU9983
+357,Frühlingszwiebeln,63,0,0,0,0,NULL,PLU9200
+358,Annabelle Kartoffel,64,0,0,0,0,NULL,PLU8789
+359,Annabelle Kartoffel,64,1360,48,1,4,NULL,PLU2755
+360,Naglerner Kipfler,64,0,0,0,0,NULL,PLU9167
+361,Naglerner Kipfler,64,1360,48,1,4,NULL,PLU4947
+362,Nicola Kartoffel,64,0,0,0,0,NULL,PLU1733
+363,Nicola Kartoffel,64,1360,48,1,4,NULL,PLU4763
+364,Nicola Kartoffel,64,2270,80,1,4,NULL,PLU5354
+365,Speise-Kartoffeln,64,0,0,0,0,NULL,PLU4620
+366,Speise-Kartoffeln,64,1360,48,1,4,NULL,PLU9453
+367,Speise-Kartoffeln,64,2270,80,1,4,NULL,PLU7509
+368,Rotkartoffel,64,0,0,0,0,NULL,PLU5152
+369,Rotkartoffel,64,1360,48,1,4,NULL,PLU5851
+370,Rotkartoffel,64,2270,80,1,4,NULL,PLU2131
+371,Weisskohl ,65,0,0,0,0,NULL,PLU3375
+372,Wirsing,65,0,0,0,0,NULL,PLU8658
+373,Rotkohl,65,0,0,0,0,NULL,PLU1255
+374,Blumenkohl,65,0,0,0,0,NULL,PLU9995
+375,Rosenkohl,65,340,12,1,4,NULL,PLU1525
+376,Rosenkohl,65,680,24,1,4,NULL,PLU7783
+377,Grünkohl,65,0,0,0,0,NULL,PLU9253
+378,Speiserübe,66,0,0,0,0,NULL,PLU2245
+379,Karotte,66,0,0,0,0,NULL,PLU7910
+380,Karotte,66,907,32,1,4,NULL,PLU3511
+381,Regenbogenkarotten,66,453,16,1,4,NULL,PLU9121
+382,Rhabarber,66,0,0,0,0,NULL,PLU4478
+383,Knollensellerie,66,0,0,0,0,NULL,PLU3245
+384,Staudensellerie,66,0,0,0,0,NULL,PLU3238
+385,Rote Beete,66,0,0,0,0,NULL,PLU1759
+386,Wurzelpetersilie,66,0,0,0,0,NULL,PLU6314
+387,Knollensellerie,66,0,0,0,0,NULL,PLU3401
+388,Fenchelknollen,66,0,0,0,0,NULL,PLU8887
+389,Strauchtomaten,67,0,0,0,0,NULL,PLU7004
+390,Kirschtomate,67,0,0,0,0,NULL,PLU5824
+391,Ochsenherztomate,67,0,0,0,0,NULL,PLU3190
+392,Eiertomaten,67,0,0,0,0,NULL,PLU4794
+393,Gurke,67,0,0,0,0,NULL,PLU2031
+394,Spinat,68,0,0,0,0,NULL,PLU2613
+395,Schnittsalat,68,0,0,0,0,NULL,PLU8202
+396,Römersalat,68,0,0,0,0,NULL,PLU1120
+397,Eisbergsalat,68,0,0,0,0,NULL,PLU3751
+398,Grünspargel,70,0,0,12,7,NULL,PLU8098
+399,Weißer Spargel,70,0,0,12,7,NULL,PLU9661
+400,Grüne Bohne,70,0,0,0,0,NULL,PLU1612
+401,Dill,69,57,2,6,4,NULL,PLU9146
+402,Krause Petersilie,69,57,2,6,4,NULL,PLU5865
+403,Glatten Petersili,69,57,2,6,4,NULL,PLU6535
+404,Majoran,69,57,2,6,4,NULL,PLU3870
+405,Salbei ,69,57,2,6,4,NULL,PLU1970
+406,Lorbeer,69,57,2,6,4,NULL,PLU8021
+407,Schnittlauch,69,57,2,6,4,NULL,PLU8761
+408,Liebstöckel,69,57,2,6,4,NULL,PLU7332
+409,Bohnenkräuter,69,57,2,6,4,NULL,PLU1585
+410,Thymiane,69,57,2,6,4,NULL,PLU3174
+411,Rosmarin,69,57,2,6,4,NULL,PLU8823
+412,Basilienkraut,69,57,2,6,4,NULL,PLU5221
+413,Minze,69,57,2,6,4,NULL,PLU8080
+414,Korbel,69,57,2,6,4,NULL,PLU1930
+415,Estragon,69,57,2,6,4,NULL,PLU3205
+416,Ingwer,69,0,0,0,0,NULL,PLU4635
+417,Weißer Champignon,71,226,8,22,10,NULL,PLU6187
+418,Brauner Champignon,71,226,8,22,10,NULL,PLU1651
+419,Steinpilz,71,226,8,22,10,NULL,PLU3877
+420,Pfifferling,71,226,8,22,10,NULL,PLU1537
+421,Schinken Eisbein,72,0,0,0,0,83,466674484649
+422,Schinken Eisbein,72,500,17.6,14,4,83,466674707924
+423,Schinken Eisbein,72,1130,39.9,22,10,83,466674534099
+424,Schweinegehacktes,72,454,16,22,10,83,466674148848
+425,Schweinegehacktes,72,907,32,22,10,83,466674745733
+426,Schweinefilet,72,0,0,0,0,83,466674789581
+427,Schweinefilet mit Pfefferkörnern gewürztes ,72,652,23,14,4,83,466674228328
+428,Schweinefilet mit Kräutern,72,652,23,14,4,83,466674466199
+429,Schweinefilet mit Speck und braunem Zucker,72,652,23,14,4,83,466674874059
+430,Schweinefilet mit Zitronenpfeffer und Thymian,72,652,23,14,4,83,466674400099
+431,Schweinefilet im Speckmantel,72,652,23,14,4,83,466674578874
+432,Schweinelachs,72,0,0,0,0,83,466674410748
+433,Schweinelachs,72,1400,49.3,14,4,83,466674838037
+434,Schweinekoteletts ohne Knochen,72,0,0,0,0,83,466674361676
+435,Schweinekoteletts ohne Knochen,72,454,16,22,10,83,466674489029
+436,Schweinekoteletts ohne Knochen,72,907,32,22,10,83,466674110874
+437,Schweinekoteletts mit Knochen,72,0,0,0,0,83,466674977636
+438,Schweinekoteletts mit Knochen,72,454,16,22,10,83,466674211882
+439,Schweinekoteletts mit Knochen,72,907,32,22,10,83,466674261642
+440,Schweinebauch,72,227,8,22,10,83,466674762972
+441,Schweinebauch,72,454,16,22,10,83,466674666313
+442,Schweinenacken ohne Knochen,72,0,0,0,0,83,466674335482
+443,Schweinenacken ohne Knochen,72,454,16,14,4,83,466674836569
+444,Schweinenacken ohne Knochen,72,680,24,14,4,83,466674415896
+445,Schweinenacken mit Knochen,72,0,0,0,0,83,466674242979
+446,Schweinenacken mit Knochen,72,680,24,14,4,83,466674804877
+447,Schweinenacken mit Knochen,72,1134,40,14,4,83,466674980116
+448,Kasseler Nacken ohne Knochen,72,454,16,14,4,83,466674441221
+449,Kasseler Nacken mit Knochen,72,680,24,14,4,83,466674922181
+450,Schweinenackensteak mit Knochen,72,0,0,0,0,83,466674366537
+451,Schweinenackensteak mit Knochen,72,454,16,22,10,83,466674901553
+452,Schweinenackensteak mit Knochen,72,907,32,22,10,83,466674223415
+453,Schweinenackensteak ohne Knochen,72,0,0,0,0,83,466674203294
+454,Schweinenackensteak ohne Knochen,72,454,16,22,10,83,466674298845
+455,Schweinenackensteak ohne Knochen,72,907,32,22,10,83,466674311386
+456,Schweine Minutensteaks ohne Knochen,72,0,0,0,0,83,466674891702
+457,Schweine Minutensteaks ohne Knochen,72,454,16,22,10,83,466674985015
+458,Schweine Minutensteaks ohne Knochen,72,907,32,22,10,83,466674670012
+459,Schweine Minutensteaks mit Knochen,72,0,0,0,0,83,466674582984
+460,Schweine Minutensteaks mit Knochen,72,454,16,22,10,83,466674760147
+461,Schweine Minutensteaks mit Knochen,72,907,32,22,10,83,466674950622
+462,Schweinekamm ohne Knochen,72,0,0,14,4,83,466674106892
+463,Schweinekamm mit Knochen,72,0,0,14,4,83,466674733112
+464,Ganzes Hähnchen mit Innereien,73,0,0,14,4,83,466674448533
+465,Hühnerinnereien mit Hals,73,567,20,22,10,83,466674354433
+466,Hühnerbrust Ohne Haut und Knochen,73,0,0,0,0,83,466674763817
+467,Hühnerbrust Ohne Haut und Knochen,73,454,16,22,10,83,466674570126
+468,Hühnerbrust Ohne Haut und Knochen,73,907,32,22,10,83,466674824899
+469,Hähnchenbrust Mit Knochen Und Haut,73,0,0,0,0,83,466674223612
+470,Hähnchenbrust Mit Knochen Und Haut,73,500,17.6,22,10,83,466674123556
+471,Hähnchenbrust Mit Knochen Und Haut,73,1000,35.2,22,10,83,466674136125
+472,Hähnchenoberkeule Ohne Haut und Knochen,73,0,0,0,0,83,466674831806
+473,Hähnchenoberkeule Ohne Haut und Knochen,73,500,17.6,22,10,83,466674841621
+474,Hähnchenoberkeule Ohne Haut und Knochen,73,1000,35.2,22,10,83,466674935485
+475,Hähnchenoberkeule mit Haut und Knochen,73,0,0,0,0,83,466674918037
+476,Hähnchenoberkeule mit Haut und Knochen,73,500,17.6,22,10,83,466674899056
+477,Hähnchenoberkeule mit Haut und Knochen,73,1000,35.2,22,10,83,466674622576
+478,Hähnchenschenkel mit Knochen Und Haut,73,0,0,0,0,83,466674228935
+479,Hähnchenschenkel mit Knochen Und Haut,73,1000,35.2,22,10,83,466674563403
+480,Hähnchenschenkel mit Knochen Und Haut,73,1360,48,22,10,83,466674107804
+481,Entenbrust mit Haut,73,397,14,14,4,83,466674387086
+482,Ganze Ente,73,0,0,1,4,83,466674703967
+483,Ganze Gans,73,0,0,1,4,83,466674229007
+484,Kalbskotelett mit Knochen,74,500,17.6,22,10,83,466674217543
+485,Kalbskotelett ohne Knochen für schnitzel,74,454,16,22,10,83,466674914803
+486,Kalbshackfleisch,74,454,16,22,10,83,466674621967
+487,Rinderchuck,75,0,0,22,10,83,466674416901
+488,Bürgermeisterstück,75,0,0,22,10,83,466674572839
+489,Rinder Schildstück,75,0,0,22,10,83,466674935723
+490,Ochsenschwanz,75,750,26.4,14,4,83,466674987593
+491,Rindermark,75,680,24,14,4,83,466674776075
+492,Rinderfilet für Rouladen,75,454,16,22,10,83,466674858251
+493,Rinderhackfleisch,75,454,16,22,10,83,466674758467
+494,Rinderhackfleisch,75,907,32,22,10,83,466674574517
+495,Rinderhackfleisch,75,1360,48,22,10,83,466674805411
+496,Lachsfilet,76,397,14,22,10,83,466674247399
+497,Lachsfilet,76,680,24,22,10,83,466674865789
+498,Regenbogenforelle Filet,76,397,14,22,10,83,466674303731
+499,Regenbogenforelle Filet,76,680,24,22,10,83,466674143198
+500,Forellenfilet,76,397,14,22,10,83,466674276352
+501,Forellenfilet,76,680,24,22,10,83,466674932162
+502,Räucheraalfilet,76,397,14,14,4,83,466674987871
+503,Scharfer Senf-Meerrettich Aufstrich,33,250,8.8,3,1,7,889257794947
+504,Bayerischer Süßer Senf,33,250,8.8,3,1,7,889257927642
+505,Bayerischer Meerrettich Alpensahne,33,250,8.8,3,1,7,889257560339
+506,Meerrettich Aufstrich,33,250,8.8,3,1,7,889257932589
+507,Apfel-Meerrettich Aufstrich,33,250,8.8,3,1,7,889257310516
+508,Sauerkirsch Marmelade mit Orangenschale und Kardamom,35,450,15.9,3,1,26,817163927981
+509,Zitrus & Rosinen Marmelade mit Thymian und Rosenwasser,35,450,15.9,3,1,26,817163472392
+510,Apfel & Birnenkraut mit Orangenschale und Rosmarin,35,450,15.9,3,1,26,817163568538
+511,Erdbeer & Pflaumen Marmelade mit Rosenwasser und Kardomom,35,450,15.9,3,1,26,817163341334
+512,Bananen & Karotten Brotaufstrich mit Ingwer und Nelken,35,450,15.9,3,1,26,817163160694
+513,Pfirsich & Pflaumen Jam mit Lavendelhonig,35,450,15.9,3,1,26,817163483749
+514,Blutorangen & Mango Marmelade mit Zitrone und Zimt,35,450,15.9,3,1,26,817163973261
+515,Traubenmarmelade,35,450,15.9,3,1,27,783815899703
+516,Erdbeer & Rhabarber Marmelade,35,450,15.9,3,1,27,783815571862
+517,Apfelkraut,35,450,15.9,3,1,27,783815309637
+518,Apfelmus,35,450,15.9,3,1,27,783815574092
+519,Orangenmarmelade,35,450,15.9,3,1,27,783815280662
+520,Pflaumenkompott,35,450,15.9,3,1,27,783815589395
+521,Pfirsichkompott,35,450,15.9,3,1,27,783815361916
+522,Apfelkompott,35,450,15.9,3,1,27,783815961723
+523,Lavendelhonig,33,500,17.6,3,1,28,930868781628
+524,Rosenblütenhonig,33,500,17.6,3,1,28,930868335147
+525,Kleehonig,33,500,17.6,3,1,28,930868541417
+526,Sonnenblumenhonig,33,500,17.6,3,1,28,930868640973
+527,Fliederhonig,33,500,17.6,3,1,28,930868865805
+528,Geissblatthonig,33,500,17.6,3,1,28,930868293556
+529,Tomatenmark (Dreifachkonzentriertes),33,200,7,20,8,29,898342380886
+530,Tomatenmark (Doppelkonzentriertes),33,200,7,20,8,29,898342697697
+531,Tomatenmark (Doppelkonzentriertes),33,400,14.1,2,3,29,898342504453
+532,Sardellenpaste,33,50,1.8,20,8,29,898342622835
+533,Zwiebelmarmelade,35,270,9.5,3,1,29,898342619534
+534,Zwiebel- und Speckmarmelade,35,270,9.5,3,1,29,898342748042
+535,Rote Zwiebelmarmelade,35,270,9.5,3,1,29,898342754888
+536,Zwiebel- und Apfelmarmelade,35,270,9.5,3,1,29,898342628908
+537,Blatt Gelatine,31,60,2.1,4,5,26,817163573265
+538,Apfelpektin,31,200,7,1,4,26,817163912095
+539,Getrocknete Zitrusmischung,37,53,1.87,9,1,26,817163466474
+540,Gewürzmischung für Schokoladenkuchen,37,53,1.87,9,1,26,817163695903
+541,Apfelkuchengewürz,37,53,1.87,9,1,26,817163170099
+542,Hausgemachtes Beizgewürz,37,71,2.5,9,1,32,843507995821
+543,Brotgewürzmischung,37,71,2.5,9,1,32,843507308198
+544,Brötchengewürzmischung,37,71,2.5,9,1,32,843507114939
+545,Apfelgewürzmischung,37,71,2.5,9,1,32,843507542808
+546,Gemahlener Zimt,37,71,2.5,9,1,32,843507502289
+547,Getrockneter Lavendel,37,71,2.5,9,1,32,843507984278
+548,Weisswurstgewürz,37,71,2.5,9,1,32,843507568258
+549,Samenmischung,37,71,2.5,9,1,32,843507812985
+550,Meeresfrüchtemischung,37,71,2.5,9,1,32,843507635607
+551,Mischung Aus Schweinefleisch Und Geflügel,37,71,2.5,9,1,32,843507460656
+552,Sauerbratenmischung,37,71,2.5,9,1,32,843507574375
+553,Hackbratenmischung,37,71,2.5,9,1,32,843507793316
+554,Currywurstmischung,37,71,2.5,9,1,32,843507568579
+555,Weihnachtsgansmischung,37,71,2.5,9,1,32,843507945443
+556,Kartoffelsalatmischung,37,71,2.5,9,1,32,843507304792
+557,Dessertmischung,37,71,2.5,9,1,32,843507592417
+558,Gemahlener Zimt,37,80,3,6,4,33,845995944011
+559,Gemahlene Muskatnuss,37,80,3,6,4,33,845995643601
+560,Getrockneter Thymian,37,80,3,6,4,33,845995969611
+561,Getrockneter Rosmarin,37,80,3,6,4,33,845995497797
+562,Gemahlene Nelke,37,80,3,6,4,33,845995238816
+563,Klassisches Beizgewürz,37,80,3,6,4,33,845995870945
+564,Gemahlener Paprika,37,80,3,6,4,33,845995969078
+565,Senfkörner,37,80,3,6,4,33,845995839633
+566,Selleriesamen,37,80,3,6,4,33,845995782177
+567,Ganze Nelken,37,80,3,6,4,33,845995240874
+568,Ganze Muskatnuss,37,80,3,6,4,33,845995497712
+569,Vanilleschoten,37,80,3,6,4,33,845995615989
+570,Getrockneter Knoblauch,37,80,3,6,4,33,845995663005
+571,Sternanis,37,80,3,6,4,33,845995991684
+572,Getrocknete Lorbeerblätter,37,80,3,6,4,33,845995390905
+573,Getrocknete Petersilie,37,80,3,6,4,33,845995714515
+574,Getrockneter Dill,37,80,3,6,4,33,845995327168
+575,Getrockneter Salbei,37,80,3,6,4,33,845995178001
+576,Getrockneter Schnittlauch,37,80,3,6,4,33,845995704887
+577,Getrockneter Kerbel,37,80,3,6,4,33,845995368844
+578,Getrocknetes Basilikum,37,80,3,6,4,33,845995543163
+579,Schwarze Pfefferkörner,37,80,3,6,4,33,845995228537
+580,Gemahlener Piment,37,80,3,6,4,33,845995117249
+581,Zimtstangen,37,80,3,6,4,33,845995220949
+582,Gemahlener Ingwer,37,80,3,6,4,33,845995222622
+583,Getrockneter Estragon,37,80,3,6,4,33,845995111472
+584,Getrockneter Majoran,37,80,3,6,4,33,845995477464
+585,Fenchelsamen,37,80,3,6,4,33,845995201128
+586,Gemahlener Streitkolben,37,80,3,6,4,33,845995676711
+587,Gemahlener Senf,37,80,3,6,4,33,845995796757
+588,Kümmelsamen,37,80,3,6,4,33,845995525305
+589,Klassische Semmelknödel,31,318,11.2,4,5,30,788982343163
+590,Bayerischer Kartoffelknödelteig Halb & Halb,31,318,11.2,4,5,30,788982145419
+591,Thüringer Art Kartoffelknödelteig ,31,318,11.2,4,5,30,788982178754
+592,Fränkischer Kartoffelknödelteig Halb & Halb,31,318,11.2,4,5,30,788982216665
+593,Miniatur Semmelknödel Vorgeformte,31,318,11.2,1,4,30,788982606904
+594,Kartoffelknödel Vorgeformte ,31,318,11.2,1,4,30,788982463298
+595,Kartoffelknödel Vorgeformte,31,425,15,1,4,30,788982931825
+596,Knödel Brotwürfel,31,450,15.9,1,4,30,788982871394
+597,Knödel Brotwürfel,31,900,31.7,1,4,30,788982289619
+598,Spinat-Semmelknödel,31,318,11.2,1,4,30,788982370097
+599,Mehlknödel,31,318,11.2,4,5,30,788982341839
+600,Grießbrei,32,184,6.5,1,4,73,997021359399
+601,Haferbrei,32,184,6.5,1,4,73,997021123247
+602,Dinkelbrei,32,184,6.5,1,4,73,997021515763
+603,Hirsebrei,32,184,6.5,1,4,73,997021402592
+604,Müsli,32,600,21.2,4,5,73,997021889396
+605,Knuspermüsli,32,600,21.2,4,5,73,997021613188
+606,Haferflocken,32,500,17.6,1,5,73,997021187345
+607,Klassiker Semmelknödel (6 knödel in kochbeuteln),31,200,7,4,5,74,832733882565
+608,Klassiker Semmelknödel (12 knödel in kochbeuteln),31,400,14.1,1,1,74,832733529118
+609,Semmel Knödel mit Röstzwiebeln,31,200,7,4,5,74,832733845449
+610,Semmel Knödel mit Kräuter,31,200,7,4,5,74,832733733823
+611,Klassiker Kartoffelknödel (Halb & Halb),31,200,7,4,5,74,832733590586
+612,Klassiker Kartoffelknödel (Halb & Halb),31,400,14.1,1,1,74,832733888188
+613,Kartoffelknödel mit Rohen Kartoffeln,31,200,7,4,5,74,832733819472
+614,Knödelteig aus Gekochten Kartoffeln,31,750,26.4,1,4,74,832733431626
+615,Knödelteig mit Rohen Kartoffeln,31,750,26.4,1,4,74,832733785572
+616,Paniermehl,31,400,14.1,4,5,74,832733738304
+617,Paniermehl mit Kräuter,31,400,14.1,4,5,74,832733370323
+618,Instant-Kartoffelpüree,31,300,10.6,4,5,74,832733846368
+619,Amerikanischer Art Roggen-Muffin Mischung,30,380,13.4,4,8,30,788982139133
+620,Pfefferminz-Shortbread-Kekse,39,250,8.8,1,4,81,873975807682
+621,Biskuitroulade mit Marillen­marmelade,39,400,14,13,4,81,873975713243
+622,Pierogi z Szpinakiem i Kurczakiem (16 sztuk),45,450,15.9,1,4,35,834023698439
+623,Pierogi z Wieprzowiną i Kapustą (16 sztuk),45,450,15.9,1,4,35,834023441159
+624,Pierogi z Wieprzowiną i Jabłkami (16 sztuk),45,450,15.9,1,4,35,834023711447
+625,Pierogi z Wołowiną i Ziemniakami (16 sztuk),45,450,15.9,1,4,35,834023536609
+626,Pierogi z Szynką i Kapustą Kiszoną (16 sztuk),45,450,15.9,1,4,35,834023184109
+627,Kartoffelknödel mit Schweine- & Rindfleisch Füllung (12 stück),45,750,26.4,1,4,30,788982626221
+628,Kartoffelknödel mit Schweine- & Rindfleisch Füllung (18 stück),45,1000,35.2,1,4,30,788982888738
+629,Bayerische Fleischknödel (12 stück),45,750,26.4,1,4,30,788982713608
+630,Kartoffelknödel mit Weißwurst Füllung (12 stück),45,750,26.4,1,4,30,788982390927
+631,Königsberger Klopse in Kapernrahmsauce,49,533,18.8,2,3,80,675193218836
+632,Königsberger Klopse in Kapernrahmsauce,49,800,28.2,2,3,80,675193644728
+633,Königsberger Klopse,44,450,15.9,4,5,30,788982958987
+634,Linzer Torte,46,583,19,4,5,81,873975322485
+635,Flammkuchen mit Zwiebeln und Speck,46,300,10.6,4,5,82,876118656227
+636,Flammkuchen mit Schinken und Käse,46,300,10.6,4,5,82,876118323414
+637,Flammkuchen mit Käse und Kräutern,46,300,10.6,4,5,82,876118199418
+638,Speckkuchen,46,300,10.6,4,5,82,876118837278
+639,Nürnberger Bratwurst (10-stück),44,200,7,14,4,5,876118636306
+640,Karpfenfilet,44,900,31.7,14,4,78,844512166872
+641,Heringsfilet,44,900,31.7,14,4,78,844512980988
+642,Heringsfilet in Tomatensoße,49,200,7,2,3,78,844512249359
+643,Geräucherter Hering in Pflanzenöl,49,200,7,3,1,78,844512512672
+644,Rinderkraftbrühe,36,900,31.7,5,5,30,788982491527
+645,Hühnerkraftbrühe,36,900,31.7,5,5,30,788982463073
+646,Fischkraftbrühe,36,900,31.7,5,5,30,788982422308
+647,Schweine Kraftbrühe,36,900,31.7,5,5,30,788982984203
+648,Gemüsebrühe,36,900,31.7,5,5,30,788982961668
+649,Rinderbouillon,36,900,31.7,5,5,30,788982612301
+650,Hühnerbouillon,36,900,31.7,5,5,30,788982960096
+651,Schweine Bouillon,36,900,31.7,5,5,30,788982186337
+652,Gemüsebouillon,36,900,31.7,5,5,30,788982766497
+653,Hühnerfond,36,250,8.4,2,3,29,898342499602
+654,Rinderfond,36,250,8.4,2,3,29,898342320104
+655,Fischfond,36,250,8.4,2,3,29,898342928782
+656,Schweinefond,36,250,8.4,2,3,29,898342768856
+657,Bratensosse aus dem Schweinefond,41,250,8.4,2,3,29,898342456598
+658,Bratensosse aus dem Rinderfond,41,250,8.4,2,3,29,898342731791
+659,Bratensosse aus dem Hühnerfond,41,250,8.4,2,3,29,898342141525
+660,Likörwein,41,250,8.5,9,4,29,898342151078
+661,Spanischer Likörwein,41,250,8.5,9,4,29,898342998975
+662,Apfelwein,41,250,8.5,9,4,29,898342699606
+663,Weissweinessig,41,250,8.5,9,4,29,898342318879
+664,Weissweinessig mit Kräuter,41,250,8.5,9,4,29,898342126868
+665,Rotweinessig,41,250,8.5,9,4,29,898342453561
+666,Rotweinessig mit Wacholderbeeren,41,250,8.5,9,4,29,898342229209
+667,Sherry-Essig,41,250,8.5,9,4,29,898342532077
+668,Apfelessig,41,250,8.5,9,4,29,898342898861
+669,Apfelessig mit Basilikum,41,250,8.5,9,4,29,898342541169
+670,Apfel-Balsamessig,41,250,8.5,9,4,29,898342970571
+671,Birnenessig,41,250,8.5,9,4,29,898342548514
+672,Johannisbeeressig,41,250,8.5,9,4,29,898342804778
+673,Malzessig,41,250,8.5,9,4,29,898342315927
+674,Bieressig,41,250,8.5,9,4,29,898342321841
+675,Gurkenessig,41,250,8.5,9,4,29,898342274252
+676,Branntweinessig,41,250,8.5,9,4,29,898342628052
+677,Linsensuppe,36,400,14.1,2,3,34,845995833869
+678,Linsensuppe,36,600,21.2,2,3,34,845995965829
+679,Kartoffelsuppe,36,400,14.1,2,3,34,845995352574
+680,Kartoffelsuppe,36,600,21.2,2,3,34,845995852584
+681,Pfälzer Zwiebelsuppe,36,400,14.1,2,3,34,845995950181
+682,Pfälzer Zwiebelsuppe,36,600,21.2,2,3,34,845995921311
+683,Kohlsuppe,36,400,14.1,2,3,34,845995337045
+684,Kohlsuppe,36,600,21.2,2,3,34,845995693758
+685,Hühnereintopf mit Gemüse,36,400,14.1,2,3,34,845995689555
+686,Rindereintopf mit Kartoffeln und Möhren,36,400,14.1,2,3,34,845995374976
+687,Kasseler- und Erbsensuppe,36,400,14.1,2,3,34,845995495438
+688,Cremige Pizzasuppe,36,400,14.1,2,3,34,845995381491
+689,Spargelsuppemit Bockwurst,36,400,14.1,2,3,34,845995320486
+690,Spargel-Kartoffelsuppe mit Speck,36,400,14.1,2,3,34,845995129833
+691,Spargel-Kartoffelsuppe mit Speck,36,600,21.2,2,3,34,845995697129
+692,Möhrencremesuppe,36,400,14.1,2,3,34,845995110869
+693,Möhrencremesuppe,36,600,21.2,2,3,34,845995195368
+694,Rindfleisch-Gerstensuppe mit Gemüse,36,400,14.1,2,3,34,845995296103
+695,Grüne Bohnencremesuppe,36,400,14.1,2,3,34,845995497778
+696,Grüne Bohnencremesuppe,36,600,21.2,2,3,34,845995114712
+697,Grüne Bohnensuppe mit Speck und Gemüse,36,400,14.1,2,3,34,845995368477
+698,Bayerisch Löffelerbsen,36,400,14.1,2,3,34,845995646485
+699,Bayerisch Löffelerbsen,36,600,21.2,2,3,34,845995597815
+700,Griess-Knödelteig,31,400,14,1,4,31,902329591681
+701,Weizendunst Spätzlemehl,50,1000,35,1,5,31,902329103805
+702,Bayerische Spätzle (Getrocknete),50,500,17.6,1,4,31,902329499825
+703,Bayerische Eier-Knöpfle (Getrocknete),50,500,17.6,1,4,31,902329950477
+704,Bayerische Schupfnudel,50,500,17.6,1,4,31,902329612274
+705,Spätzle Frische ,50,500,17.6,1,4,31,902329414099
+706,Käsespätzle Frische,50,500,17.6,1,4,31,902329483467
+707,Frische Bayerische Käseknöpfle,50,500,17.6,1,4,31,902329106681
+708,Spätzle,50,450,15.9,1,5,72,703949755311
+709,Rotini Pasta,50,450,15.9,1,5,72,703949217513
+710,Dreifarbige Rotini Pasta,50,450,15.9,1,5,72,703949743101
+711,Spighe Pasta,50,450,15.9,1,5,72,703949435648
+712,Dreifarbige Spighe Pasta,50,450,15.9,1,5,72,703949576307
+713,Schwäbische Spätzle Pasta,50,450,15.9,1,5,72,703949361984
+714,Ruote Pasta,50,450,15.9,1,5,72,703949967309
+715,Stelline Pasta,50,450,15.9,1,5,72,703949983066
+716,Getrocknete Pflaumen,38,250,8.8,1,4,68,897762260778
+717,Getrocknete Pflaumen,38,500,17.6,21,8,68,897762158209
+718,Getrocknete Birnen,38,250,8.8,1,4,68,897762774137
+719,Rosinen,38,250,8.8,1,4,68,897762518482
+720,Rosinen,38,500,17.6,21,8,68,897762226487
+721,Getrocknete Schwarze Johannisbeeren,38,250,8.8,1,4,68,897762429605
+722,Getrocknete Schwarze Johannisbeeren,38,500,17.6,21,8,68,897762773305
+723,Getrocknete Rote Johannisbeeren,38,250,8.8,1,4,68,897762739383
+724,Getrocknete Sauerkirschen,38,250,8.8,1,4,68,897762509016
+725,Getrocknete Aprikosen,38,250,8.8,1,4,68,897762782914
+726,Getrocknete Pfirsiche,38,250,8.8,1,4,68,897762241064
+727,Getrocknete Apfel,38,250,8.8,1,4,68,897762223958
+728,Getrocknete Apfel mit Zimt und Zucker,38,250,8.8,1,4,68,897762511384
+729,Kandierte Zitronenschale,38,250,8.8,1,4,68,897762662344
+730,Kandiert Orangeat,38,250,8.8,1,4,68,897762979181
+731,Kandierte Zitrusschale,38,250,8.8,1,4,68,897762728555
+732,Getrocknete Medjool Datteln,38,250,8.8,1,4,68,897762735439
+733,Getrocknete Wacholderbeeren,38,250,8.8,1,4,68,897762920233
+734,Getrocknete Wildheidelbeeren,38,250,8.8,1,4,68,897762735598
+735,Getrocknete Feigen,38,250,8.8,1,4,68,897762478418
+736,Kandierter Ingwer,38,250,8.8,1,4,68,897762396676
+737,"Trockenfruchtmischung (Rosinen, Johannisbeeren und Kirschen)",38,500,17.6,21,8,68,897762787035
+738,Schoko Kuchenmischung,30,475,16.8,4,8,69,978772495899
+739,Buchteln Backmischung mit Powidl,30,495,17.5,4,8,69,978772246805
+740,Buchteln Backmischung mit Vanille-Soßepulver,30,495,17.5,4,8,69,978772723528
+741,Rührkuchen Mischung,30,475,16.8,4,8,69,978772420238
+742,Gewürzkuchen Mischung,30,475,16.8,4,8,69,978772592491
+743,Käsekuchen Mischung,30,475,16.8,4,8,69,978772418001
+744,Marmorkuchen Mischung,30,475,16.8,4,8,69,978772154609
+745,Orangenkuchen Mischung,30,475,16.8,4,8,69,978772161673
+746,Zitronenkuchen Mischung,30,475,16.8,4,8,69,978772748015
+747,Streuselkuchen Mischung,30,475,16.8,4,8,69,978772521188
+748,Frisch Backhefe 10-count,43,42,1.5,13,14,70,964241193996
+749,Trockenbackhefe,43,63,2.25,6,5,70,964241763075
+750,Backpulver,43,90,3.2,1,4,70,964241952123
+751,Backpulver,43,180,6.4,1,4,70,964241544261
+752,Backsoda,43,250,8.8,4,8,70,964241713281
+753,Würfelzucker,43,500,17.6,4,8,70,964241201845
+754,Brauner Würfelzucker,43,500,17.6,4,8,70,964241463293
+755,Kristallzucker,43,1000,35.2,1,5,70,964241409951
+756,Puderzucker,43,250,8.8,4,8,70,964241154864
+757,Hagelzucker,43,250,8.8,4,8,70,964241125966
+758,Vanillezucker,43,250,8.8,4,8,70,964241762425
+759,Bourbon Vanillepaste,43,150,5.3,20,4,70,964241342624
+760,Vanilleextrakt,43,106,3.74,9,4,70,964241544002
+761,Zitronenextrakt,43,106,3.74,9,4,70,964241251912
+762,Rum-Aroma,43,106,3.74,9,4,70,964241530024
+763,Mandelextrakt,43,106,3.74,9,4,70,964241516861
+764,Milchpulver,43,400,14.1,21,3,70,964241336352
+765,Kakaopulver,43,250,8.8,4,8,70,964241801631
+766,Bitterschokolade (75% Dunkle Schokolade),43,100,3.5,13,5,70,964241556271
+767,Bitterschokolade (85% Dunkle Schokolade),43,100,3.5,13,5,70,964241866976
+768,Milchschokolade,43,100,3.5,13,5,70,964241336737
+769,Mehrkornbrot-Backmischung,30,500,17.6,1,5,71,885659122709
+770,Kartoffelbrot-Backmischung,30,500,17.6,1,5,71,885659920154
+771,Bauernbrot-Backmischung,30,500,17.6,1,5,71,885659587316
+772,Vollkornbrot Backmischung,30,500,17.6,1,5,71,885659879395
+773,Roggenmischbrot Backmischung,30,500,17.6,1,5,71,885659367947
+774,Sonnenblumenbrot Backmischung,30,500,17.6,1,5,71,885659450954
+775,Dinkelbrot Backmischung,30,500,17.6,1,5,71,885659533494
+776,Kürbiskernbrot Backmischung,30,500,17.6,1,5,71,885659907262
+777,Weizenmehl Type 550,42,750,26.5,1,5,71,885659165551
+778,Weizenmehl Type 1050,42,750,26.5,1,5,71,885659688291
+779,Weizenmehl Vollkorn,42,750,26.5,1,5,71,885659315946
+780,Dinkelmehl Type 630,42,750,26.5,1,5,71,885659674068
+781,Dinkelmehl Type 1050,42,750,26.5,1,5,71,885659890759
+782,Dinkelmehl Vollkorn,42,750,26.5,1,5,71,885659978775
+783,Roggenmehl Type 1150,42,750,26.5,1,5,71,885659110673
+784,Roggenmehl Vollkorn,42,750,26.5,1,5,71,885659539104
+785,Spätzlemehl,42,750,26.5,1,5,71,885659215878
+786,Kondensmilch,43,170,6,2,3,70,964241984027
+787,Gezuckerte Kondensmilch,43,170,6,2,3,70,964241360142
+788,Altbier,54,315,11.1,9,1,36,760663266522
+789,Altbier,54,635,22.4,9,1,36,760663271632
+790,Altbier,54,340,12,2,2,36,760663859184
+791,Landbier,55,315,11.1,9,1,36,760663120491
+792,Landbier,55,635,22.4,9,1,36,760663182769
+793,Landbier,55,340,12,2,2,36,760663256864
+794,Helles,55,620,21.9,9,1,38,777513748846
+795,Pilsner,55,620,21.9,9,1,38,777513369968
+796,Radler,57,620,21.9,9,1,38,777513634105
+797,Berliner Weisse,55,620,21.9,9,1,38,777513111933
+798,Kölsch,55,500,16.9,9,1,40,948037961052
+799,Schwarzbier,54,500,16.9,9,1,42,982412312339
+800,Dunkel,54,500,16.9,9,1,42,982412198892
+801,Doppelbock Bier,54,500,16.9,9,1,42,982412896054
+802,Doppelbock Bier,54,370,12.5,2,2,42,982412623549
+803,Helles Bockbier,55,500,16.9,9,1,37,929217917392
+804,Pilsner,55,500,16.9,9,1,37,929217404787
+805,Pilsner,55,750,25.3,9,1,37,929217549435
+806,Rauchbier,55,500,16.9,9,1,37,929217312488
+807,Roggenbier,55,550,18.6,9,1,39,601631750466
+808,Roggenbier,55,475,16.1,2,2,39,601631866113
+809,Weizenbier,55,550,18.6,9,1,39,601631888542
+810,Weizenbier,55,475,16.1,2,2,39,601631561213
+811,Gose,55,550,18.6,9,1,39,601631577283
+812,Gose,55,475,16.1,2,2,39,601631149486
+813,Süßbier Malztrunk,56,550,18.6,9,1,41,711246169594
+814,Bananenweizen,57,550,18.6,9,1,41,711246699108
+815,Saurer Radler,57,550,18.6,9,1,41,711246182558
+816,Münchner Exportbier,54,500,16.9,9,1,43,925891919899
+817,Dortmunder Exportbier,55,500,16.9,9,1,43,925891440291
+818,Märzenbier,55,500,16.9,9,1,45,776428348243
+819,Märzenbier,55,370,12.5,2,2,45,776428694878
+820,Zwickelbier,55,473,16,2,2,45,776428463332
+821,Dunkles Zwickelbier,54,473,16,2,2,45,776428423864
+822,Piwo jasne pełne,55,330,11.1,9,1,44,754895945715
+823,Pilzner,55,500,16.9,9,1,44,754895487898
+824,Porter bałtycki,54,500,16.9,9,1,46,807610279183
+825,Koźlak,54,500,16.9,9,1,46,807610907262
+826,Piwo grodziskie,55,500,16.9,9,1,47,822295703102
+827,Piwo grodziskie,55,355,12,2,2,47,822295939625
+828,Bernkastel Dämmerung Riesling 2018 10.0% Vol. (Auslese),52,375,12.6,9,1,48,850017840421
+829,Bernkastel Dämmerung Riesling 2018 10.0% Vol. (Auslese),52,750,25.4,9,1,48,850017173608
+830,Bernkastel Dämmerung Riesling 2020 8.0% Vol. (Spätlese),52,375,12.6,9,1,48,850017497509
+831,Bernkastel Dämmerung Riesling 2020 8.0% Vol. (Spätlese),52,750,25.4,9,1,48,850017895662
+832,Altötting Sturm Gewürztraminer 2022 7.5% Vol. (Kabinett),52,375,12.6,9,1,49,845339449805
+833,Altötting Sturm Gewürztraminer 2022 7.5% Vol. (Kabinett),52,750,25.4,9,1,49,845339224038
+834,Altötting Sturm Gewürztraminer 2022 8.5% Vol. (Spätlese),52,375,12.6,9,1,49,845339435084
+835,Altötting Sturm Gewürztraminer 2022 8.5% Vol. (Spätlese),52,750,25.4,9,1,49,845339616892
+836,Piesporter Michelsburg Riesling 2020 8.5% Vol. (Spätlese),52,375,12.6,9,1,50,858134968643
+837,Piesporter Michelsburg Riesling 2020 8.% Vol. (Auslese),52,750,25.4,9,1,50,858134789417
+838,Starkenburg Wolfsmagen Riesling 2018 8.5% Vol. (Auslese),52,375,12.6,9,1,51,884091852823
+839,Starkenburg Wolfsmagen Riesling 2018 8.5% Vol. (Auslese),52,750,25.4,9,1,51,884091555206
+840,Wartbühl Friedlich Grüner Silvaner 2023 11.5% (Kabinett),52,375,12.6,9,1,52,802068678392
+841,Wartbühl Friedlich Grüner Silvaner 2023 11.5% (Kabinett),52,750,25.4,9,1,52,802068908808
+842,Bernkastel Wikinger Riesling 2019 9.5% Vol. (Kabinett),52,375,12.6,9,1,53,928774219823
+843,Bernkastel Wikinger Riesling 2019 9.5% Vol. (Kabinett),52,750,25.4,9,1,53,928774302663
+844,Zeltingen Sonnenuntergang Riesling 2022 8.5% Vol. (Spätlese),52,375,12.6,9,1,54,839204115123
+845,Zeltingen Sonnenuntergang Riesling 2022 8.5% Vol. (Spätlese),52,750,25.4,9,1,54,839204425943
+846,Zeltingen Sonnenuntergang Riesling 2022 10.0% Vol. (Auslese),52,375,12.6,9,1,54,839204571204
+847,Zeltingen Sonnenuntergang Riesling 2022 10.0% Vol. (Auslese),52,750,25.4,9,1,54,839204557501
+848,Zeltingen Sonnenuntergang Bacchus 2023 9.5% Vol. (Spätlese),52,375,12.6,9,1,55,839204253246
+849,Zeltingen Sonnenuntergang Bacchus 2023 9.5% Vol. (Spätlese),52,750,25.4,9,1,55,839204235625
+850,Zeltingen Sonnenuntergang Bacchus 2023 10.0% Vol. (Auslese),52,375,12.6,9,1,55,839204393316
+851,Zeltingen Sonnenuntergang Bacchus 2023 10.0% Vol. (Auslese),52,750,25.4,9,1,55,839204996175
+852,Ehrenkirchen Blasse Morg Gutedel 2021 8.5% Vol. (Kabinett),52,375,12.6,9,1,56,863162753422
+853,Ehrenkirchen Blasse Morg Gutedel 2021 8.5% Vol. (Kabinett),52,750,25.4,9,1,56,863162664327
+854,Ehrenkirchen Blasse Morg Gutedel 2021 8.0% Vol. (Spätlese),52,375,12.6,9,1,56,863162300454
+855,Ehrenkirchen Blasse Morg Gutedel 2021 8.0% Vol. (Spätlese),52,750,25.4,9,1,56,863162607849
+856,Walluf Nachtgarten Spätburgunder 2022 7.5% Vol. (Kabinett),51,375,12.6,9,1,57,659123134124
+857,Walluf Nachtgarten Spätburgunder 2022 7.5% Vol. (Kabinett),51,750,25.4,9,1,57,659123137421
+858,Walluf Nachtgarten Spätburgunder 2022 8.0% Vol. (Spätlese),51,375,12.6,9,1,57,659123884704
+859,Walluf Nachtgarten Spätburgunder 2022 8.0% Vol. (Spätlese),51,750,25.4,9,1,57,659123618091
+860,Walluf Nachtgarten Dornfelder 2022 8.0% Vol. (Kabinett),51,375,12.6,9,1,57,659123373941
+861,Walluf Nachtgarten Dornfelder 2022 8.0% Vol. (Kabinett),51,750,25.4,9,1,57,659123985241
+862,Walluf Laterne Dornfelder 2022 8.0% Vol. (Spätlese),51,375,12.6,9,1,58,718636179669
+863,Walluf Laterne Dornfelder 2022 8.0% Vol. (Spätlese),51,750,25.4,9,1,58,718636964744
+864,Frauensteiner Apfelberg Spätburgunder 2020 8.5% Vol. (Spätlese),51,750,25.4,9,1,59,922456161463
+865,Frauensteiner Apfelberg Spätburgunder 2020 8.5% Vol. (Auslese),51,750,25.4,9,1,59,922456588534
+866,Frauensteiner Feuerberg Spätburgunder 2018 8.0% Vol. (Spätlese),51,750,25.4,9,1,59,922456252986
+867,Frauensteiner Feuerberg Spätburgunder 2018 9.0% Vol. (Auslese),51,750,25.4,9,1,59,922456132995
+868,Roter Schwäbischer Landwein 2021 11.5% Vol.,51,375,12.6,9,1,60,892918370498
+869,Roter Schwäbischer Landwein 2021 11.5% Vol.,51,750,25.4,9,1,60,892918386051
+870,Riesling Landwein 2022 11.0% Vol.,52,375,12.6,9,1,60,892918518625
+871,Riesling Landwein 2022 11.0% Vol.,52,750,25.4,9,1,60,892918333143
+872,Wachau Land Floriana Grüner Veltliner 2020,52,375,12.6,9,1,61,962652126965
+873,Wachau Land Floriana Grüner Veltliner 2020,52,750,25.4,9,1,61,962652630877
+874,Wachau Land Riesling 11.0% 2020,52,375,12.6,9,1,61,962652988046
+875,Wachau Land Riesling 11.0% 2021,52,750,25.4,9,1,61,962652127687
+876,Günter Blaufränkisch 2019 13% Vol.,51,375,12.6,9,1,62,818061736399
+877,Günter Blaufränkisch 2019 13% Vol.,51,750,25.4,9,1,62,818061859308
+878,Fritz Zweigelt 2022 13.0 % Vol.,51,750,25.4,9,1,63,950724598047
+879,Frankfurter Apfelwein,53,1000,33.8,9,1,64,973390111669
+880,Apfelschnaps,53,700,23.7,9,1,64,973390655341
+881,Himbeergeist,53,500,16.9,9,1,65,820603782315
+882,Himbeergeist,53,1000,33.8,9,1,65,820603657785
+883,Brombeergeist,53,500,16.9,9,1,65,820603757323
+884,Brombeergeist,53,1000,33.8,9,1,65,820603920584
+885,Schwarze Johannisbeere Geist,53,500,16.9,9,1,65,820603659909
+886,Schwarze Johannisbeere Geist,53,1000,33.8,9,1,65,820603614891
+887,Orangengeist,53,500,16.9,9,1,65,820603105897
+888,Orangengeist,53,1000,33.8,9,1,65,820603799522
+889,Obstwasser,53,750,25.4,9,1,66,886518956904
+890,Birnenbrand,53,750,25.4,9,1,66,886518729252
+891,Kirschwasser,53,750,25.4,9,1,66,886518297406
+892,Österreichischer Marillenschnaps,53,500,16.9,9,1,67,701230682893
+893,Österreichischer Marillenschnaps,53,700,23.7,9,1,67,701230388525
+894,Österreichischer Marillenschnaps,53,1000,33.8,9,1,67,701230597979
+895,Österreichischer Obstler,53,500,16.9,9,1,67,701230563428
+896,Österreichischer Obstler,53,700,23.7,9,1,67,701230856454
+897,Österreichischer Obstler,53,1000,33.8,9,1,67,701230760399
+898,Karpfen,44,1000,35.2,1,4,78,844512928011
+899,Lachse,44,1000,35.2,1,4,78,844512402872
+900,Hering,44,1000,35.2,1,4,78,844512261878
+901,Makrele,44,1000,35.2,1,4,78,844512874516
+902,Zander,44,1000,35.2,1,4,78,844512298819
+903,Regenbogenforelle,44,1000,35.2,1,4,78,844512514813
+904,Geräucherter Aal,44,1000,35.2,1,4,78,844512841872
+905,Quince Jam,35,397,14,3,1,76,463852985031
+906,Citrus Marmalade,35,397,14,3,1,76,463852936323
+907,Sour Cherry Confit,35,397,14,3,1,76,463852132386
+908,Quince Paste,35,397,14,3,1,76,463852317505
+909,Strawberry Jam,35,397,14,3,1,76,463852732062
+910,Plum Jam,35,397,14,3,1,76,463852779602
+911,Black Currant Jam,35,397,14,3,1,76,463852856423
+912,Apricot Jam,35,397,14,3,1,76,463852580943
+913,Applesauce,35,397,14,3,1,76,463852716397
+914,Apple Butter,35,397,14,3,1,76,463852734787
+915,Apple & Pear Butter,35,397,14,3,1,76,463852971311
+916,Plum Butter,35,397,14,3,1,76,463852233111
+917,Lemon Curd,35,397,14,3,1,76,463852978883
+918,Pear Butter,35,397,14,3,1,76,463852318869
+919,Raspberry Jam,35,397,14,3,1,76,463852379988
+920,Clover Honey,33,454,16,9,4,76,463852100027
+921,Tomato Ketchup,33,567,20,9,4,76,463852899255
+922,Curry Ketchup,33,567,20,9,4,76,463852617658
+923,Yellow Mustard,33,567,20,9,4,76,463852445386
+924,Bavarian Sweet Mustard,33,340,12,9,4,76,463852636624
+925,German Deli Mustard,33,340,12,9,4,76,463852551521
+926,Hot German Mustard,33,340,12,9,4,76,463852500409
+927,Honey Mustard,33,340,12,9,4,76,463852357892
+928,Grain Mustard,33,340,12,9,4,76,463852932029
+929,Horseradish Mustard,33,340,12,9,4,76,463852363846
+930,White Wine Vinegar,41,473,16,9,1,76,463852539281
+931,Red Wine Vinegar,41,473,16,9,1,76,463852896031
+932,Apple Cider Vinegar,41,473,16,9,1,76,463852297953
+933,Malt Vinegar,41,473,16,9,1,76,463852381934
+934,Pickle Relish,33,710,24,3,1,76,463852166115
+935,Sweet Pepper Relish,33,710,24,3,1,76,463852975058
+936,Mango & Horseradish Spread,33,255,9,9,4,76,463852936076
+937,Lemon Juice,48,946,32,9,4,75,434050708321
+938,Apple Cider Vinaigrette,41,384,13,9,4,76,463852571193
+939,Lemon Vinaigrette,41,384,13,9,4,76,463852562132
+940,Canola Oil,40,769,26,9,1,76,463852877116
+941,Grapeseed Oil,40,769,26,9,1,76,463852132181
+942,Olive Oil,40,769,26,9,1,76,463852857413
+943,Mustard Pickles,34,340,12,3,1,76,463852937926
+944,Pickle Spears,34,340,12,3,1,76,463852893836
+945,Mayonnaise,33,443,15,3,4,76,463852943923
+946,Sauerkraut,34,453,16,3,1,76,463852919542
+947,Plum Compote,35,340,12,3,1,76,463852296539
+948,Strawberry & Rhubarb Compote,35,340,12,3,1,76,463852685673
+949,Blueberry Compote,35,340,12,3,1,76,463852167052
+950,Hollandaise,41,198,7,3,1,76,463852896723
+951,Green Olives,34,158,5.6,3,1,75,434050599838
+952,Black Olives,34,158,5.6,3,1,75,434050253406
+953,Capers In Brine,34,103,3.5,3,1,75,434050329812
+954,Sweet and Sour Red Cabbage,34,453,16,3,1,76,463852492113
+955,Vegetable Stock,36,907,32,5,5,76,463852820333
+956,Chicken Stock,36,907,32,5,5,76,463852738746
+957,Beef Stock,36,907,32,5,5,76,463852966185
+958,Pork Stock,36,907,32,5,5,76,463852950112
+959,Anchovy Paste,33,56,2,20,2,76,463852787808
+960,Tomato Paste,33,56,2,20,2,75,434050110743
+961,Tomato Paste,33,170,6,2,3,75,434050336906
+962,Anchovies in oil,49,56,2,2,3,75,434050348837
+963,Sardines in oil,49,106,3.75,2,3,75,434050776738
+964,Salmon in Water,49,425,15,2,3,75,434050401421
+965,Smoked Salmon in Oil,49,142,5,2,3,75,434050668301
+966,Mackerel,49,425,15,2,3,75,434050158176
+967,Vienna Sausage in Savory Sauce,49,130,4.6,2,3,76,463852139703
+968,Oma's Potato Soup,36,453,16,2,3,76,463852193332
+969,Oma's Pea Soup,36,453,16,2,3,76,463852202507
+970,Oma's Lentil soup,36,453,16,2,3,76,463852781453
+971,Peeled Potatoes,34,425,15,2,3,75,434050448427
+972,Peeled Whole Tomatoes,34,425,15,2,3,75,434050371023
+973,Diced Tomatoes,34,425,15,2,3,75,434050218951
+974,Petite Diced Tomatoes,34,425,15,2,3,75,434050725084
+975,Tomato Sauce,34,425,15,2,3,75,434050274777
+976,Green Beans,34,425,15,2,3,75,434050698908
+977,Carrots,34,425,15,2,3,75,434050955164
+978,Spinach,34,425,15,2,3,75,434050955321
+979,Mushrooms,34,425,15,2,3,75,434050196129
+980,Sauerkraut,34,425,15,2,3,75,434050191718
+981,Kale,34,425,15,2,3,75,434050356609
+982,Whole Beets,34,425,15,2,3,75,434050360973
+983,Pickled Beets,34,425,15,2,3,75,434050775977
+984,Mixed Vegetables,34,425,15,2,3,75,434050656292
+985,Peaches,34,425,15,2,3,75,434050791683
+986,Pears,34,425,15,2,3,75,434050798454
+987,Sour Cherries,34,425,15,2,3,75,434050646184
+988,Apple Pie Filling,43,566,20,2,3,76,463852620812
+989,Peach Pie Filling,43,566,20,2,3,76,463852343234
+990,Macaroni Pasta,50,453,16,4,12,76,463852641736
+991,Elbow Macaroni,50,453,16,4,12,76,463852467949
+992,Rotini,50,453,16,4,12,76,463852284277
+993,Tri-Color Rotini,50,453,16,4,12,76,463852143782
+994,Spighe,50,453,16,4,12,76,463852508599
+995,Tri-Color Spighe,50,453,16,4,12,76,463852785383
+996,Egg Noodles (American-style ),50,453,16,4,12,76,463852691556
+997,Egg Noodles Extra Wide (American-style ),50,453,16,4,12,76,463852871651
+998,Bavarian-Style Spätzle,50,453,16,4,12,76,463852216319
+999,Green Lentils,31,453,16,1,4,75,434050291012
+1000,Yellow Lentils,31,453,16,1,4,75,434050579246
+1001,Red Lentils,31,453,16,1,4,75,434050307647
+1002,Navy Beans,31,453,16,1,4,75,434050774885
+1003,Rolled Oats,32,500,17.6,1,5,75,434050524416
+1004,Pastry Flour,42,1360,48,1,5,75,434050691794
+1005,All-Purpose Flour,42,2260,80,1,5,75,434050593058
+1006,Whole Grain Pastry Flour,42,1360,48,1,5,75,434050819031
+1007,Medium-Grain Wheat Flour,42,2260,80,1,5,75,434050745882
+1008,Whole Wheat Flour,42,2260,80,1,5,75,434050479778
+1009,Rye Flour,42,1850,65.3,1,4,75,434050734301
+1010,Wholegrain Rye Flour,42,1850,65.3,1,4,75,434050751268
+1011,Pastry Spelt Flour,42,1360,48,1,5,75,434050357022
+1012,All-Purpose Spelt Flour,42,1850,65.3,1,4,75,434050150312
+1013,Whole Grain Spelt Flour,42,1850,65.3,1,4,75,434050720994
+1014,Sesame Seeds,37,21.2,0.75,3,1,75,434050291304
+1015,Sunflower Seeds,38,283,10,1,4,75,434050424779
+1016,Pumpkin Seeds,38,283,10,1,4,75,434050155731
+1017,Whole Almonds,38,453,16,1,4,75,434050511416
+1018,Slivered Almonds,38,453,16,1,4,75,434050784563
+1019,Almond Paste,43,113,4,11,4,76,463852261689
+1020,Almond Paste,43,227,8,11,4,76,463852771159
+1021,Almond Paste,43,454,16,11,4,76,463852874856
+1022,Vanilla Extract,43,118.3,4,9,4,75,434050445292
+1023,Lemon Extract,43,118.3,4,9,4,75,434050622609
+1024,Almond Extract,43,118.3,4,9,4,75,434050866043
+1025,Orange Extract,43,118.3,4,9,4,75,434050520887
+1026,Anise Extract,43,118.3,4,9,4,75,434050774985
+1027,Vanilla Sugar,43,200,7,1,4,76,463852988978
+1028,Confectioners' Sugar,43,453,16,1,4,75,434050914747
+1029,Confectioners' Sugar,43,907,32,1,4,75,434050683021
+1030,Sugar Cubes,43,453,16,4,5,75,434050475349
+1031,Brown Sugar,43,453,16,4,5,75,434050797878
+1032,Dark Brown Sugar,43,453,16,4,5,75,434050684149
+1033,Caster Sugar,43,907,32,1,4,75,434050864619
+1034,Granulated Sugar,43,1810,64,1,4,75,434050516576
+1035,Molasses,43,355,12,3,1,75,434050745877
+1036,Baking Powder,43,227,8,2,2,75,434050741043
+1037,Baking Soda,43,453,16,4,8,75,434050693178
+1038,Cocoa Powder,43,226,8,2,2,75,434050884784
+1039,Corn Starch,43,453,16,21,13,75,434050826829
+1040,Baking Yeast,43,113,4,3,1,75,434050441102
+1041,Dark Chocolate,43,100,3.5,6,13,76,463852666764
+1042,Chocolate Chips,43,340,12,1,4,76,463852311169
+1043,Lemon Poppy Seed Muffin Mix,30,468,16.5,4,8,76,463852269375
+1044,Blueberry Muffin Mix,30,468,16.5,4,8,76,463852357723
+1045,Coffee Cake Mix,30,468,16.5,4,8,76,463852953964
+1046,Blueberry Streusel Cake Mix,30,468,16.5,4,8,76,463852964831
+1047,Cherry Poppy Seed Cake Mix,30,468,16.5,4,8,76,463852781161
+1048,Apple Sauce Cake Mix,30,468,16.5,4,8,76,463852541527
+1049,Spice Cake Mix,30,468,16.5,4,8,76,463852201401
+1050,Dried Apricots,38,454,16,1,4,75,434050597184
+1051,Prunes,38,454,16,1,4,75,434050216733
+1052,Raisins,38,454,16,1,4,75,434050747818
+1053,Raisins,38,907,32,1,4,75,434050396413
+1054,Golden Raisins,38,454,16,1,4,75,434050328497
+1055,Dried Currants,38,454,16,1,4,75,434050681777
+1056,Raisin Mix,38,454,16,1,4,75,434050776777
+1057,Candied Citrus Peel,38,227,8,1,4,76,463852117185
+1058,Dried Apples,38,283,10,1,4,75,434050194473
+1059,Dried Cranberries,38,283,10,1,4,75,434050464843
+1060,Dried Cherries,38,283,10,1,4,75,434050893503
+1061,Dried Fruit Medley,38,283,10,1,4,75,434050843463
+1062,Dried Figs,38,283,10,1,4,75,434050893255
+1063,Dates (pitted),38,454,16,1,4,75,434050335724
+1064,Dried Pears,38,283,10,1,4,75,434050231285
+1065,Milk Chocolate Pretzels,39,283,10,1,4,76,463852693394
+1066,Sour Gummy Hearts,39,283,10,1,4,76,463852645163
+1067,Amelia's Own Grape Licorice,39,142,5,13,4,76,463852469399
+1068,Gummy Doxies,39,283,10,1,4,76,463852586494
+1069,Sour Gum Drops,39,283,10,1,4,76,463852863743
+1070,Milk Chocolate Bar,39,75,2.6,13,14,76,463852417206
+1071,Sour Apple Taffy,39,283,10,1,4,76,463852752785
+1072,Honey Nougat,39,142,5,1,4,76,463852450469
+1073,Honey and Almond Nougat,39,142,5,1,4,76,463852886356
+1074,Marzipan Doxies,39,200,7,4,12,76,463852885758
+1075,Marzipan Fruit Farm,39,200,7,4,12,76,463852113933
+1076,Dried Dill,37,21.2,0.75,3,1,75,434050698793
+1077,Dried Parsley,37,21.2,0.75,3,1,75,434050391654
+1078,Dried Marjoram,37,21.2,0.75,3,1,75,434050116024
+1079,Dried Sage,37,21.2,0.75,3,1,75,434050965962
+1080,Dried Bay Leaves,37,21.2,0.75,3,1,75,434050605686
+1081,Dried Chives,37,21.2,0.75,3,1,75,434050290677
+1082,Dried Lovage,37,21.2,0.75,3,1,75,434050511765
+1083,Dried Savory,37,21.2,0.75,3,1,75,434050731849
+1084,Dried Thyme,37,21.2,0.75,3,1,75,434050830477
+1085,Dried Rosemary,37,21.2,0.75,3,1,75,434050879072
+1086,Dried Basil,37,21.2,0.75,3,1,75,434050524305
+1087,Dried Chervil,37,21.2,0.75,3,1,75,434050127489
+1088,Star Anise,37,21.2,0.75,3,1,75,434050569339
+1089,Anise Seeds,37,21.2,0.75,3,1,75,434050991694
+1090,Caraway,37,21.2,0.75,3,1,75,434050570247
+1091,Ground Coriander,37,21.2,0.75,3,1,75,434050173341
+1092,Whole Coriander,37,21.2,0.75,3,1,75,434050368948
+1093,Paprika,37,21.2,0.75,3,1,75,434050879064
+1094,Black Peppercorns,37,21.2,0.75,3,1,75,434050236676
+1095,White Peppercorns,37,21.2,0.75,3,1,75,434050647522
+1096,Green Peppercorns,37,21.2,0.75,3,1,75,434050903294
+1097,Ground White Pepper,37,21.2,0.75,3,1,75,434050373103
+1098,Ground Black Pepper,37,21.2,0.75,3,1,75,434050211251
+1099,Allspice,37,21.2,0.75,3,1,75,434050596757
+1100,Ground Cinnamon,37,21.2,0.75,3,1,75,434050543769
+1101,Cinnamon Sticks,37,21.2,0.75,3,1,75,434050592144
+1102,Ground Nutmeg,37,21.2,0.75,3,1,75,434050350943
+1103,Ground Mace,37,21.2,0.75,3,1,75,434050928713
+1104,Whole Cloves,37,21.2,0.75,3,1,75,434050565597
+1105,Ground Cloves,37,21.2,0.75,3,1,75,434050335659
+1106,Ground Ginger,37,21.2,0.75,3,1,75,434050236556
+1107,Green Cardamom Pods,37,21.2,0.75,3,1,75,434050858125
+1108,Ground Cardamom,37,21.2,0.75,3,1,75,434050164419
+1109,Celery Seed,37,21.2,0.75,3,1,75,434050750898
+1110,Fennell Seeds,37,21.2,0.75,3,1,75,434050958332
+1111,Yellow Mustard Seeds,37,21.2,0.75,3,1,75,434050516762
+1112,Black Mustard Seeds,37,21.2,0.75,3,1,75,434050175382
+1113,Poppy Seeds,37,21.2,0.75,3,1,75,434050708488
+1114,Dried Tarragon,37,21.2,0.75,3,1,75,434050220533
+1115,Curry Powder,37,21.2,0.75,3,1,76,463852893623
+1116,Bread Spice,37,21.2,0.75,3,1,76,463852791721
+1117,Pickling Spice,37,21.2,0.75,3,1,76,463852330579
+1118,Gingerbread Spice,37,21.2,0.75,3,1,76,463852323852
+1119,Speculaas Spice,37,21.2,0.75,3,1,76,463852327077
+1120,Apple Pie Spice,37,21.2,0.75,3,1,76,463852458003
+1121,Smoked Paprika,37,21.2,0.75,3,1,76,463852441287
+1122,Honey Cake Spice,37,21.2,0.75,3,1,76,463852393718
+1123,Lemon Pepper,37,21.2,0.75,3,1,76,463852380826
+1124,Ground Mustard,37,21.2,0.75,3,1,75,434050945092
+1125,Five Spice,37,21.2,0.75,3,1,76,463852994442
+1126,Coarse Salt,37,500,17.6,21,13,75,434050372658
+1127,Iodized Table Salt,37,500,17.6,21,13,75,434050141573
+1128,Salt & Pepper Mix,37,21.2,0.75,3,1,75,434050759999
+1129,Ground Anise,37,21.2,0.75,3,1,75,434050115807
+1130,All-Purpose Potato Seasoning,37,21.2,0.75,3,1,76,463852420882
+1131,Potato Salad Seasoning,37,21.2,0.75,3,1,76,463852879449
+1132,Whole Vanilla Beans,37,21.2,0.75,3,1,75,434050911841
+1133,Dried Soup Greens,37,21.2,0.75,3,1,76,463852224853
+1134,Dried Juniper Berries,37,21.2,0.75,3,1,76,463852291272

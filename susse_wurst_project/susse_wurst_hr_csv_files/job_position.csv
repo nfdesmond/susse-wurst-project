@@ -1,0 +1,62 @@
+1,Chief Sausage Officer,1,250000.99,450000.99,NULL
+2,Vice Sausage Officer,1,200000.99,400000.99,1
+3,Director of Human Resources,1,75000.99,95000.99,1
+4,Human Resources Manager,1,65000.99,75000.99,3
+5,Human Resources Associate,1,55000.99,65000.99,4
+6,Director of Procurement and Supply,1,85000.99,95000.99,1
+7,Procurement Officer,1,70000.99,80000.99,6
+8,Sourcing Specialist,1,65000.99,75000.99,6
+9,Inventory Curator,1,65000.99,75000.99,6
+10,Chief Technology Officer,1,95000.99,125000.99,1
+11,Director of Cybersecurity,1,90000.99,115000.99,10
+12,Data Systems Administrator,1,90000.99,115000.99,10
+13,Website Technician,1,65000.99,80000.99,10
+14,Business Analyst,1,65000.99,80000.99,2
+15,Chief Finance Officer,1,100000.99,175000.99,1
+16,Chief Investment Officer,1,100000.99,175000.99,15
+17,Finance Analyst,1,75000.99,90000.99,15
+18,Accountant,1,75000.99,90000.99,15
+19,Director of Marketing & Promotion,1,95000.99,105000.99,1
+20,Marketing Analyst,1,70000.99,90000.99,19
+21,Brand Designer,1,70000.99,90000.99,19
+22,Director of Sales,1,95000.99,105000.99,1
+23,Sales Lead,1,70000.99,90000.99,22
+24,Sales Analyst,1,65000.99,75000.99,22
+25,Director of Research & Development,1,95000.99,135000.99,1
+26,Senior Project Manager,1,85000.99,100000.99,25
+27,Research Scientist,1,85000.99,100000.99,26
+28,Brand Developer,1,80000.99,95000.99,19
+29,Chief Legal Officer,1,95000.99,125000.99,30
+30,Director of Ethics & Accountability,1,95000.99,125000.99,1
+31,Director of Data Privacy & Records Management,1,90000.99,115000.99,30
+32,Consumer Protection Specialist,1,80000.99,95000.99,30
+33,Director of Customer Support,1,80000.99,95000.99,2
+34,Customer Relations Representative,1,60000.99,75000.99,33
+35,Regional Manager,1,90000.99,125000.99,2
+38,Store Manager,2,75000.99,95000.99,35
+39,Assistant Store Manager,2,70000.99,85000.99,38
+40,After-Hours Manager,2,70000.99,85000.99,38
+41,Head Chef,2,70000.99,85000.99,38
+42,Sous Chef,2,55000.99,70000.99,41
+43,Head Butcher,2,60000.99,75000.99,38
+44,Head of Grocery Stock,2,60000.99,75000.99,38
+45,Head of Produce,2,60000.99,75000.99,38
+46,Head of Deli,2,60000.99,75000.99,38
+47,Head Custodian,2,60000.99,75000.99,38
+48,Head of Bakery,2,60000.99,75000.99,38
+49,Store Lead,3,17.99,25.99,39
+50,Produce Lead,3,17.99,25.99,45
+51,Bakery Lead,3,17.99,25.99,48
+52,Deli Lead,3,17.99,25.99,46
+53,Stock Lead,3,17.99,25.99,44
+54,Butcher Lead,3,17.99,25.99,43
+55,Store Associate,3,15.99,22.99,49
+56,Assistant Baker,3,15.99,22.99,51
+57,Sausage Crafter,3,15.99,22.99,54
+58,Pastry Clerk,3,15.99,22.99,51
+59,Produce Clerk,3,15.99,22.99,50
+60,Meat Clerk,3,15.99,22.99,54
+61,Deli Clerk,3,15.99,22.99,52
+62,Stock Clerk,3,15.99,22.99,53
+63,Custodian,3,15.99,22.99,47
+64,After-Hours Crew Member,3,15.99,22.99,40

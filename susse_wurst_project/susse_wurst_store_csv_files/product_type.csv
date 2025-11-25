@@ -1,0 +1,82 @@
+1,Brühwurst,Scalded or parboiled sausage.,5
+2,Kochwurst,Ingredients precooked before sausage formation.,5
+3,Rohwurst,Cured raw meat sausage. Can be slicable (schnittfeste) or spreadable (streichfähige).,5
+4,Hartkäse,Hard Cheese,5
+5,Weichkäse,Soft Cheese,5
+6,Halbfester Schnittkäse,Semi-Hard Cheese,5
+7,Salzlakenkäse,Brined Cheese,5
+8,Sauermilchkäse,Sour Cheese,5
+9,Aufschnitt,Cold Cut,5
+10,Speck,Bacon,5
+11,Fleischkäse Aufstrich,Meat-Based Spread,5
+12,Feinkostspezialität,Deli Specialty,5
+13,Presswurst,Brawn,5
+14,Käsezubereitung,Cheese Preparation,5
+15,Zubereitetes Fleisch,Prepared Meat,5
+16,Kartoffelsalat,Potato Salad,5
+17,Feinkostsalat,Deli Salad,5
+18,Obstsalat,Fruit Salad,5
+19,Feinkost Aufstrich und Sauce,Deli Spreads and Sauces,5
+20,Feinkost Gemüse,Deli Vegetables,5
+21,Feinkost Käse,Deli Cheese,5
+22,Würzbutter,Seasoned Butter,5
+23,Weißmehlbrot,Refined Flour Bread,4
+24,Vollkornbrot,Whole Grain Bread,4
+25,Mehrkornbrot,Multigrain Bread,4
+26,Brot des Monat,Bread of the Month,4
+27,Süsses Gebäck,Sweet Pastry,4
+28,Herzhaftes Gebäck,Savory Pastry,4
+29,Feiertagsgebäck,Holiday Pastry,4
+30,Backmischung,Baking Mix,6
+31,Trockenware,Pantry Goods and Mixes,6
+32,Getreide und Körner,Cereals and Grains,6
+33,Würzsaucen,Condiment,6
+34,Obst und Gemüsekonserven,Canned and Jarred Produce,6
+35,Marmeladen und Gelees,Preserves And Jellies,6
+36,"Fond, Brühe und Suppe",Broth Stock and Soup,6
+37,Gewürze und Würzmittel,Spices and Seasonings,6
+38,"Nüsse, Samen und Trockenfrüchte",Dried Fruits Nuts and Seeds,6
+39,Süßware,Sweets and Confections,6
+40,Öle,Oils,6
+41,"Essige, Soßen und Aromen",Vinegars Sauces and Flavorings,6
+42,Mehle,Flours,6
+43,Backzutaten,Baking Ingredients,6
+44,Gefrorenes Fleisch und Fisch,Frozen Meat and Fish,7
+45,Gefrorene Knödel,Frozen Dumplings,7
+46,Gefrorenes Gebäck,Frozen Pastry and Dessert,7
+47,Kaffee und Tee,Coffee and Tea,6
+48,Saft und Getränke,Juice and Beverage,6
+49,Fleischkonserven,Canned and Jarred Meat and Fish,6
+50,Spätzle und Schupfnudeln,Spätzle and Schupfnudel,6
+51,Rotwein,Red Wine,8
+52,Weißwein,White Wine,8
+53,Weinbrand und Schnaps,Brandy and Schnapps,8
+54,Dunkelbier,Dark Beer,9
+55,Helles,Light Beer,9
+56,Malzbier,Malt Beer,9
+57,Biermischgetränk,Beer Mix,9
+58,Äpfel,Apples,3
+59,Birnen,Pears,3
+60,Steinobst,Stone Fruit,3
+61,Zitrusfrüchte,Citrus Fruit,3
+62,Beerenobst,Berries,3
+63,Zwiebeln,Onions,3
+64,Kartoffeln,Potatoes,3
+65,Kohl,Cabbage,3
+66,Wurzelgemüse,Root Vegetables,3
+67,Fruchtgemüse,"Fruit Vegetables (e.g. squash, tomatoes, eggplant, cucumber, bell pepper, etc)",3
+68,Blattgemüse,Leafy Greens,3
+69,Frische Kräutern,Fresh Herbs,3
+70,Anderes Gemüse,Other Vegetable,3
+71,Pilze,Mushrooms,3
+72,Schweinefleisch,Pork,1
+73,Geflügelfleisch,Poultry,1
+74,Kalbsfleisch,Veal,1
+75,Rindfleisch,Beef,1
+76,Fisch und Meeresfrüchte,Fish and Seafood,1
+77,Milch,Milk,2
+78,Rahm und Butter,Cream and Butter,2
+79,Frischkäse,Fresh Cheese,2
+80,Joghurt,Yogurt,2
+81,Eier,Eggs,2
+82,Tiefkühlgerichte,Frozen Meals,7
