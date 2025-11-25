@@ -1,4 +1,4 @@
-import sw_db_application.serverconnect.mysqlconnect as mysqlconnect
+import serverconnect.mysqlconnect as mysqlconnect
 
 
 class SusseWurstConnect(mysqlconnect.MySQLDatabaseConnect):

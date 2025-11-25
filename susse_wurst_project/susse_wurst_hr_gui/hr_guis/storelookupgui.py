@@ -10,7 +10,7 @@ manager, assistant manager, and opening date.
 import webbrowser
 import tkinter as tk
 from tkinter import ttk
-from sw_db_application.sussewurstconnect.swconnect import SusseWurstConnect
+from sussewurstconnect.swconnect import SusseWurstConnect
 
 class StoreLookupGUI:
     def __init__(self, root, cxn):

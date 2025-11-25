@@ -12,7 +12,7 @@ import tkinter as tk
 import random
 from tkinter import ttk
 from datetime import date
-from sw_db_application.sussewurstconnect.swconnect import SusseWurstConnect
+from sussewurstconnect.swconnect import SusseWurstConnect
 
 
 class OnboardingGui:
