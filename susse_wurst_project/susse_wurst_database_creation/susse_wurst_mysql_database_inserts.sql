@@ -1,259 +1,17 @@
-/*****************************************************************************************
-SÜSSE WURST DATABASE SYSTEM CREATION FOR MYSQL
-
-DEVELOPER: N.F. Desmond
-DATE: November 2025
-DESCRIPTION: This script implmenents a complete MySQL database for the Süsse Wurst
-grocery store project. The overall system consists of two connected database schemas:
-  1. sw_hr - Human Resources database
-  2. sw_store - Store Inventory and Supply database
-Each schema includes data inserts for all tables along with views, stored procedures, and 
-stored functions as required. A user 'hr_associate' is also created at the end of the 
-script to be used for logging into the HR GUI application.
-*****************************************************************************************/
-
-/*********** I. DROP EXISTING DATABASES ***********/
-
-DROP DATABASE IF EXISTS sw_hr;
-DROP DATABASE IF EXISTS sw_store;
-
-
-/*********** II. CREATE HR AND STORE DATABASES ***********/
-
-CREATE DATABASE sw_hr
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_0900_ai_ci;
-
-CREATE DATABASE sw_store
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_0900_as_ci;
--- the collation for sw_store is accent-sensitive to account for the 
--- various diacritical marks used in product and manufacturer names
-
-
-/*********** III. CREATE HR TABLES ***********/
+/***************************************************
+SUSSE WURST INSERT SCRIPTS
+Generated using susse_wurst_insert_script_creator.py
+from CSV files
+****************************************************/
 
 USE sw_hr;
 
-CREATE TABLE store_region(
-  region_id          TINYINT     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  region_name        VARCHAR(25)          NOT NULL,
-  region_description VARCHAR(100)         NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the regional grouping of Süsse Wurst locations';
-
-
-CREATE TABLE location(
-  loc_id         SMALLINT        UNSIGNED     NOT NULL PRIMARY KEY,
-  loc_name       VARCHAR(50)                  NOT NULL,
-  loc_address    VARCHAR(50)                  NOT NULL,
-  loc_city       VARCHAR(25)                  NOT NULL,
-  loc_state      CHAR(2)         DEFAULT 'AZ' NOT NULL,
-  loc_zip        CHAR(5)                      NOT NULL,
-  loc_phone      CHAR(12)                     NOT NULL,
-  loc_start_date DATE                         NOT NULL,
-  region_id      TINYINT         UNSIGNED     NOT NULL,
- CONSTRAINT loc_regid_fk FOREIGN KEY (region_id) REFERENCES store_region (region_id),
- CONSTRAINT loc_state_ck CHECK (loc_state IN ('AZ', 'NV'))
-)
-ENGINE=InnoDB
-COMMENT 'Tracks corporate and store locations.';
-
-
-CREATE TABLE employee_type(
-  emp_type_id   TINYINT     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  emp_type_name VARCHAR(25)          NOT NULL,
-  emp_comp_type VARCHAR(25)          NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'A simple table to track employment variety.';
-
-
-CREATE TABLE job_position(
-  position_id    TINYINT      UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  position_title VARCHAR(50)           NOT NULL,
-  emp_type_id    TINYINT      UNSIGNED NOT NULL,
-  min_comp       DECIMAL(8,2) UNSIGNED NOT NULL,
-  max_comp       DECIMAL(8,2) UNSIGNED NOT NULL,
-  head_id        TINYINT      UNSIGNED NULL,
- CONSTRAINT position_emptypeid_fk FOREIGN KEY (emp_type_id) REFERENCES employee_type (emp_type_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks historical and current job positions at Süsse Wurst.';
-
-
-CREATE TABLE department(
-  dept_id     SMALLINT    UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  dept_name   VARCHAR(50)          NOT NULL,
-  loc_id      SMALLINT    UNSIGNED NOT NULL,
-  head_id     TINYINT	  UNSIGNED NOT NULL,
- CONSTRAINT dept_locid_fk  FOREIGN KEY (loc_id)  REFERENCES location (loc_id)          ON DELETE CASCADE,
- CONSTRAINT dept_headid_fk FOREIGN KEY (head_id) REFERENCES job_position (position_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks corporate and store-level departments.';
-
-
-CREATE TABLE employee(
-  emp_id        MEDIUMINT  UNSIGNED NOT NULL PRIMARY KEY,
-  emp_fname     VARCHAR(75)         NOT NULL,
-  emp_lname     VARCHAR(75)         NOT NULL,
-  emp_hire_date DATE                NOT NULL,
-  emp_dob       DATE                NOT NULL,
-  emp_ssn       CHAR(11)            NOT NULL,
-  emp_address   VARCHAR(75)         NOT NULL, 
-  emp_city      VARCHAR(75)         NOT NULL,
-  emp_state     CHAR(2)             NOT NULL,
-  emp_zip       CHAR(5)             NOT NULL,
-  emp_phone     CHAR(12)            NOT NULL,
- CONSTRAINT emp_ssn_uq UNIQUE (emp_ssn)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks PII for past and present employees.';
-
-
-CREATE TABLE active_employee(
-  emp_id           MEDIUMINT    UNSIGNED NOT NULL PRIMARY KEY,
-  position_id      TINYINT      UNSIGNED NOT NULL,
-  dept_id          SMALLINT     UNSIGNED NOT NULL,
-  active_emp_comp  DECIMAL(8,2) UNSIGNED NOT NULL,
-  active_emp_email VARCHAR(100)          NOT NULL,
- CONSTRAINT activeemp_empid_fk      FOREIGN KEY (emp_id)      REFERENCES employee (emp_id)           ON UPDATE CASCADE,
- CONSTRAINT activeemp_positionid_fk FOREIGN KEY (position_id) REFERENCES job_position (position_id),
- CONSTRAINT activeemp_deptid_fk     FOREIGN KEY (dept_id)     REFERENCES department (dept_id)        ON DELETE CASCADE,
- CONSTRAINT activeemp_email_uq	    UNIQUE (active_emp_email)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks additional data for current employees.';
-
-
-CREATE TABLE termination_type(
-  term_type_code TINYINT     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  term_type_name VARCHAR(25)          NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks reasons for employee termination.';
-
-
-CREATE TABLE past_employee(
-  emp_id           MEDIUMINT UNSIGNED NOT NULL PRIMARY KEY,
-  position_id      TINYINT   UNSIGNED NOT NULL,
-  dept_id          SMALLINT  UNSIGNED NOT NULL,
-  emp_term_date    DATE               NOT NULL,
-  term_type_code   TINYINT   UNSIGNED NOT NULL,
- CONSTRAINT pastemp_empid_fk      FOREIGN KEY (emp_id)      REFERENCES employee (emp_id),
- CONSTRAINT pastemp_positionid_fk FOREIGN KEY (position_id) REFERENCES job_position (position_id),
- CONSTRAINT pastemp_deptid_fk     FOREIGN KEY (dept_id)     REFERENCES department (dept_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks historical data for former Süsse Wurst employees.';
-
-
-CREATE TABLE employee_history(
-  emp_hist_id MEDIUMINT UNSIGNED      NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  emp_id      MEDIUMINT UNSIGNED      NOT NULL,
-  position_id TINYINT   UNSIGNED      NOT NULL,
-  dept_id     SMALLINT  UNSIGNED      NOT NULL,
-  start_date  DATE                    NOT NULL,
-  end_date    DATE      DEFAULT NULL,
- CONSTRAINT emphist_empid_fk      FOREIGN KEY (emp_id)      REFERENCES active_employee (emp_id),
- CONSTRAINT emphist_positionid_fk FOREIGN KEY (position_id) REFERENCES job_position (position_id),
- CONSTRAINT emphist_deptid_fk     FOREIGN KEY (dept_id)     REFERENCES department (dept_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks changes in employee data such as position, location, department, and pay.';
-
-
-CREATE TABLE position_opening(
-  opening_id  MEDIUMINT UNSIGNED      NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  position_id TINYINT   UNSIGNED      NOT NULL,
-  dept_id     SMALLINT  UNSIGNED      NOT NULL,
-  open_date   DATE                    NOT NULL,
-  close_date  DATE      DEFAULT NULL,
- CONSTRAINT opening_positionid_fk FOREIGN KEY (position_id) REFERENCES job_position (position_id),
- CONSTRAINT opening_deptid_fk     FOREIGN KEY (dept_id)     REFERENCES department (dept_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks position openings at Süsse Wurst.';
-
-
-CREATE TABLE applicant_status(
-  applicant_status_code        TINYINT     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  applicant_status_description VARCHAR(25)          NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the outcome of each job applicant.';
-
-
-CREATE TABLE applicant(
-  applicant_id      MEDIUMINT   UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  applicant_fname   VARCHAR(75)          NOT NULL,
-  applicant_lname   VARCHAR(75)          NOT NULL,
-  application_date  DATE                 NOT NULL,
-  applicant_dob     DATE                 NOT NULL,
-  applicant_ssn     CHAR(11)             NOT NULL,
-  applicant_address VARCHAR(100)         NOT NULL,
-  applicant_city    VARCHAR(75)          NOT NULL,
-  applicant_state   CHAR(2)              NOT NULL,
-  applicant_zip     CHAR(5)              NOT NULL,
-  applicant_phone   CHAR(12)             NOT NULL,
-  applicant_email   VARCHAR(100)         NOT NULL,
- CONSTRAINT app_ssn_uq       UNIQUE (applicant_ssn),
- CONSTRAINT app_email_uq     UNIQUE (applicant_email)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks applicants applying for a position at Süsse Wurst.';
-
-
-CREATE TABLE applicant_history(
-  applicant_id          MEDIUMINT UNSIGNED NOT NULL,
-  opening_id            MEDIUMINT UNSIGNED NOT NULL,
-  applicant_status_code TINYINT   UNSIGNED NOT NULL,
- PRIMARY KEY (applicant_id, opening_id),
- CONSTRAINT apphist_appid_fk      FOREIGN KEY (applicant_id)	      REFERENCES applicant (applicant_id),
- CONSTRAINT apphist_openingid_fk  FOREIGN KEY (opening_id)	      REFERENCES position_opening (opening_id),
- CONSTRAINT apphist_statuscode_fk FOREIGN KEY (applicant_status_code) REFERENCES applicant_status (applicant_status_code)
-)
-ENGINE=InnoDB
-COMMENT 'Stores historical data on applicants.';
-
-
-CREATE TABLE prospective_status(
-  prospective_status_code TINYINT     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  prospective_status      VARCHAR(25)          NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'A simple table to track status options of prospective hires.';
-
-
-CREATE TABLE prospective_hire(
-  prospective_id          SMALLINT  UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  applicant_id            MEDIUMINT UNSIGNED NOT NULL,
-  opening_id              MEDIUMINT UNSIGNED NOT NULL,
-  prospective_status_code TINYINT   UNSIGNED NOT NULL,
-  change_date             DATETIME           NOT NULL,
- CONSTRAINT prosphire_appid_fk      FOREIGN KEY (applicant_id)            REFERENCES applicant (applicant_id),
- CONSTRAINT prosphire_openingid_fk  FOREIGN KEY (opening_id)              REFERENCES position_opening (opening_id),
- CONSTRAINT prosphire_statuscode_fk FOREIGN KEY (prospective_status_code) REFERENCES prospective_status (prospective_status_code)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the current status of active applicants.';
-
-
-/*********** IV. POPULATE HR TABLES ***********/
-
-SET autocommit=0;
-
-START TRANSACTION;
 INSERT INTO store_region
 VALUES
 (1,"East Region","Scottsdale, Tempe, and Paradise Valley"),
 (2,"South Region","Mesa and Chandler"),
 (3,"West Region","Glendale, Phoenix, and Henderson");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO location
 VALUES
 (101,"Scottsdale Store","7350 North Scottsdale Road","Scottsdale","AZ","85253","480-555-5555","2012-04-16",1),
@@ -265,9 +23,7 @@ VALUES
 (707,"Glendale Store","9400 West Glendale Avenue","Glendale","AZ","85305","623-555-5555","2018-09-25",3),
 (808,"Henderson Store","650 North Steffan Street","Henderson","NV","89014","702-555-5555","2024-03-11",3),
 (999,"Corporate Office","4150 N Drinkwater Boulevard","Scottsdale","AZ","85253","480-555-5555","2012-03-05",1);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO employee_type
 VALUES
 (1,"Full Time Corporate","Salary"),
@@ -275,9 +31,7 @@ VALUES
 (3,"Part Time","Hourly"),
 (4,"Temporary","Hourly"),
 (5,"Contract","Hourly");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO job_position
 VALUES
 (1,"Chief Sausage Officer",1,250000.99,450000.99,NULL),
@@ -342,9 +96,7 @@ VALUES
 (62,"Stock Clerk",3,15.99,22.99,53),
 (63,"Custodian",3,15.99,22.99,47),
 (64,"After-Hours Crew Member",3,15.99,22.99,40);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO department
 VALUES
 (1,"Administration & Operations",999,1),
@@ -421,9 +173,7 @@ VALUES
 (72,"Paradise Valley Custodial",606,47),
 (73,"Glendale Custodial",707,47),
 (74,"Henderson Custodial",808,47);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO employee
 VALUES
 (612754,"Evelyn","Messner","2012-03-05","1968-05-17","555-55-6344","9372 NW Rosy Gem Boulevard","Paradise Valley","AZ","85253","623-555-5555"),
@@ -1188,9 +938,7 @@ VALUES
 (593192,"Mark","Poirier","2025-11-13","2008-11-12","555-55-1006","7260 E 69th Street","Tempe","AZ","85281","623-555-5555"),
 (879813,"Sheila","Lopez","2025-11-21","2008-11-17","555-55-1301","5522 NW 87th Avenue","Phoenix","AZ","85001","623-555-5555"),
 (930365,"Leanna","Michelson","2025-12-08","2007-12-26","555-55-4232","7643 NE Sinister Trail Road","Glendale","AZ","85305","480-555-5555");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO active_employee
 VALUES
 (612754,1,1,375000.06,"emessner@sussewurst.com"),
@@ -1918,18 +1666,14 @@ VALUES
 (593192,64,60,15.02,"markpoirier855@fastmail.fm"),
 (879813,57,37,15.63,"lopez_s_08@fastmail.fm"),
 (930365,55,60,15.12,"leannamichelson124@rmail.net");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO termination_type
 VALUES
 (1,"Employee Resignation"),
 (2,"Termination by Management"),
 (3,"Retirement"),
 (4,"Death");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO past_employee
 VALUES
 (980056,7,2,"2015-03-13",1),
@@ -1969,9 +1713,7 @@ VALUES
 (486990,56,18,"2025-06-18",1),
 (411883,42,52,"2025-06-30",1),
 (696686,57,41,"2025-06-27",1);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO employee_history
 VALUES
 (1,690775,5,8,"2016-07-07","2023-03-10"),
@@ -2110,9 +1852,7 @@ VALUES
 (134,285106,53,33,"2023-11-02",NULL),
 (135,628844,62,33,"2019-03-13","2024-03-25"),
 (136,628844,53,33,"2024-03-27",NULL);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO position_opening
 VALUES
 (1151,64,66,"2025-01-02","2025-01-29"),
@@ -2138,9 +1878,7 @@ VALUES
 (1171,27,3,"2025-06-09",NULL),
 (1172,42,52,"2025-06-16",NULL),
 (1173,57,41,"2025-06-23",NULL);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO applicant_status
 VALUES
 (1,"Declined Not Suited"),
@@ -2149,9 +1887,7 @@ VALUES
 (4,"Declined By Management"),
 (5,"Offer Declined"),
 (6,"Offer Accepted");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO applicant
 VALUES
 (2080,"Christina","Hedges","2025-01-05","1997-10-09","555-55-4336","16899 S Broken Heart Circle","Henderson","NV","89052","702-555-5555","hedges_27_christina@plutomail.io"),
@@ -2221,9 +1957,7 @@ VALUES
 (2190,"Wendy","Lemaire","2025-06-28","2000-01-21","555-55-8610","3058 S Slowfalls Boulevard","Ogden","UT","84401","385-555-5555","wendy.lemaire@planetmail.co"),
 (2191,"Jason","Vieira","2025-06-29","2002-09-30","555-55-6287","2452 NW Short Leg Road","Phoenix","AZ","85024","623-555-5555","j.vieira@hooray.co"),
 (2192,"Mya","Mastroianni","2025-06-30","2008-06-18","555-55-4909","5013 SE Majestic Sands Avenue","Phoenix","AZ","85027","602-555-5555","mmastro2008@iou.io");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO applicant_history
 VALUES
 (2080,1151,5),
@@ -2280,18 +2014,14 @@ VALUES
 (2184,1173,2),
 (2185,1172,2),
 (2189,1171,1);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO prospective_status
 VALUES
 (1,"Contact"),
 (2,"Interview"),
 (3,"Review"),
 (4,"Offer");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO prospective_hire
 VALUES
 (4175,2173,1173,1,"2025-06-06 17:37:13"),
@@ -2340,289 +2070,9 @@ VALUES
 (4218,2188,1173,2,"2025-07-14 15:05:34"),
 (4219,2187,1173,3,"2025-07-16 08:43:30"),
 (4220,2188,1173,3,"2025-07-18 15:02:06");
-COMMIT;
 
--- modifying JOB_POSITION to make head_id a FK to position_id
-ALTER TABLE job_position
-  ADD CONSTRAINT position_headid_fk FOREIGN KEY (head_id) REFERENCES job_position (position_id);
+USE sw_store;
 
-                              
-/*********** V. CREATE STORE TABLES ***********/
-
-USE sW_store;
-
-
-CREATE TABLE country(
-country_id               TINYINT     UNSIGNED   NOT NULL AUTO_INCREMENT PRIMARY KEY,
-official_country_name    VARCHAR(100)           NOT NULL,
-translated_official_name VARCHAR(100)           NOT NULL,
-common_country_name      VARCHAR(100)           NOT NULL,
-country_capital          VARCHAR(50)            NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the countries products are manufactured in and imported from.';
-
-
-CREATE TABLE manufacturer(
-  manu_id             SMALLINT     UNSIGNED   NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  manu_name           VARCHAR(100)            NOT NULL,
-  country_id          TINYINT      UNSIGNED   NOT NULL,
-  manu_address        VARCHAR(100)            NOT NULL,
-  manu_city           VARCHAR(100)            NOT NULL,
-  manu_postal_code    VARCHAR(10)             NOT NULL,
-  manu_state_province VARCHAR(50)             NOT NULL,
- CONSTRAINT manu_countryid_fk FOREIGN KEY (country_id) REFERENCES country (country_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks product manufacturers.';
-
-
-CREATE TABLE package_type(
-  package_type_id   TINYINT    UNSIGNED   NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  package_type_name VARCHAR(50)           NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the various package types products come in.';
-
-
-CREATE TABLE package_material(
-  material_id   TINYINT     UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  material_name VARCHAR(50)           NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the various types of packaging material.';
-
-
-CREATE TABLE product_type_category(
-  type_category_id   TINYINT     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  type_category_name VARCHAR(50)          NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks broad categories for describing product types.';
-
-
-CREATE TABLE product_type(
-  product_type_id          SMALLINT    UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  product_type_name        VARCHAR(50)          NOT NULL,
-  product_type_description VARCHAR(100)         NOT NULL,
-  type_category_id         TINYINT     UNSIGNED NOT NULL,
- CONSTRAINT prodtype_catid_fk FOREIGN KEY (type_category_id) REFERENCES product_type_category (type_category_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the type of each product.';
-
-
-CREATE TABLE project(
-  project_id                MEDIUMINT    UNSIGNED     NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  project_code_name         VARCHAR(50)               NOT NULL,
-  project_description       VARCHAR(100)              NOT NULL,
-  product_type_id           SMALLINT     UNSIGNED     NOT NULL,
-  sku			                  CHAR(9)      DEFAULT      NULL,
-  project_start_date        DATE                      NOT NULL,
-  project_expected_end_date DATE                      NOT NULL,
-  project_actual_end_date   DATE         DEFAULT      NULL,
- CONSTRAINT project_prodtypeid_fk FOREIGN KEY (product_type_id) REFERENCES product_type (product_type_id)
-)
-ENGINE=InnoDB
-COMMENT "Tracks development projects for the Amelia's Own line.";
-
-
-CREATE TABLE trial_status(
-  status_id          TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  status_name        VARCHAR(25)      NOT NULL,
-  status_description VARCHAR(100)     NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the start-to-finish stages of a project trial.';
-
-
-CREATE TABLE project_trial(
-  trial_id           INT       UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  project_id         MEDIUMINT UNSIGNED  NOT NULL,
-  status_id          TINYINT   UNSIGNED  NOT NULL,
-  status_change_date TIMESTAMP           NOT NULL,
- CONSTRAINT trial_projid_fk  FOREIGN KEY (project_id) REFERENCES project (project_id),
- CONSTRAINT trial_statid_fk  FOREIGN KEY (status_id)  REFERENCES trial_status (status_id)
-)
-ENGINE=InnoDB
-COMMENT "Tracks the various trial stages for each Amelia's Own project.";
-
-
-CREATE TABLE inventory(
-  inventory_id        MEDIUMINT   UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  inventory_item_name VARCHAR(100)          NOT NULL,
-  product_type_id     SMALLINT    UNSIGNED  NOT NULL,
-  package_size_grams  VARCHAR(5)            NOT NULL,
-  package_size_oz     VARCHAR(5)            NOT NULL,
-  package_type_id     TINYINT     UNSIGNED  NOT NULL,
-  material_id         TINYINT     UNSIGNED  NOT NULL,
-  manu_id             SMALLINT    UNSIGNED,
-  upc                 CHAR(12)              NOT NULL,
- CONSTRAINT inven_upc_uq         UNIQUE (upc),
- CONSTRAINT inven_prodtypeid_fk  FOREIGN KEY (product_type_id) REFERENCES product_type (product_type_id),
- CONSTRAINT inven_pkgtypeid_fk   FOREIGN KEY (package_type_id) REFERENCES package_type (package_type_id),
- CONSTRAINT inven_matid_fk       FOREIGN KEY (material_id)     REFERENCES package_material (material_id),
- CONSTRAINT inven_manuid_fk      FOREIGN KEY (manu_id)         REFERENCES manufacturer (manu_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks all current and past inventory sold at Süsse Wurst.';
-
-
-CREATE TABLE active_inventory(
-  active_id MEDIUMINT UNSIGNED  NOT NULL PRIMARY KEY,
-  sku       CHAR(9)             NOT NULL,
- CONSTRAINT actinven_activeid_fk FOREIGN KEY (active_id) REFERENCES inventory (inventory_id),
- CONSTRAINT actinven_sku_uq      UNIQUE (sku)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks all current inventory.';
-
-
-CREATE TABLE disco_reason(
-  disco_code        TINYINT     UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  disco_reason_name VARCHAR(50)           NOT NULL,
-  disco_reason_desc VARCHAR(100)          NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks various reasons for product discontinuation.';
-
-
-CREATE TABLE disco_inventory(
-  disco_id    MEDIUMINT UNSIGNED  NOT NULL PRIMARY KEY,
-  sku         CHAR(9)             NOT NULL,
-  disco_date  DATE                NOT NULL,
-  disco_code  TINYINT   UNSIGNED  NOT NULL,
- CONSTRAINT disco_discoid_fk FOREIGN KEY (disco_id) REFERENCES inventory (inventory_id),
- CONSTRAINT disco_sku_uq     UNIQUE (sku)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks all discontinued inventory.';
-
-
-CREATE TABLE ingredient_panel(
-  ingred_panel_id  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  active_id        MEDIUMINT UNSIGNED NOT NULL,
-  ingredient_panel TEXT               NOT NULL,
- CONSTRAINT ingredpan_activeid_fk FOREIGN KEY (active_id) REFERENCES active_inventory (active_id) ON DELETE CASCADE,
- FULLTEXT ingredpan_ingreds_ix (ingredient_panel)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the ingredient panel for each product sold at Süsse Wurst.';
-
-
-CREATE TABLE vendor(
-  vendor_id       SMALLINT     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  vendor_name     VARCHAR(100)          NOT NULL,
-  vendor_address  VARCHAR(100)          NOT NULL,
-  vendor_city     VARCHAR(100)          NOT NULL,
-  vendor_state    CHAR(2)               NOT NULL,
-  vendor_zip_code CHAR(5)               NOT NULL,
-  vendor_phone    CHAR(12)              NOT NULL,
-  vendor_website  VARCHAR(100)          NOT NULL,
- CONSTRAINT vendor_website_uq UNIQUE (vendor_website),
- CONSTRAINT vendor_name_uq    UNIQUE (vendor_name)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the various vendors Süsse Wurst orders from.';
-
-
-CREATE TABLE vendor_contact(
-  contact_id    SMALLINT     UNSIGNED      NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  vendor_id     SMALLINT     UNSIGNED      NOT NULL,
-  contact_fname VARCHAR(50)                NOT NULL,
-  contact_lname VARCHAR(50)                NOT NULL,
-  contact_phone CHAR(12)                   NOT NULL,
-  contact_email VARCHAR(100) DEFAULT NULL,
- CONSTRAINT vendcon_vendorid_fk FOREIGN KEY (vendor_id) REFERENCES vendor (vendor_id),
- CONSTRAINT vendcon_email_uq    UNIQUE (contact_email)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks contact information for vendor representatives.';
-
-
-CREATE TABLE ingredient_category(
-  ingred_cat_id   TINYINT     UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  ingred_cat_name VARCHAR(50)           NOT NULL
-)
-ENGINE=InnoDB
-COMMENT 'Tracks broad categories for cataloguing in-store ingredients.';
-
-
-CREATE TABLE store_ingredient(
-  store_ingred_id   SMALLINT     UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  store_ingred_name VARCHAR(100)          NOT NULL,
-  ingred_cat_id     TINYINT      UNSIGNED NOT NULL,
- CONSTRAINT storeingred_catid_fk FOREIGN KEY (ingred_cat_id) REFERENCES ingredient_category (ingred_cat_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks ingredients used for store-made products.';
-
-
-CREATE TABLE inventory_location(
-  loc_id      SMALLINT  UNSIGNED NOT NULL,
-  active_id   MEDIUMINT UNSIGNED NOT NULL,
-  aisle_num   VARCHAR(2)         NOT NULL,
-  aisle_side  CHAR(1)            NOT NULL,
-  bay_num     VARCHAR(2)         NOT NULL,
-  cubby_num   VARCHAR(2)         NOT NULL,
-  row_num     CHAR(1)            NOT NULL,
- PRIMARY KEY (loc_id, active_id),
- CONSTRAINT invenloc_locid_fk    FOREIGN KEY (loc_id)      REFERENCES sw_hr.location (loc_id) ON DELETE CASCADE,
- CONSTRAINT invenloc_activeid_fk FOREIGN KEY (active_id)   REFERENCES active_inventory (active_id)
-)
-ENGINE=InnoDB
-COMMENT 'Tracks the aisle location of each inventory item at any Süsse Wurst store.';
-
-
-CREATE TABLE inventory_order(
-  order_id      INT       UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  dept_id       SMALLINT  UNSIGNED NOT NULL,
-  emp_id        MEDIUMINT UNSIGNED NOT NULL,
-  order_date    DATETIME           NOT NULL,
- CONSTRAINT order_deptid_fk FOREIGN KEY (dept_id)       REFERENCES sw_hr.department (dept_id)     ON DELETE CASCADE,
- CONSTRAINT order_empid_fk  FOREIGN KEY (emp_id)        REFERENCES sw_hr.active_employee (emp_id) ON DELETE CASCADE
-)
-ENGINE=InnoDB
-COMMENT 'Tracks all orders placed in-store for ingredient supplies.';
-
-
-CREATE TABLE store_order_item(
-  order_id        INT          UNSIGNED NOT NULL,
-  store_ingred_id SMALLINT     UNSIGNED NOT NULL,
-  vendor_id       SMALLINT     UNSIGNED NOT NULL,
-  item_quantity   SMALLINT     UNSIGNED NOT NULL,
-  vendor_price    DECIMAL(6,2) NOT NULL,
- PRIMARY KEY (order_id, store_ingred_id),
- CONSTRAINT storeorder_orderid_fk  FOREIGN KEY (order_id)        REFERENCES inventory_order (order_id),
- CONSTRAINT storeorder_ingredid_fk FOREIGN KEY (store_ingred_id) REFERENCES store_ingredient (store_ingred_id),
- CONSTRAINT storeorder_quantity_ck CHECK (item_quantity > 0),
- CONSTRAINT storeorder_price_ck    CHECK (vendor_price > 0.0)
-)
-ENGINE=InnoDB
-COMMENT "Tracks each in-store order's line item.";
-
-
-CREATE TABLE dist_order_item(
-  order_id      INT          UNSIGNED NOT NULL,
-  active_id     MEDIUMINT    UNSIGNED NOT NULL,
-  vendor_id     SMALLINT     UNSIGNED NOT NULL,
-  item_quantity SMALLINT     UNSIGNED NOT NULL,
-  vendor_price  DECIMAL(6,2) NOT NULL,
- PRIMARY KEY (order_id, active_id),
- CONSTRAINT distorder_orderid_fk  FOREIGN KEY (order_id)  REFERENCES inventory_order (order_id),
- CONSTRAINT distorder_activeid_fk FOREIGN KEY (active_id) REFERENCES active_inventory (active_id),
- CONSTRAINT distorder_quantity_ck CHECK (item_quantity > 0),
- CONSTRAINT distorder_price_ck    CHECK (vendor_price > 0.0)
-)
-ENGINE=InnoDB
-COMMENT "Tracks each inventory order's line item.";
-
-
-/*********** VI. POPULATE STORE TABLES ***********/
-
-SET autocommit=0;
-
-START TRANSACTION;
 INSERT INTO country
 VALUES
 (1,"Bundesrepublik Deutschland","Federal Republic of Germany","Germany","Berlin"),
@@ -2630,9 +2080,7 @@ VALUES
 (3,"Rzeczpospolita Polska","Republic of Poland","Poland","Warsaw"),
 (4,"Schweizerische Eidgenossenschaft","Swiss Confederation","Switzerland","Bern"),
 (5,"United States of America","United States of America","United States","Washington D.C.");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO manufacturer
 VALUES
 (1,"Berggipfel Metzger",1,"Breslauer Straße 5","Tuttlingen","78532","Baden-Württemberg"),
@@ -2717,10 +2165,8 @@ VALUES
 (80,"Aroldingen",1,"Warliner Straße 8","Neubrandenburg","17034","Mecklenburg-Vorpommern"),
 (81,"Mit Liebe Gemachtes Gebäck",2,"Herbststraße 115","Wien",1160,"Wien"),
 (82,"Bäckerei Dorn",1,"Dieselstraße 10","Bitburg","54634","Rhineland-Palatinate"),
-(83,"Süsse Wurst",5,"7350 N Scottsdale Road","Scottsdale","85253","Arizona");
-COMMIT;
+(83,"Susse Wurst",5,"7350 N Scottsdale Road","Scottsdale","85253","Arizona");
 
-START TRANSACTION;
 INSERT INTO package_type
 VALUES
 (1,"Bag"),
@@ -2746,9 +2192,7 @@ VALUES
 (21,"Crate"),
 (22,"Shrinkwrapped Tray"),
 (101,"No Packaging: Individual item");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO package_material
 VALUES
 (1,"Glass"),
@@ -2766,9 +2210,7 @@ VALUES
 (13,"Cardboard and aluminum"),
 (14,"Paper and aluminum"),
 (101,"No Material: Product has no packaging");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO product_type_category
 VALUES
 (1,"Meat and Seafood"),
@@ -2780,9 +2222,7 @@ VALUES
 (7,"Frozen"),
 (8,"Wine & Spirits"),
 (9,"Beer & Ale");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO product_type
 VALUES
 (1,"Brühwurst","Scalded or parboiled sausage.",5),
@@ -2867,9 +2307,7 @@ VALUES
 (80,"Joghurt","Yogurt",2),
 (81,"Eier","Eggs",2),
 (82,"Tiefkühlgerichte","Frozen Meals",7);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO project
 VALUES
 (42,"Starwind","Amelia's Own Quince Jam",35,"AMLOWN001","2018-04-16","2019-04-22","2019-03-19"),
@@ -2892,9 +2330,7 @@ VALUES
 (121,"Unmarried Mother","Amelia's Own Bread Dumpling Mix (Semmelklosse)",31,NULL,"2025-08-18","2026-08-24",NULL),
 (122,"Gliese","Amelia's Own Pork Meatballs (Frozen)",44,NULL,"2025-09-15","2026-09-21",NULL),
 (123,"Rico","Amelia's Own Frozen Custard",31,NULL,"2027-02-08","2028-02-14",NULL);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO trial_status
 VALUES
 (1,"Continuing","Currently in development."),
@@ -2902,9 +2338,7 @@ VALUES
 (3,"Feedback","Testing commenced, awaiting final review."),
 (4,"Approved","Project result was accepted."),
 (5,"Dropped","Project has been dropped.");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO project_trial
 VALUES
 (275,42,1,"2018-04-18"),
@@ -2956,9 +2390,7 @@ VALUES
 (321,113,3,"2024-12-20"),
 (322,113,4,"2025-02-03"),
 (323,112,4,"2025-03-21");
-COMMIT; 
 
-START TRANSACTION;
 INSERT INTO inventory
 VALUES
 (1,"Zervelatwurst Whole",3,340,12,13,4,1,880747863693),
@@ -4095,9 +3527,7 @@ VALUES
 (1132,"Whole Vanilla Beans",37,21.2,0.75,3,1,75,434050911841),
 (1133,"Dried Soup Greens",37,21.2,0.75,3,1,76,463852224853),
 (1134,"Dried Juniper Berries",37,21.2,0.75,3,1,76,463852291272);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO active_inventory
 VALUES
 (1,"IMDELI001"),
@@ -5229,18 +4659,14 @@ VALUES
 (1132,"AMLOWN228"),
 (1133,"AMLOWN229"),
 (1134,"AMLOWN230");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO disco_reason
 VALUES
 (1,"Lack of sales","Low volume sales and movement"),
 (2,"Did not meet standards","Didn't meet nutritional, ingredient, and packaging standards set by Susse Wurst"),
 (3,"No longer produced","Manufacturer no longer makes/sells this item"),
 (4,"Ingredient sourcing difficulty","Ingredient(s) used in making product no longer feasibly obtainable");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO disco_inventory
 VALUES
 (619,"IMDRYG117","2015-07-13",1),
@@ -5248,9 +4674,7 @@ VALUES
 (1067,"AMLOWN163","2018-07-21",1),
 (620,"IMDRYG118","2019-07-22",3),
 (621,"IMDRYG119","2019-07-08",3);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO ingredient_panel
 VALUES
 (1,1,"minced pork, minced beef, minced bacon (pork belly, curing salt, sugar), brandy, honey, ground black peppercorns, curing salt"),
@@ -6101,9 +5525,7 @@ VALUES
 (846,1132,"dried vanilla beans"),
 (847,1133,"dried leeks, dried onions, dried carrots, dried kale, dried parsley, dried lovage"),
 (848,1134,"dried juniper berries");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO vendor
 VALUES
 (1,"Peltruna European Fare","18 N Bagglo Street","Bridgeton","NJ","08302","856-555-5555","https://www.pef.io"),
@@ -6130,9 +5552,7 @@ VALUES
 (22,"Delane International Wines & Spirits","2400 North Point Road","Dundalk","MD","21222","410-555-5555","https://www.delaneinternational.com"),
 (23,"Western Beer Imports","2233 S 7th Street","Phoenix","AZ","85034","602-555-5555","https://www.phxbeer.com"),
 (24,"Phoenix Restaurant & Retail Emporium","2938 N 16th Street","Phoenix","AZ","85016","480-555-5555","https://www.phxrre.co");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO vendor_contact
 VALUES
 (1,1,"Karin","Schneider","856-555-5555","kschneider@peltrunacorp.com"),
@@ -6159,9 +5579,7 @@ VALUES
 (22,22,"Deborah","Lyons","410-555-5555","dlyons@delanecorp.com"),
 (23,23,"Nicola","Vega","602-555-5555","nicola.vega@phxbeer.com"),
 (24,24,"Anderson","Fallon","602-555-5555","fallon@phxrrecorp.io");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO ingredient_category
 VALUES
 (1,"Meat and Seafood"),
@@ -6171,9 +5589,7 @@ VALUES
 (5,"Flavorings and Additives"),
 (6,"Delicatessan"),
 (7,"Wine and Beer");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO store_ingredient
 VALUES
 (1,"ale, dark",7),
@@ -6326,9 +5742,7 @@ VALUES
 (148,"flour, wheat, whole grain",4),
 (149,"flour, wheat, pastry, refined unbleached",4),
 (150,"yeast, dried",4);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO inventory_location
 VALUES
 (101,866,1,"A",1,1,1),
@@ -11355,9 +10769,7 @@ VALUES
 (808,901,8,"A",7,3,3),
 (808,903,8,"A",7,4,1),
 (808,902,8,"A",7,4,2);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO inventory_order
 VALUES
 (5671,42,589806,"2025-03-28 08:21:24"),
@@ -11389,9 +10801,7 @@ VALUES
 (5700,19,660891,"2025-04-01 20:55:17"),
 (5701,27,921517,"2025-04-01 21:38:12"),
 (5702,50,377064,"2025-04-01 22:31:50");
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO store_order_item
 VALUES
 (5671,3,8,4,10.99),
@@ -11448,9 +10858,7 @@ VALUES
 (5702,65,7,10,3.99),
 (5702,46,10,5,5.99),
 (5702,58,9,5,6.99);
-COMMIT;
 
-START TRANSACTION;
 INSERT INTO dist_order_item
 VALUES
 (5672,9,5,10,49.99),
@@ -11515,740 +10923,4 @@ VALUES
 (5701,525,6,75,6.99),
 (5701,553,4,100,3.5),
 (5701,554,4,100,3.5);
-COMMIT;
 
-/*********** VII. CREATE VIEWS, FUNCTIONS, AND STORED PROCEDURES ***********/
-
-USE sw_hr;
-
-/*** HR FUNCTIONS ***/
--- get current month
--- get current day
--- get current year
--- age display
--- get employee department
--- get department head 
--- get employee manager
-
-
--- get current month
-DROP FUNCTION IF EXISTS func_current_month;
-
-DELIMITER //
-CREATE FUNCTION IF NOT EXISTS func_current_month()
-RETURNS TINYINT
-DETERMINISTIC
-READS SQL DATA
-COMMENT 'Returns the current month numeral.'
-BEGIN
-	DECLARE month_var TINYINT;
-    
-    SELECT MONTH(CURRENT_DATE())
-    INTO month_var;
-    
-    RETURN month_var;
-END//
-DELIMITER ;
-
-
--- get current day
-DROP FUNCTION IF EXISTS func_current_day;
-
-DELIMITER //
-CREATE FUNCTION IF NOT EXISTS func_current_day()
-RETURNS TINYINT
-DETERMINISTIC
-READS SQL DATA
-COMMENT 'Returns the current day.'
-BEGIN
-	DECLARE day_var TINYINT;
-    
-    SELECT DAY(CURRENT_DATE())
-    INTO day_var;
-    
-    RETURN day_var;
-END//
-DELIMITER ;
-
-
--- get current year
-DELIMITER //
-CREATE FUNCTION IF NOT EXISTS func_current_year()
-RETURNS INT
-DETERMINISTIC
-READS SQL DATA
-COMMENT 'Returns the current year.'
-BEGIN
-	DECLARE current_year_var INT;
-    SELECT YEAR(CURRENT_DATE())
-    INTO current_year_var;
-    
-    RETURN current_year_var;
-END//
-DELIMITER ;
-
-
--- age display
-DROP FUNCTION IF EXISTS func_get_age;
-
-DELIMITER //
-CREATE FUNCTION IF NOT EXISTS func_get_age
-(
-	orig_date_param DATE
-)
-RETURNS VARCHAR(100)
-NOT DETERMINISTIC 
-READS SQL DATA
-COMMENT 'Subtracts a given date from the current date and returns the age in years, months, and days.'
-BEGIN
-	DECLARE years_var INT;
-    DECLARE months_var TINYINT;
-    DECLARE days_var TINYINT;
-    
-    SELECT FLOOR(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))/12),
-			     MOD(PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m')), 12),
-           DATEDIFF(CURRENT_DATE(), DATE_ADD(orig_date_param, INTERVAL (PERIOD_DIFF(DATE_FORMAT(CURRENT_DATE(), '%Y%m'), DATE_FORMAT(orig_date_param, '%Y%m'))) MONTH))
-
-	  INTO years_var, months_var, days_var;
-    
-    RETURN CONCAT(years_var,' years ', months_var,' months ', ABS(days_var), ' days');
-END//
-DELIMITER ;
-
--- get employee department
-DROP FUNCTION IF EXISTS func_get_emp_dept;
-
-DELIMITER //
-CREATE FUNCTION IF NOT EXISTS func_get_emp_dept(emp_num INT)
-RETURNS TINYINT
-DETERMINISTIC
-READS SQL DATA
-COMMENT 'Gets the department ID of the employee with the given employee ID.'
-BEGIN
-	DECLARE dept_num TINYINT;
-    
-	SELECT dept_id
-    INTO dept_num
-    FROM active_employee
-    WHERE emp_id = emp_num;
-    
-    RETURN dept_num;
-END//
-DELIMITER ;
-
--- get department head
-DROP FUNCTION IF EXISTS func_get_dept_head;
-
-DELIMITER //
-CREATE FUNCTION IF NOT EXISTS func_get_dept_head(dept_num TINYINT)
-RETURNS TINYINT
-DETERMINISTIC
-READS SQL DATA
-COMMENT 'Returns the job ID assigned to manage a given department.'
-BEGIN
-	DECLARE mgr_id TINYINT;
-    
-    SELECT head_id
-    INTO mgr_id
-    FROM department
-    WHERE dept_id = dept_num;
-    
-    RETURN mgr_id;
-END//
-DELIMITER ;
-
--- get employee manager
-DROP FUNCTION IF EXISTS func_emp_mgr;
-
-DELIMITER //
-CREATE FUNCTION IF NOT EXISTS func_emp_mgr(emp_num INT)
-RETURNS VARCHAR(100)
-DETERMINISTIC
-READS SQL DATA
-COMMENT 'Returns name of manager for a given employee.'
-BEGIN
-	DECLARE mgr_name VARCHAR(100);
-    
-    SELECT CONCAT(e.emp_fname,' ', e.emp_lname)
-    INTO mgr_name
-    FROM employee e
-    JOIN active_employee a ON a.emp_id = e.emp_id
-    WHERE a.dept_id = func_get_emp_dept(emp_num)
-    AND a.position_id = func_get_dept_head(func_get_emp_dept(emp_num));
-    
-    RETURN mgr_name;
-END//
-DELIMITER ;
-
-
-/*** STORED PROCEDURES ***/
-
--- insert new employee
--- insert active employee
--- bundled onboarding procedure
--- delete employee
--- past employee insert
--- bundled offboarding procedure
--- update employee procedure
-
-
--- insert into employee table
-DROP PROCEDURE IF EXISTS sp_employee_insert;
-
-DELIMITER //
-CREATE PROCEDURE sp_employee_insert
-(
-	IN id_var INT,
-    IN fname_var VARCHAR(75),
-    IN lname_var VARCHAR(75),
-    IN hiredate_var DATE,
-    IN dob_var DATE,
-    IN ssn_var CHAR(11),
-    IN address_var VARCHAR(75),
-    IN city_var VARCHAR(75),
-    IN state_var CHAR(2),
-    IN zip_var CHAR(5),
-    IN phone_var CHAR(12),
-    OUT emp_insert_msg BOOL
-)
-COMMENT 'Inserts a new employee into the EMPLOYEE table.'
-
-BEGIN
-	DECLARE insert_error BOOL DEFAULT FALSE;
-    
-    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
-		SET insert_error = TRUE;
-    
-        
-	START TRANSACTION;
-		INSERT INTO employee
-        (emp_id, emp_fname, emp_lname, emp_hire_date, emp_dob, emp_ssn,
-         emp_address, emp_city, emp_state, emp_zip, emp_phone)
-		VALUES (id_var, fname_var, lname_var, hiredate_var, dob_var, ssn_var,
-                       address_var, city_var, state_var, zip_var, phone_var);
-		
-        IF insert_error = FALSE THEN
-			COMMIT;
-            SET emp_insert_msg = TRUE;
-		ELSE
-			ROLLBACK;
-            SET emp_insert_msg = FALSE;
-		END IF;
-END//
-DELIMITER ;
-
-
-
--- insert into active employee
-DROP PROCEDURE IF EXISTS sp_active_emp_insert;
-
-DELIMITER //
-CREATE PROCEDURE IF NOT EXISTS sp_active_emp_insert
-(
-    IN empid_var INT, 
-    IN jobid_var TINYINT,
-    IN deptid_var TINYINT,
-    IN empcomp_var DECIMAL(8,2),
-    IN email_var VARCHAR(100),
-    OUT active_emp_insert_msg BOOL 
-)
-COMMENT 'Inserts a new employee into the ACTIVE_EMPLOYEE table.'
-
-BEGIN
-    DECLARE insert_error BOOL DEFAULT FALSE;
-
-    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
-        SET insert_error = TRUE;
-
-    START TRANSACTION;
-        INSERT INTO active_employee
-            (emp_id, position_id, dept_id, active_emp_comp, active_emp_email)
-        VALUES (empid_var, jobid_var, deptid_var, empcomp_var, email_var);
-
-        IF insert_error = FALSE THEN
-			COMMIT;
-            SET active_emp_insert_msg = TRUE;
-		ELSE
-			ROLLBACK;
-            SET active_emp_insert_msg = FALSE;
-		END IF;
-END//
-DELIMITER;
-
-
--- bundled onboarding procedure
-DROP PROCEDURE IF EXISTS sp_employee_onboard;
-
-DELIMITER //
-CREATE PROCEDURE sp_employee_onboard
-(
-	IN id_var INT,
-    IN fname_var VARCHAR(75),
-    IN lname_var VARCHAR(75),
-    IN hiredate_var DATE,
-    IN dob_var DATE,
-    IN ssn_var CHAR(11),
-    IN address_var VARCHAR(75),
-    IN city_var VARCHAR(75),
-    IN state_var CHAR(2),
-    IN zip_var CHAR(5),
-    IN phone_var CHAR(12),
-    IN jobid_var TINYINT,
-    IN deptid_var TINYINT,
-    IN empcomp_var DECIMAL(8,2),
-    IN email_var VARCHAR(100),
-    OUT sp_status VARCHAR(100)
-)
-COMMENT 'Inserts a new employee into the EMPLOYEE and ACTIVE_EMPLOYEE tables.'
-
-BEGIN
-    CALL sp_employee_insert(
-        id_var, fname_var, lname_var, hiredate_var, dob_var, ssn_var,
-        address_var, city_var, state_var, zip_var, phone_var, @emp_insert_msg
-    );
-    
-    IF @emp_insert_msg THEN
-		CALL sp_active_emp_insert(id_var, jobid_var, deptid_var, empcomp_var, email_var, @active_emp_insert_msg);
-        IF @active_emp_insert_msg THEN
-			SET sp_status = 'New employee onboarded successfully.';
-		ELSE
-			SET sp_status = 'An error occurred. Active employees has not been updated.';
-		END IF;
-	ELSE
-		SET sp_status = 'An error occurred. The transaction was not completed.';
-	END IF;
-END//
-DELIMITER ;
-
-
--- delete active employee
-DROP PROCEDURE IF EXISTS sp_employee_delete;
-
-DELIMITER //
-CREATE PROCEDURE IF NOT EXISTS sp_employee_delete
-(
-    IN id_var INT,
-    OUT emp_delete_msg BOOL
-)
-COMMENT 'Removes an employee from the ACTIVE_EMPLOYEE table.'
-
-BEGIN
-    DECLARE delete_error BOOL DEFAULT FALSE;
-
-    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
-        SET delete_error = TRUE;
-    
-    START TRANSACTION;
-        DELETE FROM active_employee 
-        WHERE emp_id = id_var;
-
-        IF delete_error = FALSE THEN
-            COMMIT;
-            SET emp_delete_msg = TRUE;
-        ELSE
-            ROLLBACK;
-            SET emp_delete_msg = FALSE;
-        END IF;  
-END//
-DELIMITER ;
-
-
--- past employee insert
-DROP PROCEDURE IF EXISTS sp_employee_delete;
-
-DELIMITER //
-CREATE PROCEDURE IF NOT EXISTS sp_past_employee_insert
-(
-    IN id_var INT,
-    IN jobid_var TINYINT,
-    IN deptid_var TINYINT,
-    IN term_date_var DATE,
-    IN termid_var TINYINT,
-    OUT past_insert_msg BOOL 
-)
-COMMENT 'Adds recently removed employee to the PAST_EMPLOYEE table.'
-BEGIN
-    DECLARE insert_error BOOL DEFAULT FALSE;
-
-    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
-        SET past_insert_msg = TRUE;
-    
-    START TRANSACTION;
-        INSERT INTO past_employee
-        (
-            emp_id,
-            position_id,
-            dept_id,
-            emp_term_date,
-            term_type_code
-        )
-        VALUES 
-        (
-            id_var,
-            jobid_var,
-            deptid_var,
-            term_date_var,
-            termid_var
-        );
-
-        IF insert_error = FALSE THEN
-            COMMIT;
-            SET past_insert_msg = TRUE;
-        ELSE
-            ROLLBACK;
-            SET past_insert_msg = FALSE;
-        END IF;
-END//
-DELIMITER ;
-
--- bundled offboarding procedure
-DROP PROCEDURE IF EXISTS sp_offboard_employee;
-
-DELIMITER //
-CREATE PROCEDURE IF NOT EXISTS sp_offboard_employee
-(
-    IN id_var INT,
-    IN jobid_var TINYINT,
-    IN deptid_var TINYINT,
-    IN term_date_var DATE,
-    IN termid_var TINYINT
-)
-COMMENT 'Used to offboard terminated employees.'
-BEGIN
-    DECLARE fname VARCHAR(75);
-    DECLARE lname VARCHAR(75);
-    DECLARE emp_full_name VARCHAR(200);
-
-
-    -- get name of employee being offboarded
-    SELECT emp_fname,
-           emp_lname
-    INTO fname,
-         lname 
-    FROM employee 
-    WHERE emp_id = id_var;
-
-    SET emp_full_name = CONCAT(lname,', ',fname);
-
-    CALL sp_past_employee_insert
-    (
-        id_var,
-        jobid_var,
-        deptid_var,
-        term_date_var,
-        termid_var,
-        @past_insert_msg
-    );
-
-    IF @past_insert_msg THEN
-        CALL sp_employee_delete
-        (
-            id_var,
-            @emp_delete_msg
-        );
-
-        IF @emp_delete_msg THEN
-            SELECT CONCAT('Employee ', emp_full_name, ' has been offboarded.') AS "OFFBOARDING STATUS";
-        ELSE
-            SELECT 'There was an error. Deletion was not complete.' AS "OFFBOARDING STATUS";
-        END IF;
-    ELSE
-        SELECT 'There was an error. Offboarding was not complete.' AS "OFFBOARDING STATUS";
-    END IF;
-
-END//
-DELIMITER ;
-
--- update employee procedure
-DROP PROCEDURE IF EXISTS sp_update_employee;
-
-DELIMITER //
-CREATE PROCEDURE IF NOT EXISTS sp_update_employee
-(
-    IN empid_var INT,
-    IN column_name_var VARCHAR(25),
-    IN update_string_var VARCHAR(75)
-)
-COMMENT 'Used to update employee data.'
-BEGIN
-	DECLARE update_error BOOL DEFAULT FALSE;
-    
-    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
-		SET update_error = TRUE;
-    
-	SET @update_column = column_name_var;
-    
-    IF @update_column = 'emp_hire_date' OR @update_column = 'emp_dob' THEN
-		SET update_string_var = CAST(update_string_var AS DATE);
-	END IF;
-    
-    SET @update_query = CONCAT('UPDATE employee SET ', @update_column, ' = ? WHERE emp_id = ?');
-	
-    PREPARE update_stmt 
-    FROM @update_query;
-	
-    SET @empid = empid_var;
-	SET @update_value = update_string_var;
-	
-    START TRANSACTION;
-		EXECUTE update_stmt 
-		USING @update_value, @empid;
-        
-        IF update_error = FALSE THEN
-			COMMIT;
-			SELECT 'The employee data was updated successfully' AS "UPDATE STATUS";
-            DEALLOCATE PREPARE update_stmt;     
-		ELSE
-			ROLLBACK;
-            SELECT 'An error occurred, the update was not completed.' AS "UPDATE STATUS";
-            DEALLOCATE PREPARE update_stmt;
-		END IF;
-END//
-DELIMITER ;
-
-
-/*** HR VIEWS ***/
--- view monthly birthdays
--- view today's birthdays
--- view current employee roster
--- view managers and departments
--- view positions and departments
--- view stores
--- view employee count by state
--- view employee info
-
-
--- monthly birthday view
-DROP VIEW IF EXISTS view_monthly_birthdays;
-
-CREATE OR REPLACE VIEW view_monthly_birthdays AS
-    SELECT CONCAT(e.emp_lname,', ',e.emp_fname) AS "EMPLOYEE",
-            j.position_title AS "JOB_TITLE",
-            d.dept_name AS "DEPARTMENT",
-            CONCAT(MONTH(e.emp_dob),'/',DAY(e.emp_dob)) AS "BIRTHDAY"
-    FROM employee e 
-    JOIN active_employee a ON a.emp_id = e.emp_id
-    JOIN department d ON a.dept_id = d.dept_id
-    JOIN job_position j ON a.position_id = j.position_id
-    WHERE MONTH(e.emp_dob) = func_current_month()
-    ORDER BY DAY(e.emp_dob), e.emp_lname, e.emp_fname;
-
-
--- daily birthday view
-DROP VIEW IF EXISTS view_daily_birthdays;
-
-CREATE OR REPLACE VIEW view_daily_birthdays AS
-    SELECT CONCAT(e.emp_lname,', ',e.emp_fname) AS "EMPLOYEE",
-            j.position_title AS "JOB_TITLE",
-            d.dept_name AS "DEPARTMENT",
-            CONCAT(MONTH(e.emp_dob),'/',DAY(e.emp_dob)) AS "BIRTHDAY"
-    FROM employee e 
-    JOIN active_employee a ON a.emp_id = e.emp_id
-    JOIN department d ON a.dept_id = d.dept_id
-    JOIN job_position j ON a.position_id = j.position_id
-    WHERE CONCAT(MONTH(e.emp_dob),'/',DAY(e.emp_dob)) = CONCAT(func_current_month(),'/',func_current_day())
-    ORDER BY e.emp_lname, e.emp_fname;
-
-
--- current employees view
-DROP VIEW IF EXISTS view_active_employees;
-
-CREATE OR REPLACE VIEW view_active_employees AS
-    SELECT e.emp_id AS "EMP_ID",
-           e.emp_fname AS "EMP_FNAME",
-           e.emp_lname AS "EMP_LNAME",
-           j.position_id AS "JOB_ID",
-           j.position_title AS "JOB_TITLE",
-           d.dept_id AS "DEPT_ID",
-           d.dept_name AS "DEPT_NAME"
-    FROM employee e
-    JOIN active_employee a ON a.emp_id = e.emp_id
-    JOIN department d ON a.dept_id = d.dept_id
-    JOIN job_position j ON j.position_id = a.position_id
-    ORDER BY e.emp_hire_date;
-
-
--- managers and departments
--- This view matches all managers with their respective departments. Some managers head a department. 
--- Some managers have managers that aren't in the same department as them. Some manager roles can be 
--- found in more than one department, as is the case with the various store departments. The view 
--- breaks down each manager/department scenario using a CTE, then combines them with UNION to form
--- a single result set. 
-
-DROP VIEW IF EXISTS view_mgrs_and_depts;
-
-CREATE OR REPLACE VIEW view_mgrs_and_depts AS
-    WITH 
-        -- find all managers who answer to the CSO or who are the CSO
-        sw_csuite AS
-            (SELECT position_id,
-                    position_title,
-                    head_id
-            FROM job_position
-            WHERE head_id = 1 OR head_id IS NULL),
-        
-        -- find all managers who answer to top managers
-        middle_mgmt AS
-            (SELECT position_id,
-                    position_title,
-                    head_id
-            FROM job_position
-            WHERE position_id IN (SELECT head_id
-                                  FROM job_position
-                                  WHERE head_id IS NOT NULL)
-            AND position_id NOT IN (SELECT position_id
-                                    FROM sw_csuite)),
-
-        -- combine top managers and middle managers
-        sw_mgmt AS
-            (SELECT *
-             FROM sw_csuite
-             UNION
-             SELECT *
-             FROM middle_mgmt),
-
-        -- match managers with explicit department connections
-        mgr_with_dept AS
-            (SELECT m.position_id,
-                    m.position_title,
-                    m.head_id,
-                    d.dept_id,
-                    d.dept_name
-            FROM sw_mgmt m
-            LEFT OUTER JOIN department d ON m.position_id = d.head_id
-            WHERE d.dept_id IS NOT NULL),
-            
-        -- find managers with no explicit department connection
-        mgr_no_dept AS
-            (SELECT m.position_id,
-                    m.position_title,
-                    m.head_id,
-                    d.dept_id,
-                    d.dept_name
-            FROM sw_mgmt m
-            LEFT OUTER JOIN department d ON m.position_id = d.head_id
-            WHERE d.dept_id IS NULL),
-        
-        -- connect unmatched managers to the departments of their managers
-        matched_mgrs AS
-            (SELECT m.position_id,
-                    m.position_title,
-                    d.dept_id,
-                    d.dept_name
-            FROM mgr_no_dept m
-            LEFT OUTER JOIN department d ON d.head_id = m.head_id
-            WHERE d.dept_id IS NOT NULL),
-
-        -- managers who have unmatched managers (who are now matched using matched_mgrs CTE)
-        final_mgrs AS
-            (SELECT m.position_id,
-                    m.position_title,
-                    m.head_id,
-                    d.dept_id,
-                    d.dept_name
-            FROM mgr_no_dept m
-            LEFT OUTER JOIN department d ON d.head_id = m.head_id
-            WHERE d.dept_id IS NULL),
-
-        -- managers now matched to the departments of their previously unmatched managers
-        matched_final_mgrs AS
-            (SELECT m.position_id,
-                    m.position_title,
-                    n.dept_id,
-                    n.dept_name
-            FROM final_mgrs m
-            JOIN matched_mgrs n ON m.head_id = n.position_id)
-
-        -- combine it all using UNION
-    SELECT position_id, position_title, dept_id, dept_name FROM mgr_with_dept
-    UNION
-    SELECT * FROM matched_mgrs
-    UNION
-    SELECT * FROM matched_final_mgrs
-    ORDER BY position_id;
-
-
--- job positions and their departments
-DROP VIEW IF EXISTS view_jobs_and_depts;
-
-CREATE OR REPLACE VIEW view_jobs_and_depts AS
-    SELECT p.position_id,
-           p.position_title,
-           v.dept_id,
-           v.dept_name
-    FROM job_position p 
-    JOIN view_mgrs_and_depts v ON p.head_id = v.position_id
-    WHERE p.position_id NOT IN (SELECT position_id
-                                FROM view_mgrs_and_depts)
-    UNION
-    SELECT *
-    FROM view_mgrs_and_depts
-    ORDER BY position_id;
-
-
--- store view
-DROP VIEW IF EXISTS view_stores;
-
-CREATE OR REPLACE VIEW view_stores AS
-    SELECT l.loc_name AS "store_name",
-           l.loc_id AS "store_num",
-           CONCAT(l.loc_address, ', ', l.loc_city,', ', l.loc_state,', ', l.loc_zip) AS "store_address",
-           l.loc_phone AS "store_phone",
-           CONCAT(e.emp_fname,' ', e.emp_lname) AS "store_manager",
-           a.active_emp_email AS "mgr_email",
-           CONCAT(ee.emp_fname,' ', ee.emp_lname) AS "asst_manager",
-           aa.active_emp_email AS "asst_mgr_email",
-           DATE_FORMAT(l.loc_start_date,'%m/%d/%Y') AS "store_start_date",
-           func_get_age(l.loc_start_date) AS "store_age"
-    FROM location l
-    JOIN department d ON d.loc_id = l.loc_id
-    JOIN active_employee a ON a.dept_id = d.dept_id
-    JOIN employee e ON e.emp_id = a.emp_id
-    JOIN active_employee aa ON aa.dept_id = d.dept_id
-    JOIN employee ee ON ee.emp_id = aa.emp_id
-    WHERE l.loc_id != 999 AND a.position_id = 38 AND aa.position_id = 39
-    ORDER BY l.loc_id;
-
-
--- view employee count by state
-DROP VIEW IF EXISTS view_state_emp_count;
-
-CREATE OR REPLACE VIEW view_state_emp_count AS 
-    SELECT CASE
-            WHEN e.emp_state = 'AZ' THEN 'Arizona'
-            WHEN e.emp_state = 'NV' THEN 'Nevada'
-           END AS "STATE",
-           COUNT(*) AS "EMPLOYEE_COUNT"
-    FROM employee e 
-    JOIN active_employee a ON a.emp_id = e.emp_id
-    GROUP BY e.emp_state
-    ORDER BY e.emp_state;
-
-
--- view employee info
-DROP VIEW IF EXISTS view_emp_info;
-
-CREATE OR REPLACE VIEW view_emp_info AS
-	SELECT e.emp_id,
-		   CONCAT(e.emp_fname,' ', e.emp_lname) AS "emp_name",
-		   d.dept_name,
-		   j.position_title,
-		   func_emp_mgr(e.emp_id) AS "mgr_name",
-		   func_get_age(e.emp_hire_date) AS "length_of_hire"		
-	FROM employee e
-	JOIN active_employee a ON e.emp_id = a.emp_id
-	JOIN department d ON d.dept_id = a.dept_id
-	JOIN job_position j ON j.position_id = a.position_id
-    ORDER BY e.emp_hire_date;
-
-/*********** VIII. CREATE HR USER FOR LOGGING INTO GUI APPLICATION ***********/
-DROP USER IF EXISTS hr_associate;
-
-CREATE USER hr_associate
-IDENTIFIED BY 'wouldyoukindly';
-
-GRANT ALL 
-ON sw_hr.*
-TO hr_associate;
-
-/*** END OF FILE ***/
