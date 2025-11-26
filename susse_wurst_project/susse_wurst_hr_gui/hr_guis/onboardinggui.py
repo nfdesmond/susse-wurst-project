@@ -12,14 +12,14 @@ import tkinter as tk
 import random
 from tkinter import ttk
 from datetime import date
-from sussewurstconnect.swconnect import SusseWurstConnect
+from susse_wurst_project.susse_wurst_hr_gui.sussewurstconnect.swconnect import SusseWurstConnect
 
 
 class OnboardingGui:
   """Instantiate the Süsse Wurst New Employee Onboarding GUI."""
   def __init__(self, root, cxn):
     root.title("Süsse Wurst New Employee Onboarding")
-    root.geometry('900x600')
+    root.geometry('900x800')
     root.columnconfigure(0, weight=1)
     root.rowconfigure(1, weight=1)
     root.resizable(width=False, height=False)
@@ -35,6 +35,13 @@ class OnboardingGui:
     topframe_style.configure('SWLogo.TFrame',
                               background='#A02B93',
                               foreground='white')
+    
+    quit_button_style = ttk.Style()
+    quit_button_style.theme_use('clam')
+    quit_button_style.configure('Quit.TButton',
+                                  font=('TkDefaultFont', 12, 'bold'),
+                                  foreground='black',
+                                  background='#F8582C')
         
     topframe = ttk.Frame(root,
                          padding=22, 
@@ -57,7 +64,7 @@ class OnboardingGui:
         
     close_button = ttk.Button(topframe,
                               text='Close',
-                              style='Button.TButton', 
+                              style='Quit.TButton', 
                               command=root.destroy)
     close_button.grid(column=2, row=0, sticky=tk.E, padx=25)
         
@@ -102,9 +109,16 @@ class OnboardingGui:
                                 justify=tk.CENTER)
     hire_date_label.grid(column=2, row=0, sticky=tk.EW)
         
+    onboarding_button_style = ttk.Style()
+    onboarding_button_style.theme_use('clam')
+    onboarding_button_style.configure('Onboard.TButton',
+                                      font=('TkDefaultFont', 12, 'bold'),
+                                      foreground='black',
+                                      background='#8ED973')
         
     onboard_button = ttk.Button(mainonetop,
                                 text='Onboard',
+                                style='Onboard.TButton',
                                 command=self.onboard_args)
     onboard_button.grid(column=3, row=0, sticky=tk.E)
 
@@ -295,7 +309,7 @@ class OnboardingGui:
     
     self.emp_email_var = tk.StringVar()
     emp_email_entry = ttk.Entry(mainonebottom,
-                                width=25,
+                                width=22,
                                 font=('TkTextFont', 12),
                                 textvariable=self.emp_email_var)
     emp_email_entry.grid(column=3, row=3, sticky=tk.W)
@@ -316,6 +330,7 @@ class OnboardingGui:
         
     discover_button = ttk.Button(mainonelast, 
                                  text='Discover',
+                                 style='Onboard.TButton',
                                  command=self.set_position_info)
     discover_button.grid(column=1, row=0, sticky=tk.W)
         
@@ -345,7 +360,8 @@ class OnboardingGui:
                                      width=20,
                                      font=('TkTextFont', 12),
                                      textvariable=self.position_title_var,
-                                     relief='sunken')
+                                     relief='sunken',
+                                     background='#DFF4FD')
     position_title_entry.grid(column=3, row=2, sticky=tk.W)
         
         
@@ -377,7 +393,8 @@ class OnboardingGui:
                               width=3,
                               font=('TkTextFont', 12),
                               textvariable=self.dept_id_var,
-                              relief='sunken')
+                              relief='sunken',
+                              background='#DFF4FD')
     dept_id_entry.grid(column=3, row=3, sticky=tk.W)
         
     ttk.Label(mainonelast,
@@ -388,10 +405,11 @@ class OnboardingGui:
         
     self.dept_name_var = tk.StringVar()
     dept_name_entry = ttk.Label(mainonelast,
-                                width=20,
+                                width=25,
                                 font=('TkTextFont', 12),
                                 textvariable=self.dept_name_var,
-                                relief='sunken')
+                                relief='sunken',
+                                background='#DFF4FD')
     dept_name_entry.grid(column=3, row=4, sticky=tk.W)
 
       
@@ -429,11 +447,13 @@ class OnboardingGui:
                               text='Onboard Status:',
                               background='#FBF3DD',
                               font=('TkDefaultFont', 12, 'bold'))
-    onboard_label.grid(column=0, row=0, sticky=tk.E)
+    onboard_label.grid(column=0, row=0, sticky=tk.W)
         
     self.onboard_status_var = tk.StringVar()
     status_label = ttk.Label(maintwo,
+                             width=22,
                              textvariable=self.onboard_status_var,
+                             background='#FBF3DD',
                              font=('TkTextFont', 12))
     status_label.grid(column=0, row=1, sticky=tk.W)
         

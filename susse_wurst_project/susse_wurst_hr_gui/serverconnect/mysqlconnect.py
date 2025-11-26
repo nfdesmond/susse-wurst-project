@@ -1,6 +1,6 @@
 import mysql.connector as mysqlconn
 from mysql.connector import errorcode
-import serverconnect.mysqlconfig as mysqlconfig
+import susse_wurst_project.susse_wurst_hr_gui.serverconnect.mysqlconfig as mysqlconfig
 
 
 class MySQLDatabaseConnect:

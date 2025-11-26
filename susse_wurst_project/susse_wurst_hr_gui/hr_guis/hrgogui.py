@@ -9,11 +9,11 @@ GUIs.
 import tkinter as tk
 from tkinter import ttk
 from datetime import datetime as dt
-from sussewurstconnect import swconfig
-from sussewurstconnect.swconnect import SusseWurstConnect
-from hr_guis.employeelookupgui import EmployeeLookupGUI
-from hr_guis.storelookupgui import StoreLookupGUI
-from hr_guis.onboardinggui import OnboardingGui
+from susse_wurst_project.susse_wurst_hr_gui.sussewurstconnect import swconfig
+from susse_wurst_project.susse_wurst_hr_gui.sussewurstconnect.swconnect import SusseWurstConnect
+from susse_wurst_project.susse_wurst_hr_gui.hr_guis.employeelookupgui import EmployeeLookupGUI
+from susse_wurst_project.susse_wurst_hr_gui.hr_guis.storelookupgui import StoreLookupGUI
+from susse_wurst_project.susse_wurst_hr_gui.hr_guis.onboardinggui import OnboardingGui
 
 
 class HRGui:

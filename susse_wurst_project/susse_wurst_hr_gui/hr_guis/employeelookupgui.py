@@ -9,7 +9,7 @@ length of service if found.
 """
 import tkinter as tk
 from tkinter import ttk
-from sussewurstconnect.swconnect import SusseWurstConnect
+from susse_wurst_project.susse_wurst_hr_gui.sussewurstconnect.swconnect import SusseWurstConnect
 
 class EmployeeLookupGUI:
     """Instantiate the Employee Lookup GUI."""

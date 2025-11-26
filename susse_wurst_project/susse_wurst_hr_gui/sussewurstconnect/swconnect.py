@@ -1,4 +1,4 @@
-import serverconnect.mysqlconnect as mysqlconnect
+import susse_wurst_project.susse_wurst_hr_gui.serverconnect.mysqlconnect as mysqlconnect
 
 
 class SusseWurstConnect(mysqlconnect.MySQLDatabaseConnect):

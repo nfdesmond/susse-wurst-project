@@ -8,9 +8,9 @@ an HR associate can view employee and store information and onboard new hires in
 the system.
 """
 import tkinter as tk
-import sw_db_application.sussewurstconnect.swconnect as swconnect
-import sw_db_application.sussewurstconnect.swconfig as swconfig
-import sw_db_application.hr_guis.hrgogui as hrgui
+import susse_wurst_project.susse_wurst_hr_gui.sussewurstconnect.swconnect as swconnect
+import susse_wurst_project.susse_wurst_hr_gui.sussewurstconnect.swconfig as swconfig
+import susse_wurst_project.susse_wurst_hr_gui.hr_guis.hrgogui as hrgui
 
 def main():
     """Establishes a connection to the Süsse Wurst HR database and launches the HR GUI application."""
