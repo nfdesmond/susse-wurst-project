@@ -8,7 +8,8 @@
 -- view stores
 -- view employee count by state
 -- view employee info
-
+-- view Süsse Wurst management team
+-- view positions, departments, and locations
 
 
 -- monthly birthday view
@@ -264,3 +265,34 @@ CREATE OR REPLACE VIEW view_emp_info AS
 
 SELECT *
 FROM view_emp_info;
+
+
+-- view Süsse Wurst management team
+DROP VIEW IF EXISTS view_sw_mgmt;
+
+CREATE OR REPLACE VIEW view_sw_mgmt AS 
+SELECT d.dept_id AS 'DEPT_ID',
+       d.dept_name AS 'DEPT_NAME',
+       a.emp_id AS 'DEPT_HEAD_ID',
+       CONCAT(e.emp_lname,', ',e.emp_fname) AS 'DEPT_HEAD',
+       d.head_id AS 'POSITION_ID',
+       j.position_title AS 'MGR_TITLE',
+       a.active_emp_email AS 'CONTACT'
+FROM  department d
+JOIN active_employee a ON a.dept_id = d.dept_id
+JOIN job_position j ON j.position_id = d.head_id
+JOIN employee e ON e.emp_id = a.emp_id AND a.position_id = d.head_id;
+
+
+-- view positions, departments, and locations
+DROP VIEW IF EXISTS view_pos_dept_loc;
+
+CREATE OR REPLACE VIEW view_pos_dept_loc AS
+SELECT v.position_id AS 'position_id',
+       v.position_title AS 'position_title',
+       v.dept_id AS 'dept_id',
+       v.dept_name AS dept_name,
+       d.loc_id AS loc_id
+FROM view_jobs_and_depts v
+JOIN department d ON v.dept_id = d.dept_id
+ORDER BY v.position_id;
