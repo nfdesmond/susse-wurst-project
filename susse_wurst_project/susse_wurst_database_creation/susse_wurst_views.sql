@@ -1,5 +1,6 @@
 -- Süsse Wurst Views
 
+-- HR
 -- view monthly birthdays
 -- view today's birthdays
 -- view current employee roster
@@ -8,10 +9,14 @@
 -- view stores
 -- view employee count by state
 -- view employee info
--- view Süsse Wurst management team
--- view positions, departments, and locations
+
+-- STORE
+-- view active inventory
+-- view ingredient purchasing invoices
 
 
+
+-- HR VIEWS
 -- monthly birthday view
 DROP VIEW IF EXISTS view_monthly_birthdays;
 
@@ -26,9 +31,6 @@ CREATE OR REPLACE VIEW view_monthly_birthdays AS
     JOIN job_position j ON a.position_id = j.position_id
     WHERE MONTH(e.emp_dob) = func_current_month()
     ORDER BY DAY(e.emp_dob), e.emp_lname, e.emp_fname;
-
-SELECT *
-FROM view_monthly_birthdays;
 
 
 
@@ -46,9 +48,6 @@ CREATE OR REPLACE VIEW view_daily_birthdays AS
     JOIN job_position j ON a.position_id = j.position_id
     WHERE CONCAT(MONTH(e.emp_dob),'/',DAY(e.emp_dob)) = CONCAT(func_current_month(),'/',func_current_day())
     ORDER BY e.emp_lname, e.emp_fname;
-
-SELECT *
-FROM view_daily_birthdays;
 
 
 
@@ -68,9 +67,6 @@ CREATE OR REPLACE VIEW view_active_employees AS
     JOIN department d ON a.dept_id = d.dept_id
     JOIN job_position j ON j.position_id = a.position_id
     ORDER BY e.emp_hire_date;
-
-SELECT *
-FROM view_active_employees;
 
 
 
@@ -173,9 +169,6 @@ CREATE OR REPLACE VIEW view_mgrs_and_depts AS
     SELECT * FROM matched_final_mgrs
     ORDER BY position_id;
 
-SELECT *
-FROM view_mgrs_and_depts;
-
 
 
 -- job positions and their departments
@@ -194,9 +187,6 @@ CREATE OR REPLACE VIEW view_jobs_and_depts AS
     SELECT *
     FROM view_mgrs_and_depts
     ORDER BY position_id;
-
-SELECT *
-FROM view_jobs_and_depts;
 
 
 
@@ -223,9 +213,6 @@ CREATE OR REPLACE VIEW view_stores AS
     WHERE l.loc_id != 999 AND a.position_id = 38 AND aa.position_id = 39
     ORDER BY l.loc_id;
 
-SELECT *
-FROM view_stores;
-
 
 
 -- view employee count by state
@@ -242,8 +229,6 @@ CREATE OR REPLACE VIEW view_state_emp_count AS
     GROUP BY e.emp_state
     ORDER BY e.emp_state;
 
-SELECT *
-FROM view_state_emp_count;
 
 
 
@@ -263,36 +248,53 @@ CREATE OR REPLACE VIEW view_emp_info AS
 	JOIN job_position j ON j.position_id = a.position_id
     ORDER BY e.emp_hire_date;
 
-SELECT *
-FROM view_emp_info;
 
 
--- view Süsse Wurst management team
-DROP VIEW IF EXISTS view_sw_mgmt;
+-- STORE VIEWS
 
-CREATE OR REPLACE VIEW view_sw_mgmt AS 
-SELECT d.dept_id AS 'DEPT_ID',
-       d.dept_name AS 'DEPT_NAME',
-       a.emp_id AS 'DEPT_HEAD_ID',
-       CONCAT(e.emp_lname,', ',e.emp_fname) AS 'DEPT_HEAD',
-       d.head_id AS 'POSITION_ID',
-       j.position_title AS 'MGR_TITLE',
-       a.active_emp_email AS 'CONTACT'
-FROM  department d
-JOIN active_employee a ON a.dept_id = d.dept_id
-JOIN job_position j ON j.position_id = d.head_id
-JOIN employee e ON e.emp_id = a.emp_id AND a.position_id = d.head_id;
+-- view active inventory
+-- view ingredient purchasing invoices
+
+DROP VIEW IF EXISTS view_active_inventory;
+
+CREATE OR REPLACE VIEW view_active_inventory AS
+SELECT a.active_id AS "inventory_id",
+			 i.inventory_item_name AS "item_name",
+             pt.product_type_name AS "product_type",
+             CONCAT(i.package_size_oz, ' ', 'oz') AS "package_size",
+             mat.material_name AS "package_material",
+             pck.package_type_name AS "package_type",
+             manu.manu_name AS "manufacturer",
+             c.common_country_name AS "country",
+             i.upc AS "upc",
+             a.sku AS "sku"
+FROM active_inventory a 
+JOIN inventory i ON a.active_id = i.inventory_id
+JOIN product_type pt ON i.product_type_id = pt.product_type_id
+JOIN package_type pck ON i.package_type_id = pck.package_type_id
+JOIN package_material mat ON i.material_id = mat.material_id
+JOIN manufacturer manu ON i.manu_id = manu.manu_id
+JOIN country c ON c.country_id = manu.country_id
+ORDER BY a.active_id;
 
 
--- view positions, departments, and locations
-DROP VIEW IF EXISTS view_pos_dept_loc;
 
-CREATE OR REPLACE VIEW view_pos_dept_loc AS
-SELECT v.position_id AS 'position_id',
-       v.position_title AS 'position_title',
-       v.dept_id AS 'dept_id',
-       v.dept_name AS dept_name,
-       d.loc_id AS loc_id
-FROM view_jobs_and_depts v
-JOIN department d ON v.dept_id = d.dept_id
-ORDER BY v.position_id;
+DROP VIEW IF EXISTS view_ingredient_invoice;
+
+CREATE OR REPLACE VIEW view_ingredient_invoice AS
+SELECT soi.order_id AS "order_id",
+			 sw_hr.e.emp_fname AS "emp_first_name",
+             sw_hr.e.emp_lname AS "emp_last_name",
+             sw_hr.d.dept_name AS "department", 
+             ing.store_ingred_name AS "ingredient",
+             v.vendor_name AS "vendor",
+             io.order_date AS "timestamp",
+             soi.item_quantity AS "quantity",
+             soi.vendor_price AS "vendor_price",
+             soi.item_quantity * soi.vendor_price AS "total_purchase"
+FROM inventory_order io
+JOIN store_order_item soi ON io.order_id = soi.order_id
+JOIN sw_hr.employee e ON io.emp_id = e.emp_id
+JOIN sw_hr.department d ON io.dept_id = d.dept_id
+JOIN store_ingredient ing ON soi.store_ingred_id = ing.store_ingred_id
+JOIN vendor v ON v.vendor_id = soi.vendor_id;
