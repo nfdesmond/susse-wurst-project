@@ -16,6 +16,9 @@ from address_generator_lists import ADJECTIVE, NOUN, NAME, DIRECTIONAL, ADDRESS_
 
 def address_gen(address_count, directional_list, path_list, naming_option, adj_list,
                 noun_list, name_list, store_list, output_path):
+    """Writes to a text file random addresses, with total address count based on
+       address_count argument.
+    """
     with open(output_path, 'w') as output_file:
         for count in range(address_count):
             address_number = random.randint(1000, 20000)
